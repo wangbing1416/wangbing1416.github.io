@@ -1,4 +1,0 @@
-paper reader
-
-
-
