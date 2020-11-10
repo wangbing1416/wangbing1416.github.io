@@ -32,7 +32,7 @@
 
 - 识别重叠的关系三元组
 
-  ![1](C:\Users\86187\Desktop\wangbing1416.github.io\paper_reader1\1.png)
+  ![1](\1.png)
 
 - 应该考虑不同的关系类型下实体的语义特征
 
