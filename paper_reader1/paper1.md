@@ -32,7 +32,7 @@
 
 - 识别重叠的关系三元组
 
-  ![image-20201109204027981](E:\文献\关系抽取\IJCAI_2020\论文笔记：Attention as Relation  Learning Supervised Multi-head Self-Attention for Relation Extraction.assets\image-20201109204027981.png)
+  ![1](C:\Users\86187\Desktop\wangbing1416.github.io\paper_reader1\1.png)
 
 - 应该考虑不同的关系类型下实体的语义特征
 
