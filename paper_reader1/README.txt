@@ -1,0 +1,1 @@
+论文笔记：Attention as Relation  Learning Supervised Multi-head Self-Attention for Relation Extraction

@@ -1,2 +1,2 @@
-[paper reader](/paper_reader.md)
+[paper reader](paper_reader.md)
 
