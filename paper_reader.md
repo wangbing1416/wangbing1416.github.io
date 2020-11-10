@@ -11,3 +11,8 @@ paper reader
 
 
 **paper_2  ： [GraphRel： Modeling text as relational graphs for joint entity and relation extraction](/paper_reader/paper_reader2/paper2.md)**
+
+
+
+**paper_3 ： [Relation classification via convolutional deep neural network](/paper_reader/paper_reader3/paper3.md)**
+
