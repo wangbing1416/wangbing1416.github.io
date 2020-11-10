@@ -64,7 +64,7 @@
 
 
 
-论文解读 ： Relation classification via convolutional deep neural network
+*[论文解读 ： Relation classification via convolutional deep neural network](https://wangbing1416.github.io/paper_reader/paper_reader3/paper3.html)*
 
 
 
