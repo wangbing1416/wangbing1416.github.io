@@ -1,0 +1,1 @@
+论文解读：GraphRel： Modeling text as relational graphs for joint entity and relation extraction
