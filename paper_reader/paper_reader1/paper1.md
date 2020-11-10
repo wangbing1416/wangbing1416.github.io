@@ -38,7 +38,7 @@
 
 - 识别重叠的关系三元组
 
-  ![1](https://github.com/wangbing1416/wangbing1416.github.io/blob/main/paper_reader/paper_reader1/1.png?raw=true)
+  ![1](./1.png)
 
 - 应该考虑不同的关系类型下实体的语义特征
 
