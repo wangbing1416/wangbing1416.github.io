@@ -1,4 +1,4 @@
-​	**//	[home](wangbing1416.github.io)	//**
+	**//	[home](wangbing1416.github.io)	//**
 
 ------
 
@@ -6,6 +6,6 @@
 
 .
 
-**thought_1 : [关于文献管理软件选择的心得](./thoughts/thoughts1/thoughts1.md)**
+**thought_1 : [关于文献管理软件选择的心得](/thoughts/thoughts1/thoughts1.md)**
 
 .
