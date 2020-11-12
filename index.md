@@ -1,4 +1,4 @@
-##### 								//	[home](wangbing1416.github.io)	//	[paper reader](./paper_reader.md)	//	[thoughts](./thoughts.md)	//
+##### 								//	[home](wangbing1416.github.io)	//	[paper reader](./paper_reader.md)	//	[thoughts](./thoughts.md)	//	[notes](./notes.md)
 
 ------
 
