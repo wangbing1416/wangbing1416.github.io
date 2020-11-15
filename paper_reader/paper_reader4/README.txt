@@ -1,0 +1,1 @@
+论文解读：Simplify the Usage of Lexicon in Chinese NER

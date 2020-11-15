@@ -16,3 +16,6 @@
 
 **paper_3 ： [Relation classification via convolutional deep neural network](/paper_reader/paper_reader3/paper3.md)**
 
+.
+
+**paper_4 ： [Simplify the Usage of Lexicon in Chinese NER](/paper_reader/paper_reader4/paper4.md)**
