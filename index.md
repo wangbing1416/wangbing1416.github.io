@@ -1,4 +1,4 @@
-##### 								//	[home](wangbing1416.github.io)	//	[paper reader](./paper_reader.md)	//	[thoughts](./thoughts.md)	//	[notes](./notes.md)	//	[paper list](https://github.com/wangbing1416/PaperList_JointExtraction/blob/master/PaperList.md)	//
+##### 								//	[home](wangbing1416.github.io)	//	[paper reader](./paper_reader.md)	//	[thoughts](./thoughts.md)	//	[notes](./notes.md)	//	[paper list](./PaperList.md)	//
 
 ------
 
