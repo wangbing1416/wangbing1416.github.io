@@ -1,4 +1,4 @@
-# paper list for joint entities and relations extraction[16篇]
+# paper list for joint entities and relations extraction[19篇]
 
 
 
@@ -41,6 +41,60 @@
 **数据集**：SemEval-2010 Task 8
 
 <img src=".\img\2.png" alt="2" style="zoom: 67%;" />
+
+
+
+### 4.Graph Convolution over Pruned Dependency Trees Improves Relation Extraction [EMNLP2018]
+
+**关键词**：GCN dependency LSTM
+
+**动机**：现存的使用依存树的模型不能并行计算，计算效率低
+
+SDP有限制，可能会丢失一些路径外的有用信息
+
+依存树可能会被过度修剪
+
+**创新点**：在依存树上使用GCN来提取特征
+
+提出一种中心修剪的方法，既不会过度修剪，也会保留非路径上的有用信息
+
+在GCN前，加一层Bi-LSTM来整合上下文信息，称为情景化GCN（C-GCN）
+
+将前人提出的神经网络模型PA-LSTM与C-GCN结合，进行实验
+
+**数据集**：TECRED、SemEval-2010 Task 8
+
+<img src=".\img\12.png" alt="12" style="zoom:67%;" />
+
+
+
+### 5.Attention Guided Graph Convolutional Networks for Relation Extraction [ACL2019]
+
+**关键词**：GCN densely attention
+
+**动机**：现存基于规则的硬修剪策略，不总产生最优效果
+
+**创新点**：将全连接GCN用于关系分类任务中，使图能够经过更深层网络的训练
+
+在attention guided层中使用multi-head attention
+
+**数据集**：TACRED、SemEval-2010 Task 8
+
+<img src=".\img\13.png" alt="13" style="zoom:67%;" />
+
+
+
+### 6.Graph Neural Networks with Generated Parameters for Relation Extraction [ACL2019]
+
+**关键词**：GCN
+
+**动机**：传统GCN解决多跳关系抽取问题都是使用预定义的图来进行处理
+
+**创新点**：使用句子中的实体来构建全连接图，再使用编码模块、传播模块和分类模块进行处理
+
+**数据集**：
+
+<img src=".\img\14.png" alt="14" style="zoom:67%;" />
 
 
 
@@ -219,7 +273,13 @@ softmax进行实体分类 CRF进行命名实体识别
 
 ### 1.Semi-supervised classification with graph convolutional networks [ICLR2017]
 
-将切比雪夫多项式的谱域卷积应用于神经网络模型中，得到了一组特征映射公式，并将其应用与半监督分类问题中（结点的半监督分类）
+图卷积神经网络用于深度神经网络分类问题的经典文献，将切比雪夫多项式的谱域卷积应用于神经网络模型中，得到了一组特征映射公式，并将其应用与半监督分类问题中（结点的半监督分类）
+
+
+
+### 2.Densely Connected Graph Convolutional Networks for Graph-to-Sequence Learning [TACL2019]
+
+提出全连接卷积神经网络结构，能够继续更深层次网络的学习，其测试模型在机器翻译任务上
 
 
 
@@ -273,13 +333,17 @@ softmax进行实体分类 CRF进行命名实体识别
 
 
 
-### 7.WebNLG
+### 7.TECRED
 
 
 
-### 8.DREC
+### 8.WebNLG
 
 
 
-### 9.ADE
+### 9.DREC
+
+
+
+### 10.ADE
 
