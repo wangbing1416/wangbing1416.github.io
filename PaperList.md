@@ -1,4 +1,4 @@
-# paper list for joint entities and relations extraction[19篇]
+# paper list for joint entities and relations extraction[21篇]
 
 
 
@@ -94,7 +94,7 @@ SDP有限制，可能会丢失一些路径外的有用信息
 
 **数据集**：
 
-<img src=".\img\14.png" alt="14" style="zoom:67%;" />
+<img src=".\img\14.png" alt="14" style="zoom: 50%;" />
 
 
 
@@ -283,13 +283,31 @@ softmax进行实体分类 CRF进行命名实体识别
 
 
 
-### 2.Simplify the Usage of Lexicon in Chinese NER [ACL2020]
+### 3.Probing Linguistic Features of Sentence-Level Representations in Relation Extraction [ACL2020]
+
+验证不同的编码结构，产生的编码到底携带了那些信息，属于probe类的文章。
+
+文章使用CNN、LSTM、GCN、transformer进行编码，对14种不同的属性都进行了验证
+
+
+
+### 4.Attention Is All You Need [NeurlPS2017]
+
+transformer经典之作，只使用attention机制既能做到并行计算，在机器翻译上的效果又好
+
+可以学习这种只使用attention的思想，能不能用在联合关系抽取问题上
+
+<img src=".\img\15.png" alt="15" style="zoom: 50%;" />
+
+
+
+### 5.Simplify the Usage of Lexicon in Chinese NER [ACL2020]
 
 在表示层，使用一个字符的全部分词来对字符进行表示。
 
 
 
-### 3.Named Entity Recognition for Social Media Texts with Semantic Augmentation [ACL2020]
+### 6.Named Entity Recognition for Social Media Texts with Semantic Augmentation [ACL2020]
 
 **创新点**：将数据（语义）增强用于社交媒体的命名实体识别中，用来解决社交媒体数据样本稀疏问题。本文使用与每个词相近的词对原词进行数据增强，相近的词指的是在embedding中k近邻最短的词。
 
