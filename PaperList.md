@@ -1,4 +1,4 @@
-# paper list for joint entities and relations extraction[31篇]
+# paper list for joint entities and relations extraction[32篇]
 
 
 
@@ -289,6 +289,16 @@ softmax进行实体分类 CRF进行命名实体识别
 
 
 
+### 4.End-to-end named entity recognition and relation extraction using pre-trained language models [Arxiv2019]
+
+**动机和创新点**：大多数前人的工作都依赖于外部工具，本文依赖于预训练的语言模型，不使用其他的NLP外部工具，能够较快的训练
+
+**数据集**：ACE 04、ACE 05、CoNLL 04、ADE、I2B2
+
+<img src=".\img\23.png" alt="23" style="zoom: 50%;" />
+
+
+
 ## 命名实体识别方向论文
 
 
@@ -337,7 +347,7 @@ softmax进行实体分类 CRF进行命名实体识别
 
 
 
-### 3.Adversarial Reprogramming of Text Classification Neural Networks [EMNLP2019]
+### 3.Adversarial Reprogramming of Text Classification Neural Networks [EMNLP2019] ×
 
 提出一种对抗重构的方法，将对抗示例的输入空间迁移到神经网络的输入空间，使用一种本文提出的上下文词汇重映射的方法
 
