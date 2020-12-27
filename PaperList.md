@@ -1,4 +1,4 @@
-# paper list for joint entities and relations extraction[21篇]
+# paper list for joint entities and relations extraction[31篇]
 
 
 
@@ -216,6 +216,18 @@ softmax进行实体分类 CRF进行命名实体识别
 
 
 
+### 3.End-to-End Neural Relation Extraction Using Deep Biaffine Attention [LNCS2019]
+
+**关键词**：Bi-LSTM BiaffineAttention
+
+**创新点**：在联合抽取模型中，使用双仿射注意力机制（Biaffine Attention）来对Bi-LSTM的输出层进行注意力评分
+
+**数据集**：CoNLL 04
+
+<img src=".\img\18.png" alt="18" style="zoom:67%;" />
+
+
+
 ## GNN
 
 
@@ -267,6 +279,70 @@ softmax进行实体分类 CRF进行命名实体识别
 
 
 
+### 3.Let’s Stop Incorrect Comparisons in End-to-end Relation Extraction! [EMNLP2020]
+
+针对之前的联合抽取论文，作者发现了这些论文中存在的错误对比的现象，文章总结了这些现象，并给出了实验
+
+1.数据集和评价标准的不同
+
+2.SBR标准间的对比：SBR分别为边界和实体类型全部识别正确；只识别边界；只识别类型
+
+
+
+## 命名实体识别方向论文
+
+
+
+### 1.Towards Improving Neural Named Entity Recognition with Gazetteers [ACL2019]
+
+**关键词**：hybrid semi-Markov CRFs(HSCRFs) Gazetteers
+
+**创新点**：使用外部字典gazetteers改进/增强HSCRFs
+
+<img src=".\img\20.png" alt="20" style="zoom: 50%;" />
+
+
+
+### 2.[GEANN] Gazetteer-Enhanced Attentive Neural Networks for Named Entity Recognition [EMNLP2019]
+
+**动机**：基于region-based框架的命名实体识别，这种方法需要两种先验知识，命名知识和上下文知识，其中命名知识可以使用外部词典来减少全标注数据遇到的数据量瓶颈
+
+**创新点**：提出了ANN（attentive neural network），显示建模上下文关系，方便整合外部信息
+
+设计了一种辅助词典gazetteer网络，并将词典网络与ANN结合使用
+
+<img src=".\img\22.png" alt="22" style="zoom: 50%;" />
+
+
+
+## 文本分类方向论文
+
+
+
+### 1.[LEAM] Joint Embedding of Words and Labels for Text Classification [ACL2018]
+
+使用label embedding来增强文本分类，提出了LEAM模型（标签嵌入注意力模型）
+
+<img src=".\img\19.png" alt="19" style="zoom: 33%;" />
+
+
+
+### 2.[Encoder1-Encoder2] Enhancing Local Feature Extraction with Global Representation for Neural Text Classification [EMNLP2019]
+
+提出一种Encoder1-Encoder2结构，Encoder1负责获取全局特征，Encoder2负责提取局部信息
+
+并设计一种两个编码器交互的方法
+
+<img src=".\img\21.png" alt="21" style="zoom:67%;" />
+
+
+
+### 3.Adversarial Reprogramming of Text Classification Neural Networks [EMNLP2019]
+
+提出一种对抗重构的方法，将对抗示例的输入空间迁移到神经网络的输入空间，使用一种本文提出的上下文词汇重映射的方法
+
+
+
 ## 其他相关论文
 
 
@@ -301,13 +377,37 @@ transformer经典之作，只使用attention机制既能做到并行计算，在
 
 
 
-### 5.Simplify the Usage of Lexicon in Chinese NER [ACL2020]
+### 5.Tener: Adapting transformer encoder for named entity recognition [ACL2019]
+
+改进transformer，使之适合于命名实体识别任务中
+
+**动机与创新点**：传统的transformer不能考虑方向信息（文章中进行了证明）
+
+传统transformer中的缩放因子不适用于命名实体识别任务
+
+因此提出了一组新的模型（公式），来对识别任务继续建模
+
+添加了使用transformer进行字符级别特征提取的验证
+
+<img src=".\img\16.png" alt="16" style="zoom:67%;" />
+
+
+
+### 6.Deep Biaffine Attention for Neural Dependency Parsing
+
+使用双仿射Biaffine attention机制来代替传统的attention机制
+
+<img src=".\img\17.png" alt="17" style="zoom:67%;" />
+
+
+
+### 7.Simplify the Usage of Lexicon in Chinese NER [ACL2020]
 
 在表示层，使用一个字符的全部分词来对字符进行表示。
 
 
 
-### 6.Named Entity Recognition for Social Media Texts with Semantic Augmentation [ACL2020]
+### 8.Named Entity Recognition for Social Media Texts with Semantic Augmentation [ACL2020]
 
 **创新点**：将数据（语义）增强用于社交媒体的命名实体识别中，用来解决社交媒体数据样本稀疏问题。本文使用与每个词相近的词对原词进行数据增强，相近的词指的是在embedding中k近邻最短的词。
 
