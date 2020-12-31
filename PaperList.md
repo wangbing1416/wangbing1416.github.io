@@ -1,4 +1,4 @@
-# paper list for joint entities and relations extraction[35篇]
+# paper list for joint entities and relations extraction[37篇]
 
 
 
@@ -353,6 +353,18 @@ softmax进行实体分类 CRF进行命名实体识别
 
 
 
+### 4.[DGBiLSTM-CRF] Dependency-Guided LSTM-CRF for Named Entity Recognition [EMNLP2019]
+
+**动机**：如何捕获完整依存树中的长距离关系是一个问题
+
+现有的线性链结构不能捕获长距离关系
+
+**创新点**：使用完整的依存树指导传统的LSTM-CRF模型，在LSTM层中，对每个词，整合他的依存树父亲节点的信息，使用一种交互函数（自身、连接、相加、多层感知机）
+
+<img src=".\IMG\26.png" alt="26" style="zoom: 50%;" />
+
+
+
 ## 文本分类方向论文
 
 
@@ -388,6 +400,16 @@ softmax进行实体分类 CRF进行命名实体识别
 **创新点**：使用一种特征投射的方法，将句子分别投入两种特征提取器。其中一种提取共同特征（没有倾向的特征），另一种提取带有倾向性的特征，引入了一种域适应的方法GRL，特特征投射的方法。
 
 <img src=".\img\24.png" alt="24" style="zoom:50%;" />
+
+
+
+### 5.[HyperGAT] Be More with Less: Hypergraph Attention Networks for Inductive Text Classification [EMNLP2020]
+
+提出使用一种超图GAT解决文档级别文本分类
+
+使用超边来构建超图（序列超边和语义超边），之后使用GAT将特征在边和节点之间进行传递
+
+<img src=".\IMG\27.png" alt="27" style="zoom:67%;" />
 
 
 
