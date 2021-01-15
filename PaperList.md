@@ -114,6 +114,24 @@ SDP有限制，可能会丢失一些路径外的有用信息
 
 
 
+### 8.Learning from Context or Names? An Empirical Study on Neural Relation Extraction [EMNLP2020]
+
+通过实验探究在关系分类任务中，是上下文信息更重要还是实体mention和实体类型更重要，并根据实验结果提出了一种实体mask的预训练模型
+
+探究实验的结果是：上下文信息和实体信息同样重要；实体类型的重要性较大于实体mention
+
+
+
+### 9.Context-Aware Representations for Knowledge Base Relation Extraction [EMNLP2017]
+
+**动机**：作者认为在一个句子中，除了目标实体，其他实体即其他实体对之间的关系对目标实体对之间的关系识别有促进作用
+
+**创新点**：使用其他实体对的关系编码来增强目标实体对的关系编码，增强的方法有ContextSum和ContextAtt
+
+<img src=".\IMG\28.png" alt="28" style="zoom:67%;" />
+
+
+
 ## LSTM
 
 
