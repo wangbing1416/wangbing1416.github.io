@@ -1,4 +1,4 @@
-# paper list for joint entities and relations extraction[37篇]
+# paper list for joint entities and relations extraction[39篇]
 
 
 
@@ -297,7 +297,7 @@ softmax进行实体分类 CRF进行命名实体识别
 
 
 
-## 其他联合抽取论文
+## 其他关系抽取论文
 
 
 
@@ -330,6 +330,12 @@ softmax进行实体分类 CRF进行命名实体识别
 **数据集**：ACE 04、ACE 05、CoNLL 04、ADE、I2B2
 
 <img src=".\img\23.png" alt="23" style="zoom: 50%;" />
+
+
+
+### 5.Deep Neural Network Based Relation Extraction: An Overview [Arxiv 2021]
+
+深度学习解决关系抽取综述
 
 
 
@@ -380,6 +386,20 @@ softmax进行实体分类 CRF进行命名实体识别
 **创新点**：使用完整的依存树指导传统的LSTM-CRF模型，在LSTM层中，对每个词，整合他的依存树父亲节点的信息，使用一种交互函数（自身、连接、相加、多层感知机）
 
 <img src=".\IMG\26.png" alt="26" style="zoom: 50%;" />
+
+
+
+### 5.[MGNER] Multi-grained Named Entity Recognition [ACL2019]
+
+**动机**：不能识别嵌套实体是命名实体识别中的重要问题，但是现在的很多能够解决嵌套实体的框架，都是明确于解决嵌套问题，而对于非重叠实体的样本识别效果不好。所以本文使用两种粒度的任务进行实体识别
+
+**创新点**：使用探测器和分类器的框架
+
+其中探测器用于将句子中的所有实体分割出来，分类器将分割出的这些实体进行分类
+
+**数据集**：ACE 2004、ACE 2005
+
+<img src=".\img\29.png" alt="29" style="zoom:67%;" />
 
 
 
