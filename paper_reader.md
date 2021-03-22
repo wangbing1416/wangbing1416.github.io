@@ -22,6 +22,10 @@
 
 [7] [Global Normalization of Convolutional Neural Networks for Joint Entity and Relation Classification](./papernotes/[7] Global Normalization of Convolutional Neu.html)
 
+[8] [Going out on a limb: Joint Extraction of Entity Mentions and Relations without Dependency Trees](./papernotes/[8] Going out on a limb Joint Extraction of E.html)
+
+[9] [Adversarial training for multi-context joint entity and relation extraction](./papernotes/[8] Going out on a limb Joint Extraction of E.html)
+
 .
 
 ##### **paper_1 ： [Attention as Relation  Learning Supervised Multi-head Self-Attention for Relation Extraction](/paper_reader/paper_reader1/paper1.md)**
