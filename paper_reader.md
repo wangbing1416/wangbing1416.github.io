@@ -26,6 +26,18 @@
 
 [9] [Adversarial training for multi-context joint entity and relation extraction](./papernotes/[8] Going out on a limb Joint Extraction of E.html)
 
+[10] [Joint entity recognition and relation extraction as a multi-head selection problem](./papernotes/[10] Joint entity recognition and relation ex.html)
+
+[11] [Semi-supervised classification with graph convolutional networks](./papernotes/[11] Semi-supervised classification with grap.html)
+
+
+
+[39] [Extracting Patterns and Relations from the World Wide Web](./papernotes/[39] Extracting Patterns and Relations from t.html)
+
+[40] [Snowball: Extracting Relations from Large Plain-Text Collections](./papernotes/[40] Snowball Extracting Relations from Large.html)
+
+
+
 .
 
 ##### **paper_1 ： [Attention as Relation  Learning Supervised Multi-head Self-Attention for Relation Extraction](/paper_reader/paper_reader1/paper1.md)**
