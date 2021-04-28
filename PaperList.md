@@ -1,8 +1,156 @@
-# paper list for joint entities and relations extraction[39篇]
+# Paper List for Contrative Learning and Relations Extraction[57篇]
 
 
 
 [TOC]
+
+## 机器学习理论
+
+
+
+### 1.Margin analysis of the LVQ algorithm [NIPS2003]
+
+
+
+## 最优传输
+
+
+
+### 1.Notions of optimal transport theory and how to implement them on a computer [Computers & Graphics 2018]
+
+最优传输综述
+
+
+
+### 2.Classifying Extremely Short Texts by Exploiting Semantic Centroids in Word Mover's Distance Space [WWW2019]
+
+**关键词**：短文本分类 质心分类器 WMD
+
+**创新点**：将word mover's distance应用到质心分类器上，并在这个基础上加上了正则，自己设计了一种损失函数
+
+
+
+## 文本分类（机器学习）
+
+
+
+### 1.Using hypothesis margin to boost centroid text classifier [SAC2017]
+
+**关键词**：质心分类器
+
+**创新点**：
+
+
+
+## 对比学习
+
+### 1.[NCE] Noise-contrastive estimation: A new estimation principle for unnormalized statistical models [JLMR2010]
+
+**为什么需要引入NCE？**
+
+进行非归一化的参数估计时，我们发现归一化因子Z是积分形式，有的时候很难求解，所以本文采用负采样的方式来通过对比进行学习
+
+**NCE怎么推导？**
+
+https://blog.csdn.net/littlely_ll/article/details/79252064
+
+
+
+### 2.[InfoNCE/CPC] Representation learning with contrastive predictive coding [ArXiv2018]
+
+
+
+## 少样本学习 / 少样本关系抽取
+
+### 1.[ProtoNet]Prototypical Networks for Few-shot Learning [NIPS2017]
+
+本文使用类似质心分类器的思想进行少样本分类
+
+在语义空间中，对同一类的样本embedding做平均得到“原型”，在对于query计算与各个原型间的距离
+
+<img src=".\img\31.PNG" alt="31" style="zoom: 50%;" />
+
+
+
+### 2.[FewRel]FewRel: A Large-Scale Supervised Few-Shot Relation Classification Dataset with State-of-the-Art Evaluation [EMNLP2018]
+
+清华的关于少样本关系抽取的工作
+
+他们设计了一种新的适用于少样本关系抽取的数据集，并且将一些经典的少次学习的模型应用于关系抽取中进行实验
+
+
+
+### 3.Multi-Level Matching and Aggregation Network for Few-Shot Relation Classification [ACL2019]
+
+基于原型网络的一种改进，以一种交互的方式计算原型、分类匹配
+
+将分类损失和实例不一致性联合训练
+
+<img src=".\img\32.PNG" alt="32" style="zoom: 67%;" />
+
+
+
+### 4.Diverse few-shot text classification with multiple metrics [ACL-HLT2018]
+
+**创新点**：对于不同的分类任务，进行聚类，在每个聚类中学习相同的语义度量
+
+**方法**：计算相似矩阵**S**，最初的相似矩阵由固定编码器训练分类器，得到的准确度定义为两个任务之间的相似度；之后通过阈值调整（动态阈值），定义矩阵**Y**；最后通过凸函数优化得到相似性矩阵**X**
+
+**注意**：学习语义度量的过程的训练集，可以是少样本数据集也可以是正常数据集
+
+<img src=".\img\33.PNG" alt="33" style="zoom: 60%;" />
+
+
+
+### 5.Matching networks for one shot learning [NIPS2016]
+
+**MNet**，度量学习较早的一篇文章，与原型网络相似，是度量学习的基础模型
+
+用LSTM学习表示，用attention计算距离分类
+
+
+
+### 6.Hybrid Attention-Based Prototypical Networks for Noisy Few-Shot Relation Classification [AAAI2019]
+
+**创新点**：关注解决有噪音的关系分类问题，在原型网络计算原型上进行的改进
+
+**方法**：① **instance-level**  -> 能够使用attention去除支持集中的噪音（距离其他较远的支持样本）；同时，考虑了与query相似的特征
+
+②  **feature-level**  -> 改善距离函数、
+
+<img src=".\img\34.PNG" alt="34" style="zoom: 50%;" />
+
+
+
+### 7.Large margin prototypical network for few-shot relation classification with fine-grained features [CIKM2019]
+
+结合特细粒度特征，改进特征提取（表示）过程
+
+使用了triple loss，增大不同类之间的距离；缩小同类间的距离
+
+<img src=".\img\35.PNG" alt="35" style="zoom: 60%;" />
+
+
+
+### 8.One-shot learning for fine-grained relation extraction via convolutional siamese neural network [BigData2017]
+
+**创新点**：对于两个表示（测试用例和one-shot支持集），使用孪生卷积网络计算这两个表示的相似度（欧式距离）
+
+孪生网络：使用相同的超参，且结构完全相同的两个网络
+
+<img src=".\img\36.PNG" alt="36" style="zoom: 57%;" />
+
+
+
+### 9.Zero-shot relation extraction via reading comprehension [CoNLL2017]
+
+**创新点**：将关系分类问题转化为阅读理解问题
+
+将一种关系类型，转化为一个问题集，关系分类的过程就是一个提问的过程
+
+如 *educated_at(x, y) -> "where did x study?" / "which university did x graduate from?"*
+
+
 
 ## 关系分类
 
@@ -132,7 +280,7 @@ SDP有限制，可能会丢失一些路径外的有用信息
 
 
 
-## LSTM
+## 联合关系抽取
 
 
 
@@ -190,11 +338,7 @@ softmax进行实体分类 CRF进行命名实体识别
 
 
 
-## CNN
-
-
-
-### 1.Global Normalization of Convolutional Neural Networks for Joint Entity and Relation Classification [EMNLP2017]
+### 4.Global Normalization of Convolutional Neural Networks for Joint Entity and Relation Classification [EMNLP2017]
 
 **关键词**：CNN
 
@@ -210,11 +354,7 @@ softmax进行实体分类 CRF进行命名实体识别
 
 
 
-## LSTM + attention
-
-
-
-### 1.Going out on a limb: Joint Extraction of Entity Mentions and Relations without Dependency Trees [ACL2017]
+### 5.Going out on a limb: Joint Extraction of Entity Mentions and Relations without Dependency Trees [ACL2017]
 
 **关键词**：LSTM Bi-LSTM attention
 
@@ -232,7 +372,7 @@ softmax进行实体分类 CRF进行命名实体识别
 
 
 
-### 2.Joint entity recognition and relation extraction as a multi-head selection problem [Expert Systems with Applications2018]
+### 6.Joint entity recognition and relation extraction as a multi-head selection problem [Expert Systems with Applications2018]
 
 **关键词**：Bi-LSTM attention
 
@@ -250,7 +390,7 @@ softmax进行实体分类 CRF进行命名实体识别
 
 
 
-### 3.End-to-End Neural Relation Extraction Using Deep Biaffine Attention [LNCS2019]
+### 7.End-to-End Neural Relation Extraction Using Deep Biaffine Attention [LNCS2019]
 
 **关键词**：Bi-LSTM BiaffineAttention
 
@@ -262,11 +402,7 @@ softmax进行实体分类 CRF进行命名实体识别
 
 
 
-## GNN
-
-
-
-### 1.[GraphRel] GraphRel: Modeling Text as Relational Graphs for Joint Entity and Relation Extraction [ACL2019]
+### 8.[GraphRel] GraphRel: Modeling Text as Relational Graphs for Joint Entity and Relation Extraction [ACL2019]
 
 **关键词**：Bi-LSTM Bi-GCN
 
@@ -280,11 +416,23 @@ softmax进行实体分类 CRF进行命名实体识别
 
 
 
-## 共同编码
+### 9.[RIN] Recurrent Interaction Network for Jointly Extracting Entities and Classifying Relations [EMNLP2020]
+
+**动机**：现有的联合抽取问题的解决都是使用多任务学习，但是使用的基本都是传统的多任务学习，只是使用一个共享网络
+
+但是这种方法阻碍监视交互，无法提高单个任务的性能
+
+**创新点**：提出了一种递归交互网络，能够使实体识别和关系分类两个任务更好的交互
+
+sigmoid函数相对于softmax函数更好的解决重叠关系
+
+**数据集**：NYT、WebNLG
+
+![30](.\img\30.png)
 
 
 
-### 1.Joint Extraction of Entities and Relations Based on a Novel Tagging Scheme [ACL2017]
+### 10.Joint Extraction of Entities and Relations Based on a Novel Tagging Scheme [ACL2017]
 
 **创新点**：设计了一种新的标注方案，并将这种标签用于编码解码器中（end-to-end）
 为模型设计了一种偏置损失函数
@@ -403,7 +551,7 @@ softmax进行实体分类 CRF进行命名实体识别
 
 
 
-## 文本分类方向论文
+## 文本分类方向论文（深度学习）
 
 
 
@@ -521,7 +669,7 @@ transformer经典之作，只使用attention机制既能做到并行计算，在
 
 
 
-## 常用数据集
+## 常用数据集（联合抽取）
 
 
 
