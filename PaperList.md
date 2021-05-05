@@ -1,4 +1,4 @@
-# Paper List for Contrative Learning and Relations Extraction[57篇]
+# Paper List for Contrative Learning and Relations Extraction[62篇]
 
 
 
@@ -57,6 +57,36 @@ https://blog.csdn.net/littlely_ll/article/details/79252064
 
 
 ### 2.[InfoNCE/CPC] Representation learning with contrastive predictive coding [ArXiv2018]
+
+
+
+### 3.Unsupervised feature learning via non-parametric instance-level discrimination [CVPR2018]
+
+**创新点**：①将每个instance看作一个class原型，任务为：将第i个instance被预测为第i类
+
+②使用一个加上平滑正则的NCE损失（均匀分布中随机采样负样本），参数以memory bank的形式存储
+
+
+
+### 4.[MOCO] Momentum contrast for unsupervised visual representation learning [CVPR2020]
+
+**动机**：使字典的构建更large和consistent
+
+**创新点**：①**large - 队列更新 -** 创建了一个词典队列（其中都是负例，正例在mini-batch中生成），比“end-to-end”的方法更大，虽然没有“memory bank”的方法大，但是可以实时更新词典中的负样本
+
+②**consistent - 动量更新 -** “memory bank”的方法不能保持k和q的编码器的一致性，即q的编码器已经更新了很多代，但是k中的编码始终不变，所以提出了动量更新编码器参数的方法，对k编码器的参数进行微小更新
+
+[MoCo 阅读笔记 | Momentum Contrast for Unsupervised Visual Representation Learning - Vurkty's BLOG](https://www.vurkty.com/notes/120.html)
+
+<img src=".\img\37.PNG" alt="37" style="zoom: 60%;" />
+
+
+
+### 5.[SimCLR] A simple framework for contrastive learning for visual representations [ArXiv2020]
+
+
+
+### 6.Pretraining with Contrastive Sentence Objectives Improves Discourse Performance of Language Models [ACL2020]
 
 
 
@@ -603,7 +633,7 @@ sigmoid函数相对于softmax函数更好的解决重叠关系
 
 
 
-### 1.Semi-supervised classification with graph convolutional networks [ICLR2017]
+### 1.[GCN] Semi-supervised classification with graph convolutional networks [ICLR2017]
 
 图卷积神经网络用于深度神经网络分类问题的经典文献，将切比雪夫多项式的谱域卷积应用于神经网络模型中，得到了一组特征映射公式，并将其应用与半监督分类问题中（结点的半监督分类）
 
@@ -666,6 +696,10 @@ transformer经典之作，只使用attention机制既能做到并行计算，在
 ### 8.Named Entity Recognition for Social Media Texts with Semantic Augmentation [ACL2020]
 
 **创新点**：将数据（语义）增强用于社交媒体的命名实体识别中，用来解决社交媒体数据样本稀疏问题。本文使用与每个词相近的词对原词进行数据增强，相近的词指的是在embedding中k近邻最短的词。
+
+
+
+### 9.Relational Graph Attention Network for Aspect-based Sentiment Analysis [ACL2020]
 
 
 
