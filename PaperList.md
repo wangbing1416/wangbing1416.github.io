@@ -1,4 +1,4 @@
-# Paper List for Contrative Learning and Relations Extraction[62篇]
+# Paper List for Contrative Represetation Learning and Few-shot Relations Extraction[63篇]
 
 
 
@@ -78,15 +78,29 @@ https://blog.csdn.net/littlely_ll/article/details/79252064
 
 [MoCo 阅读笔记 | Momentum Contrast for Unsupervised Visual Representation Learning - Vurkty's BLOG](https://www.vurkty.com/notes/120.html)
 
-<img src=".\img\37.PNG" alt="37" style="zoom: 60%;" />
+<img src=".\img\37.PNG" alt="37" style="zoom: 58%;" />
 
 
 
 ### 5.[SimCLR] A simple framework for contrastive learning for visual representations [ArXiv2020]
 
+**创新点**：学习不同增强方式的一致性来学习表示
+
+N个instance -> 2N个（其中2个正样本）
+
+**目的**：想让不同表示之间的差异变大，而只有负样本，没有负样本，所以引入增强方式
+
+<img src=".\img\38.PNG" alt="38" style="zoom:50%;" />
+
 
 
 ### 6.Pretraining with Contrastive Sentence Objectives Improves Discourse Performance of Language Models [ACL2020]
+
+**pretext task**：使用其他语料库中的句子，做句子级别的表示学习，预测较近的句子（距离为k）作为正样本
+
+对于正样本，将正样本和query联合编码
+
+<img src=".\img\39.PNG" alt="39" style="zoom: 50%;" />
 
 
 
@@ -158,7 +172,7 @@ https://blog.csdn.net/littlely_ll/article/details/79252064
 
 使用了triple loss，增大不同类之间的距离；缩小同类间的距离
 
-<img src=".\img\35.PNG" alt="35" style="zoom: 60%;" />
+<img src=".\img\35.PNG" alt="35" style="zoom: 57%;" />
 
 
 
@@ -179,6 +193,22 @@ https://blog.csdn.net/littlely_ll/article/details/79252064
 将一种关系类型，转化为一个问题集，关系分类的过程就是一个提问的过程
 
 如 *educated_at(x, y) -> "where did x study?" / "which university did x graduate from?"*
+
+
+
+### 10.Contrastive Prototype Learning with Augmented Embeddings for Few-Shot Learning [ArXiv2021]
+
+对原型网络重新设计损失
+
+**创新点**：设计的损失，由原有的FSL损失和自己设计的对比原型损失进行联合训练
+
+在数据增强的条件下进行学习，并且将多种数据增强方式进行合并
+
+**Note that**：对比原型损失计算时，对query进行扰动
+
+在对比原型损失中，以原型为锚点，移动样本
+
+<img src=".\img\40.PNG" alt="40" style="zoom:50%;" />
 
 
 
@@ -551,7 +581,7 @@ sigmoid函数相对于softmax函数更好的解决重叠关系
 
 **数据集**：CoNLL 2003、OntoNotes 5.0
 
-<img src=".\img\25.png" alt="25" style="zoom: 50%;" />
+<img src=".\img\25.png" alt="25" style="zoom: 45%;" />
 
 
 
@@ -577,7 +607,7 @@ sigmoid函数相对于softmax函数更好的解决重叠关系
 
 **数据集**：ACE 2004、ACE 2005
 
-<img src=".\img\29.png" alt="29" style="zoom:67%;" />
+<img src=".\img\29.png" alt="29" style="zoom:60%;" />
 
 
 
@@ -599,7 +629,7 @@ sigmoid函数相对于softmax函数更好的解决重叠关系
 
 并设计一种两个编码器交互的方法
 
-<img src=".\img\21.png" alt="21" style="zoom:67%;" />
+<img src=".\img\21.png" alt="21" style="zoom:60%;" />
 
 
 
@@ -625,7 +655,7 @@ sigmoid函数相对于softmax函数更好的解决重叠关系
 
 使用超边来构建超图（序列超边和语义超边），之后使用GAT将特征在边和节点之间进行传递
 
-<img src=".\IMG\27.png" alt="27" style="zoom:67%;" />
+<img src=".\IMG\27.png" alt="27" style="zoom:60%;" />
 
 
 
@@ -700,6 +730,12 @@ transformer经典之作，只使用attention机制既能做到并行计算，在
 
 
 ### 9.Relational Graph Attention Network for Aspect-based Sentiment Analysis [ACL2020]
+
+使用修剪得依存树解决方面情感分析问题
+
+**创新点**：①**修剪** - 与方面词直接连接的，依存边不变；与方面词k距离内的，依存边标注为n：con；将k距离外的修剪
+
+②**R-GAT** - 提出一种基于关系的GAT
 
 
 
