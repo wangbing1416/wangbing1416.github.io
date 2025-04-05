@@ -89,8 +89,8 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Collaboration and Controversy Among Experts: Rumor Early Detection by Tuning a Comment Generator</h1>
-          <div class="is-size-5 publication-authors">
+          <h1 class="title is-1 publication-title"><i>Collaboration and Controversy Among Experts:</i> Rumor Early Detection by Tuning a Comment Generator</h1>
+          <!-- <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://wangbing1416.github.io">Bing Wang</a><sup>1,2</sup>,</span>
             <span class="author-block">
@@ -112,7 +112,7 @@
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>College of Computer Science and Technology, Jilin University</span>
             <span class="author-block"><sup>2</sup>Key Laboratory of Symbolic Computation and Knowledge Engineering of the Ministry of Education, Jilin University</span>
-          </div>
+          </div> -->
 
           <div class="column has-text-centered">
             <div class="publication-links">
@@ -232,7 +232,7 @@
           <div class="content has-text-justified">
           <p>
             We draw inspiration from the empirical observation that the RED model achieves optimal performance when the number of comments during training and testing is consistent and extensive. However, in RED, the number of comments available during testing is always insufficient to support these observations. This naturally leads us to the idea of tuning a comment generator to fill this gap. 
-            Upon this idea, inspired by the processes of <i>collaboration</i> and <i>controversy</i> among human experts, we design a comment generator based on the mixture-of-experts structure, which produces diverse, knowledgeable, and human-like comments through expert collaboration. Additionally, we develop a new comment integration model that simulates the controversies among experts to derive the final judgment. Accordingly, we propose a new RED framework \baby, which consists of three basic modules: <b>collaborating generator tuning</b>, <b>mutual controversy fusion</b>, and <b>veracity classifier</b>. The overall framework is depicted as follows.
+            Upon this idea, inspired by the processes of <i>collaboration</i> and <i>controversy</i> among human experts, we design a comment generator based on the mixture-of-experts structure, which produces diverse, knowledgeable, and human-like comments through expert collaboration. Additionally, we develop a new comment integration model that simulates the controversies among experts to derive the final judgment. Accordingly, we propose a new RED framework CAMERED, which consists of three basic modules: <b>collaborating generator tuning</b>, <b>mutual controversy fusion</b>, and <b>veracity classifier</b>. The overall framework is depicted as follows.
           </p>
           </div>
           <div class="content has-text-centered">
@@ -257,7 +257,7 @@
             <div class="box m-5">
               <div class="content has-text-centered">
                 <img src="sources/SIGIR2025_CAMERED_Compare1.png" alt="image name" width="100%"/>
-                <p> Experimental results under the RED scenario (we fix M = 16 and M' = 2). The results indicated by * are statistically significant than its baseline model (p-value < 0.05).</p>
+                <p> Experimental results under the RED scenario (we fix M = 16 and M' = 2).</p>
               </div>
             </div>
             <div class="box m-5">
