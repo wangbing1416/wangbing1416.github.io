@@ -6,34 +6,61 @@
     
     <link rel="stylesheet" href="styles.css"/> 
     
+    <link rel="preload" as="image" href="./2025hangzhou.jpg"/>
     <link rel="dns-prefetch" href="https://google-fonts.jialeliu.com"/>
     <link rel="preconnect" href="https://google-fonts.jialeliu.com" crossorigin=""/>
     <link rel="stylesheet" href="https://google-fonts.jialeliu.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Crimson+Text:ital,wght@0,400;0,600;1,400&amp;display=swap"/>
 
-    <title>Awards | Bing Wang</title>
-    <meta name="description" content="Honors and awards I have received."/>
+    <title>Bing Wang</title>
+    <meta name="description" content="PhD student at the University of Example."/>
     <meta name="author" content="Bing Wang"/>
     <link rel="icon" href="./jluico.png" type="image/svg+xml"/>
     
     <style>
+      /* 1. 统一超链接颜色为棕色 */
+      .content-area a:not(.no-color-override) {
+        color: #A0522D; /* 浅棕色 Sienna */
+        text-decoration: underline;
+        transition: color 0.2s;
+      }
+      .content-area a:not(.no-color-override):hover {
+        color: #8B4513; /* 深棕色 SaddleBrown */
+      }
+      .dark .content-area a:not(.no-color-override) {
+        color: #D2B48C; /* 浅棕色 Tan for dark mode */
+      }
+      
+      /* 2. 主题切换图标控制 */
       .theme-icon-sun { display: block; }
       .dark .theme-icon-sun { display: none; }
       .theme-icon-moon { display: none; }
       .dark .theme-icon-moon { display: block; }
     </style>
     <script>
+      // 纯静态主题切换逻辑
       (function () {
         const root = document.documentElement;
         const storedTheme = localStorage.getItem('theme-static');
         let effectiveTheme = 'light';
-        if (storedTheme) { effectiveTheme = storedTheme; } 
-        else if (window.matchMedia('(prefers-color-scheme: dark)').matches) { effectiveTheme = 'dark'; }
-        if (effectiveTheme === 'dark') { root.classList.add('dark'); } else { root.classList.remove('dark'); }
+
+        // 初始化主题
+        if (storedTheme) {
+            effectiveTheme = storedTheme;
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            effectiveTheme = 'dark';
+        }
+
+        if (effectiveTheme === 'dark') {
+            root.classList.add('dark');
+        } else {
+            root.classList.remove('dark');
+        }
       })();
 
       function toggleTheme() {
         const root = document.documentElement;
         const isDark = root.classList.contains('dark');
+        
         if (isDark) {
           root.classList.remove('dark');
           localStorage.setItem('theme-static', 'light');
@@ -42,11 +69,34 @@
           localStorage.setItem('theme-static', 'dark');
         }
       }
+
       window.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.theme-toggle-btn').forEach(button => {
             button.addEventListener('click', toggleTheme);
         });
       });
+
+      function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        const button = document.getElementById('mobile-menu-button');
+        
+        // 切换 'hidden' 类来显示或隐藏菜单
+        menu.classList.toggle('hidden');
+        
+        // 可选：更新 aria-expanded 属性
+        const isExpanded = menu.classList.contains('hidden') ? 'false' : 'true';
+        button.setAttribute('aria-expanded', isExpanded);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        // ... (主题切换按钮的事件监听保持不变)
+
+        // 新增：移动菜单按钮的事件监听
+        const menuButton = document.getElementById('mobile-menu-button');
+        if (menuButton) {
+            menuButton.addEventListener('click', toggleMobileMenu);
+        }
+    });
     </script>
 </head>
 <body class="font-sans antialiased bg-background dark:bg-black">
@@ -91,7 +141,10 @@
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="theme-icon-sun h-6 w-6 text-neutral-600 dark:text-neutral-400"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.364-1.55 1.55M21 12h-2.25m-.364 6.364-1.55-1.55M12 21v-2.25m-6.364-.364 1.55-1.55M3 12H5.25m.364-6.364 1.55 1.55M16.5 18a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Z"></path></svg>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="theme-icon-moon h-6 w-6 text-neutral-600 dark:text-neutral-400"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75a4.5 4.5 0 0 0-8.625-2.012A9.75 9.75 0 0 0 7.5 12h4.5a3 3 0 1 1-6 0v1.5M7.5 21a9.75 9.75 0 0 0 14.125-7.737A4.5 4.5 0 0 0 12.75 21v-4.5"></path></svg>
                 </button>
-                <button class="inline-flex items-center justify-center p-2 rounded-md text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent transition-colors duration-200" type="button" aria-expanded="false">
+                <button id="mobile-menu-button" 
+                    class="inline-flex items-center justify-center p-2 rounded-md text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent transition-colors duration-200" 
+                    type="button" 
+                    aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <div>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon" class="block h-6 w-6">
@@ -105,6 +158,15 @@
 </header>
 
 <main class="min-h-screen pt-16 lg:pt-20">
+    <div id="mobile-menu" class="hidden lg:hidden pb-4 pt-2 bg-white dark:bg-black/90 shadow-inner border-b border-neutral-200 dark:border-neutral-800">
+        <div class="space-y-1 px-4 sm:px-6">
+            <a class="block px-3 py-2 text-base font-medium transition-colors rounded-md text-primary dark:text-white bg-accent/10 hover:bg-accent/20" href="index.html">About</a>
+            <a class="block px-3 py-2 text-base font-medium transition-colors rounded-md text-neutral-600 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800" href="publications.html">Publications</a>
+            <a class="block px-3 py-2 text-base font-medium transition-colors rounded-md text-neutral-600 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800" href="awards.html">Awards</a>
+            <a class="block px-3 py-2 text-base font-medium transition-colors rounded-md text-neutral-600 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800" href="services.html">Services</a>
+            <a class="block px-3 py-2 text-base font-medium transition-colors rounded-md text-neutral-600 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800" href="cv.html">CV</a>
+        </div>
+    </div>
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="mb-8">
             <h1 class="text-4xl font-serif font-bold text-primary dark:text-white mb-4">Awards</h1>
