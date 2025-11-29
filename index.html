@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    
+    <link rel="stylesheet" href="styles.css"/> 
+    
+    <link rel="preload" as="image" href="./2025hangzhou.jpg"/>
+    <link rel="dns-prefetch" href="https://google-fonts.jialeliu.com"/>
+    <link rel="preconnect" href="https://google-fonts.jialeliu.com" crossorigin=""/>
+    <link rel="stylesheet" href="https://google-fonts.jialeliu.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Crimson+Text:ital,wght@0,400;0,600;1,400&amp;display=swap"/>
+
+    <title>Bing Wang</title>
+    <meta name="description" content="PhD student at the University of Example."/>
+    <meta name="author" content="Bing Wang"/>
+    <link rel="icon" href="./jluico.png" type="image/svg+xml"/>
+    
+    <style>
+      /* 1. 统一超链接颜色为棕色 */
+      .content-area a:not(.no-color-override) {
+        color: #A0522D; /* 浅棕色 Sienna */
+        text-decoration: underline;
+        transition: color 0.2s;
+      }
+      .content-area a:not(.no-color-override):hover {
+        color: #8B4513; /* 深棕色 SaddleBrown */
+      }
+      .dark .content-area a:not(.no-color-override) {
+        color: #D2B48C; /* 浅棕色 Tan for dark mode */
+      }
+      
+      /* 2. 主题切换图标控制 */
+      .theme-icon-sun { display: block; }
+      .dark .theme-icon-sun { display: none; }
+      .theme-icon-moon { display: none; }
+      .dark .theme-icon-moon { display: block; }
+    </style>
+    <script>
+      // 纯静态主题切换逻辑
+      (function () {
+        const root = document.documentElement;
+        const storedTheme = localStorage.getItem('theme-static');
+        let effectiveTheme = 'light';
+
+        // 初始化主题
+        if (storedTheme) {
+            effectiveTheme = storedTheme;
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            effectiveTheme = 'dark';
+        }
+
+        if (effectiveTheme === 'dark') {
+            root.classList.add('dark');
+        } else {
+            root.classList.remove('dark');
+        }
+      })();
+
+      function toggleTheme() {
+        const root = document.documentElement;
+        const isDark = root.classList.contains('dark');
+        
+        if (isDark) {
+          root.classList.remove('dark');
+          localStorage.setItem('theme-static', 'light');
+        } else {
+          root.classList.add('dark');
+          localStorage.setItem('theme-static', 'dark');
+        }
+      }
+
+      window.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.theme-toggle-btn').forEach(button => {
+            button.addEventListener('click', toggleTheme);
+        });
+      });
+    </script>
+</head>
+<body class="font-sans antialiased bg-background dark:bg-black">
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-background shadow-md dark:bg-black dark:shadow-lg dark:shadow-neutral-900/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16 lg:h-20">
+            <div class="flex-shrink-0">
+                <a class="text-xl lg:text-2xl font-serif font-semibold text-primary dark:text-white hover:text-accent transition-colors duration-200" href="index.html">Bing Wang</a>
+            </div>
+            <div class="hidden lg:block">
+                <div class="ml-10 flex items-center space-x-8">
+                    <div class="flex items-baseline space-x-8">
+                        <a class="relative px-3 py-2 text-sm font-medium transition-all duration-200 rounded hover:bg-accent/10 hover:shadow-sm text-primary dark:text-white" href="index.html">
+                            <span class="relative z-10">About</span>
+                            <div class="absolute inset-0 bg-accent/10 rounded-lg"></div></a>
+                        <a class="relative px-3 py-2 text-sm font-medium transition-all duration-200 rounded hover:bg-accent/10 hover:shadow-sm text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-white" href="publications.html">
+                            <span class="relative z-10">Publications</span>
+                        </a>
+                        <a class="relative px-3 py-2 text-sm font-medium transition-all duration-200 rounded hover:bg-accent/10 hover:shadow-sm text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-white" href="awards.html">
+                            <span class="relative z-10">Awards</span>
+                        </a>
+                        <a class="relative px-3 py-2 text-sm font-medium transition-all duration-200 rounded hover:bg-accent/10 hover:shadow-sm text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-white" href="services.html">
+                            <span class="relative z-10">Services</span>
+                        </a>
+                        <a class="relative px-3 py-2 text-sm font-medium transition-all duration-200 rounded hover:bg-accent/10 hover:shadow-sm text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-white" href="cv.html">
+                            <span class="relative z-10">CV</span>
+                        </a>
+                    </div>
+                    <button class="theme-toggle-btn flex items-center justify-center w-10 h-10 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900/50 hover:bg-neutral-100 dark:hover:bg-neutral-800/80 transition-colors duration-200" type="button" aria-label="Toggle theme">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="theme-icon-sun h-6 w-6 text-neutral-600 dark:text-neutral-400">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.364-1.55 1.55M21 12h-2.25m-.364 6.364-1.55-1.55M12 21v-2.25m-6.364-.364 1.55-1.55M3 12H5.25m.364-6.364 1.55 1.55M16.5 18a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Z"></path>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="theme-icon-moon h-6 w-6 text-neutral-600 dark:text-neutral-400">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75a4.5 4.5 0 0 0-8.625-2.012A9.75 9.75 0 0 0 7.5 12h4.5a3 3 0 1 1-6 0v1.5M7.5 21a9.75 9.75 0 0 0 14.125-7.737A4.5 4.5 0 0 0 12.75 21v-4.5"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="lg:hidden flex items-center space-x-2">
+                <button class="theme-toggle-btn flex items-center justify-center w-10 h-10 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900/50 hover:bg-neutral-100 dark:hover:bg-neutral-800/80 transition-colors duration-200" type="button" aria-label="Toggle theme">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="theme-icon-sun h-6 w-6 text-neutral-600 dark:text-neutral-400"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.364-1.55 1.55M21 12h-2.25m-.364 6.364-1.55-1.55M12 21v-2.25m-6.364-.364 1.55-1.55M3 12H5.25m.364-6.364 1.55 1.55M16.5 18a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Z"></path></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="theme-icon-moon h-6 w-6 text-neutral-600 dark:text-neutral-400"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75a4.5 4.5 0 0 0-8.625-2.012A9.75 9.75 0 0 0 7.5 12h4.5a3 3 0 1 1-6 0v1.5M7.5 21a9.75 9.75 0 0 0 14.125-7.737A4.5 4.5 0 0 0 12.75 21v-4.5"></path></svg>
+                </button>
+                <button class="inline-flex items-center justify-center p-2 rounded-md text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent transition-colors duration-200" type="button" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon" class="block h-6 w-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+                        </svg>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="min-h-screen pt-16 lg:pt-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-background dark:bg-black min-h-screen content-area">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <div class="lg:col-span-1 space-y-8">
+                <div class="flex flex-col items-center space-y-4 p-6 rounded-xl bg-white dark:bg-neutral-900 shadow-lg border border-neutral-200 dark:border-neutral-800">
+                    <img alt="Bing Wang" loading="lazy" width="160" height="160" class="rounded-full shadow-md object-cover w-40 h-40" src="./2025hangzhou.jpg"/>
+                    <h1 class="text-3xl font-serif font-bold text-primary dark:text-white text-center">Bing Wang</h1>
+                    <p class="text-neutral-600">PhD student at Jilin University</p>
+                    <div class="space-y-2 text-sm text-neutral-700 dark:text-neutral-400">
+                        <div class="flex items-center space-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5 text-accent">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.957a48.62 48.62 0 0 1 8.232-4.463 60.44 60.44 0 0 0-.491-6.347m-15.482 0l-2.652.784Zm1.942 5.922 1.684.721A65.23 65.23 0 0 0 12 18.257a65.23 65.23 0 0 0 7.828-1.407l1.684-.721M4.26 10.147h15.482"></path>
+                            </svg>
+                            <span><a href="https://ccst.jlu.edu.cn/" target="_blank" rel="noopener noreferrer">College of Computer Science and Technology, Jilin University</a></span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5 text-accent">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
+                            </svg>
+                            <span>Changchun, Jilin, China</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5 text-accent">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"></path>
+                            </svg>
+                            <span><a href="wangbing1416@gmail.com">wangbing1416 AT gmail DOT com</a></span>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center gap-3">
+                        <a href="wangbing1416@gmail.com" aria-label="Email" class="p-2 text-neutral-600 hover:text-accent"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg></a>
+                        <a href="https://scholar.google.com/citations?user=uqXWZBYAAAAJ" target="_blank" rel="noopener noreferrer" class="p-2 text-neutral-600 hover:text-accent"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"></path>
+                        </svg></a>
+                        <a href="https://github.com/wangbing1416" target="_blank" rel="noopener noreferrer" class="p-2 text-neutral-600 hover:text-accent"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="h-5 w-5"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.417 2.865 8.173 6.84 9.504.5.092.682-.217.682-.482 0-.237-.008-.868-.013-1.703-2.782.605-3.37-1.34-3.37-1.34-.454-1.156-1.11-1.46-1.11-1.46-.908-.62.07-.608.07-.608 1.004.07 1.531 1.032 1.531 1.032.892 1.524 2.341 1.084 2.91.828.092-.643.35-1.083.636-1.334-2.22-.251-4.555-1.116-4.555-4.952 0-1.092.39-1.983 1.029-2.689-.103-.252-.446-1.275.098-2.658 0 0 .84-.27 2.75 1.022A9.58 9.58 0 0 1 12 6.865a9.58 9.58 0 0 1 2.502.337c1.91-1.292 2.75-1.022 2.75-1.022.546 1.383.202 2.406.1 2.658.64.706 1.028 1.597 1.028 2.689 0 3.841-2.338 4.69-4.562 4.943.359.31.678.921.678 1.855 0 1.334-.012 2.41-.012 2.73 0 .267.18.579.688.481C19.145 20.183 22 16.427 22 12.017 22 6.484 17.523 2 12 2Z" clip-rule="evenodd"/></svg></a>
+                    </div>
+                </div>
+                
+                <section>
+                    <h2 class="text-2xl font-serif font-bold text-primary dark:text-white mb-4">Research Interests</h2>
+                    <div class="text-sm p-6 rounded-xl bg-neutral-100 dark:bg-neutral-800 shadow-sm border border-neutral-200 dark:border-neutral-700">
+                            <p><b>Large Language Models</b> <br>
+                                reasoning of large language models, <br>
+                                weakly-supervised learning in LLMs.
+                            </p> <br>
+                            <p><b>Trustworthy of Internet Data</b> <br>
+                                misinformation detection [<a href="https://github.com/wangbing1416/Awesome-Fake-News-Detection" target="_blank">Reading List</a>], <br>
+                                fact-check / fact verification.
+                            </p> <br>
+                            <p><b>Weakly-Supervised Learning</b> <br>
+                                positive-unlabeled learning.
+                            </p>
+                    </div>
+                </section>
+
+                <!-- <a href="https://clustrmaps.com/site/1bpxp"  title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=tpG-Ml1ryBVkymWtuCAtsRzcfXYryOLHhehVqGLjocM&cl=ffffff" /></a> -->
+            </div>
+
+            <div class="lg:col-span-2 space-y-8">
+                <section id="about" class="scroll-mt-20">
+                    <h2 class="text-3xl font-serif font-bold text-primary dark:text-white mb-4">About Me</h2>
+                    <div class="text-neutral-700 dark:text-neutral-300 leading-relaxed space-y-4">
+                        <p>
+                            Presently, Bing Wang is pursuing his Ph.D. degree at <a href="https://jlu-tml.github.io/" target="_blank">JLU-TML Group</a>,
+                                the College of Computer Science and Technology, Jilin University (JLU),
+                            under the supervision of <a href="https://scholar.google.com/citations?user=2WQ--c4AAAAJ&hl=zh-CN" target="_blank">Ximing Li</a>.
+                            Prior to this, he earned both his B.S. and M.S. degrees at Jilin Univesity.
+                        </p>
+                        <p>
+                            If you have any inquiries or are interested in potential collaboration, please feel free to reach out via e-mail, in either English or Chinese.
+                        </p>
+                    </div>
+                </section>
+                
+                <section>
+                    <h2 class="text-2xl font-serif font-bold text-primary mb-4">News</h2>
+                    <div class="space-y-3">
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Oct 2025</span>
+                            <p class="text-sm text-neutral-700 dark:text-neutral-400">One paper about multimodal misinformation detection is accepted by <a href="https://aaai.org/conference/aaai/aaai-26/" target="_blank">AAAI 2026</a>.</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Oct 2025</span>
+                            <p class="text-sm text-neutral-700 dark:text-neutral-400">One paper about hierarchical text classification is accepted by <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=10723155" target="_blank">TASLP</a>.</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Aug 2025</span>
+                            <p class="text-sm text-neutral-700 dark:text-neutral-400">One paper about dynamical misinformation detection is accepted by <a href="https://cikm2025.org/" target="_blank">CIKM 2025</a>.</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Jul 2025</span>
+                            <p class="text-sm text-neutral-700 dark:text-neutral-400">One paper about continual multimodal misinformation detection is accepted by <a href="https://acmmm2025.org/" target="_blank">ACM MM 2025</a>.</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Apr 2025</span>
+                            <p class="text-sm text-neutral-700 dark:text-neutral-400">One paper about commonsense-oriented misinformation detection is accepted by <a href="https://2025.ijcai.org/" target="_blank">IJCAI 2025</a>.</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Apr 2025</span>
+                            <p class="text-sm text-neutral-700 dark:text-neutral-400">One paper about rumor early detection is accepted by <a href="https://sigir2025.dei.unipd.it/" target="_blank">SIGIR 2025</a>.</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Jul 2024</span>
+                            <p class="text-sm text-neutral-700 dark:text-neutral-400">One paper about text-based misinformation detection is accepted by <a href="https://cikm2024.org/" target="_blank">CIKM 2024</a>.</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Jul 2024</span>
+                            <p class="text-sm text-neutral-700 dark:text-neutral-400">One paper about multimodal misinformation detection is accepted by <a href="https://2024.acmmm.org/" target="_blank">ACM MM 2024</a>.</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">May 2024</span>
+                            <p class="text-sm text-neutral-700 dark:text-neutral-400">One paper about multimodal fake news detection is accepted by <a href="https://www.sciencedirect.com/journal/information-fusion" target="_blank">Information Fusion</a>.</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Apr 2024</span>
+                            <p class="text-sm text-neutral-700 dark:text-neutral-400">One paper about sentence representation learning is accepted by <a href="https://www.sciencedirect.com/journal/neural-networks" target="_blank">Neural Networks</a>.</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Dec 2023</span>
+                            <p class="text-sm text-neutral-700 dark:text-neutral-400">One paper about multi-label text classification is accepted by <a href="https://dl.acm.org/journal/tkdd" target="_blank">TKDD</a>.</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Mar 2023</span>
+                            <p class="text-sm text-neutral-700 dark:text-neutral-400">One co-authered paper about aspect-based sentiment analysis is accepted by <a href="https://www.sciencedirect.com/journal/knowledge-based-systems" target="_blank">Knowledge-Based System</a>.</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Mar 2023</span>
+                            <p class="text-sm text-neutral-700 dark:text-neutral-400">I have successfully completed my doctoral application and am currently enrolled as a ph.D student. <a href="http://ccst.jlu.edu.cn/info/1229/17724.htm" target="_blank">Official</a></p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Aug 2022</span>
+                            <p class="text-sm text-neutral-700 dark:text-neutral-400">One full paper about aspect-based sentiment analysis is accepted by <a href="https://coling2022.org/" target="_blank">COLING 2022</a>.</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Aug 2022</span>
+                            <p class="text-sm text-neutral-700 dark:text-neutral-400">Finish my internship in Chang Guang Satellite.</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Apr 2022</span>
+                            <p class="text-sm text-neutral-700 dark:text-neutral-400">'Graduated' from JD explore academy.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="research" class="scroll-mt-20">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-2xl font-serif font-bold text-primary">Selected Publications</h2>
+                        <a href="publications.html" class="text-accent hover:underline text-sm font-medium">View All →</a>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-neutral-50 dark:bg-neutral-800 p-4 rounded-lg shadow-sm border border-neutral-200 dark:border-neutral-700 hover:shadow-lg transition-all duration-200 publication-card">
+                            <h3 class="font-semibold text-primary dark:text-white mb-2 leading-tight">Enhancing Multimodal Misinformation Detection by Replaying the Whole Story from Image Modality Perspective</h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-1">
+                                <span> <span class="font-semibold text-accent">Bing Wang</span>, </span>
+                                <span> <span class="">Ximing Li*</span>, </span> 
+                                <span> <span class="">Yanjun Wang</span>, </span> 
+                                <span> <span class="">Changchun Li</span>, </span> 
+                                <span> <span class="">Lin Yuanbo Wu</span>, </span> 
+                                <span> <span class="">Buyu Wang</span>, </span> 
+                                <span> <span class="">Shengsheng Wang</span> </span> 
+                            </p>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2"><em>AAAI Conference on Artificial Intelligence (AAAI 2026)</em>, 2026</p>
+                        </div>
+                        
+                        <div class="bg-neutral-50 dark:bg-neutral-800 p-4 rounded-lg shadow-sm border border-neutral-200 dark:border-neutral-700 hover:shadow-lg transition-all duration-200 publication-card" style="counter-reset: pub-counter 3;">
+                            <h3 class="font-semibold text-primary dark:text-white mb-2 leading-tight">Remember Past, Anticipate Future: Learning Continual Multimodal Misinformation Detectors</h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-1">
+                                <span> <span class="font-semibold text-accent">Bing Wang</span>, </span>
+                                <span> <span class="">Ximing Li*</span>, </span>
+                                <span> <span class="">Mengzhe Ye</span>, </span>
+                                <span> <span class="">Changchun Li</span>, </span>
+                                <span> <span class="">Bo Fu</span>, </span>
+                                <span> <span class="">Jianfeng Qu</span>, </span>
+                                <span> <span class="">Lin Yuanbo Wu</span> </span>
+                            </p>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2"><em>ACM International Conference on Multimedia (MM 2025)</em>, 2025</p>
+                        </div>
+                        
+                        <div class="bg-neutral-50 dark:bg-neutral-800 p-4 rounded-lg shadow-sm border border-neutral-200 dark:border-neutral-700 hover:shadow-lg transition-all duration-200 publication-card">
+                            <h3 class="font-semibold text-primary dark:text-white mb-2 leading-tight">Robust Misinformation Detection by Visiting Potential Commonsense Conflict</h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-1">
+                                <span> <span class="font-semibold text-accent">Bing Wang</span>, </span>
+                                <span> <span class="">Ximing Li*</span>, </span>
+                                <span> <span class="">Changchun Li</span>, </span>
+                                <span> <span class="">Bingrui Zhao</span>, </span>
+                                <span> <span class="">Bo Fu</span>, </span>
+                                <span> <span class="">Renchu Guan</span>, </span>
+                                <span> <span class="">Shengsheng Wang*</span> </span>
+                            </p>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2"><em>International Joint Conference on Artificial Intelligence (IJCAI 2025)</em>, 2025</p>
+                        </div>
+                        
+                        <div class="bg-neutral-50 dark:bg-neutral-800 p-4 rounded-lg shadow-sm border border-neutral-200 dark:border-neutral-700 hover:shadow-lg transition-all duration-200 publication-card">
+                            <h3 class="font-semibold text-primary dark:text-white mb-2 leading-tight">Collaboration and Controversy Among Experts: Rumor Early Detection by Tuning a Comment Generator</h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-1">
+                                <span> <span class="font-semibold text-accent">Bing Wang</span>, </span>
+                                <span> <span class="">Bingrui Zhao</span>, </span>
+                                <span> <span class="">Ximing Li*</span>, </span>
+                                <span> <span class="">Changchun Li</span>, </span>
+                                <span> <span class="">Wanfu Gao</span>, </span>
+                                <span> <span class="">Shengsheng Wang</span> </span>
+                            </p>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2"><em>International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR 2025)</em>, 2025</p>
+                        </div>
+                        
+                        <div class="bg-neutral-50 dark:bg-neutral-800 p-4 rounded-lg shadow-sm border border-neutral-200 dark:border-neutral-700 hover:shadow-lg transition-all duration-200 publication-card" style="counter-reset: pub-counter 7;">
+                            <h3 class="font-semibold text-primary dark:text-white mb-2 leading-tight">Harmfully Manipulated Images Matter in Multimodal Misinformation Detection</h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-1">
+                                <span> <span class="font-semibold text-accent">Bing Wang</span>, </span>
+                                <span> <span class="">Shengsheng Wang*</span>, </span>
+                                <span> <span class="">Changchun Li</span>, </span>
+                                <span> <span class="">Renchu Guan</span>, </span>
+                                <span> <span class="">Ximing Li*</span> </span>
+                            </p>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2"><em>ACM International Conference on Multimedia (MM 2024)</em>, 2024</p>
+                        </div>
+                        
+                    </div>
+                </section>               
+                
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="mt-12 py-8 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row justify-between items-center text-sm text-neutral-600 dark:text-neutral-500 space-y-4 lg:space-y-0">
+            <p>© 2025 Bing Wang. All rights reserved.</p>
+            <p>Built with Next.js and Tailwind CSS.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

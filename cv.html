@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    
+    <link rel="stylesheet" href="styles.css"/> 
+    
+    <link rel="dns-prefetch" href="https://google-fonts.jialeliu.com"/>
+    <link rel="preconnect" href="https://google-fonts.jialeliu.com" crossorigin=""/>
+    <link rel="stylesheet" href="https://google-fonts.jialeliu.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Crimson+Text:ital,wght@0,400;0,600;1,400&amp;display=swap"/>
+
+    <title>CV | Bing Wang</title>
+    <meta name="description" content="Bing Wang's Curriculum Vitae."/>
+    <meta name="author" content="Bing Wang"/>
+    <link rel="icon" href="./jluico.png" type="image/svg+xml"/>
+    
+    <style>
+      /* 1. 统一超链接颜色为棕色 */
+      .content-area a:not(.no-color-override) {
+        color: #A0522D; /* 浅棕色 Sienna */
+        text-decoration: underline;
+        transition: color 0.2s;
+      }
+      .content-area a:not(.no-color-override):hover {
+        color: #8B4513; /* 深棕色 SaddleBrown */
+      }
+      .dark .content-area a:not(.no-color-override) {
+        color: #D2B48C; /* 浅棕色 Tan for dark mode */
+      }
+      
+      /* 2. 主题切换图标控制 */
+      .theme-icon-sun { display: block; }
+      .dark .theme-icon-sun { display: none; }
+      .theme-icon-moon { display: none; }
+      .dark .theme-icon-moon { display: block; }
+    </style>
+    <script>
+      // 纯静态主题切换逻辑
+      (function () {
+        const root = document.documentElement;
+        const storedTheme = localStorage.getItem('theme-static');
+        let effectiveTheme = 'light';
+
+        // 初始化主题
+        if (storedTheme) {
+            effectiveTheme = storedTheme;
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            effectiveTheme = 'dark';
+        }
+
+        if (effectiveTheme === 'dark') {
+            root.classList.add('dark');
+        } else {
+            root.classList.remove('dark');
+        }
+      })();
+
+      function toggleTheme() {
+        const root = document.documentElement;
+        const isDark = root.classList.contains('dark');
+        
+        if (isDark) {
+          root.classList.remove('dark');
+          localStorage.setItem('theme-static', 'light');
+        } else {
+          root.classList.add('dark');
+          localStorage.setItem('theme-static', 'dark');
+        }
+      }
+
+      window.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.theme-toggle-btn').forEach(button => {
+            button.addEventListener('click', toggleTheme);
+        });
+      });
+    </script>
+</head>
+<body class="font-sans antialiased bg-background dark:bg-black">
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-background shadow-md dark:bg-black dark:shadow-lg dark:shadow-neutral-900/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16 lg:h-20">
+            <div class="flex-shrink-0">
+                <a class="text-xl lg:text-2xl font-serif font-semibold text-primary dark:text-white hover:text-accent transition-colors duration-200" href="index.html">Bing Wang</a>
+            </div>
+            <div class="hidden lg:block">
+                <div class="ml-10 flex items-center space-x-8">
+                    <div class="flex items-baseline space-x-8">
+                        <a class="relative px-3 py-2 text-sm font-medium transition-all duration-200 rounded hover:bg-accent/10 hover:shadow-sm text-primary dark:text-white" href="index.html">
+                            <span class="relative z-10">About</span>
+                            <div class="absolute inset-0 bg-accent/10 rounded-lg"></div></a>
+                        <a class="relative px-3 py-2 text-sm font-medium transition-all duration-200 rounded hover:bg-accent/10 hover:shadow-sm text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-white" href="publications.html">
+                            <span class="relative z-10">Publications</span>
+                        </a>
+                        <a class="relative px-3 py-2 text-sm font-medium transition-all duration-200 rounded hover:bg-accent/10 hover:shadow-sm text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-white" href="awards.html">
+                            <span class="relative z-10">Awards</span>
+                        </a>
+                        <a class="relative px-3 py-2 text-sm font-medium transition-all duration-200 rounded hover:bg-accent/10 hover:shadow-sm text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-white" href="services.html">
+                            <span class="relative z-10">Services</span>
+                        </a>
+                        <a class="relative px-3 py-2 text-sm font-medium transition-all duration-200 rounded hover:bg-accent/10 hover:shadow-sm text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-white" href="cv.html">
+                            <span class="relative z-10">CV</span>
+                        </a>
+                    </div>
+                    <button class="theme-toggle-btn flex items-center justify-center w-10 h-10 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900/50 hover:bg-neutral-100 dark:hover:bg-neutral-800/80 transition-colors duration-200" type="button" aria-label="Toggle theme">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="theme-icon-sun h-6 w-6 text-neutral-600 dark:text-neutral-400">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.364-1.55 1.55M21 12h-2.25m-.364 6.364-1.55-1.55M12 21v-2.25m-6.364-.364 1.55-1.55M3 12H5.25m.364-6.364 1.55 1.55M16.5 18a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Z"></path>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="theme-icon-moon h-6 w-6 text-neutral-600 dark:text-neutral-400">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75a4.5 4.5 0 0 0-8.625-2.012A9.75 9.75 0 0 0 7.5 12h4.5a3 3 0 1 1-6 0v1.5M7.5 21a9.75 9.75 0 0 0 14.125-7.737A4.5 4.5 0 0 0 12.75 21v-4.5"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="lg:hidden flex items-center space-x-2">
+                <button class="theme-toggle-btn flex items-center justify-center w-10 h-10 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900/50 hover:bg-neutral-100 dark:hover:bg-neutral-800/80 transition-colors duration-200" type="button" aria-label="Toggle theme">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="theme-icon-sun h-6 w-6 text-neutral-600 dark:text-neutral-400"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.364-1.55 1.55M21 12h-2.25m-.364 6.364-1.55-1.55M12 21v-2.25m-6.364-.364 1.55-1.55M3 12H5.25m.364-6.364 1.55 1.55M16.5 18a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Z"></path></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="theme-icon-moon h-6 w-6 text-neutral-600 dark:text-neutral-400"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75a4.5 4.5 0 0 0-8.625-2.012A9.75 9.75 0 0 0 7.5 12h4.5a3 3 0 1 1-6 0v1.5M7.5 21a9.75 9.75 0 0 0 14.125-7.737A4.5 4.5 0 0 0 12.75 21v-4.5"></path></svg>
+                </button>
+                <button class="inline-flex items-center justify-center p-2 rounded-md text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent transition-colors duration-200" type="button" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon" class="block h-6 w-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+                        </svg>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="min-h-screen pt-16 lg:pt-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 content-area">        
+        <div class="space-y-10">
+            <section class="border-b border-neutral-200 dark:border-neutral-800 pb-6">
+                <h2 class="text-3xl font-serif font-bold text-primary dark:text-white mb-4">Bing Wang</h2>
+                <div class="text-base text-neutral-700 dark:text-neutral-400 space-y-1">
+                    <p><strong>Email:</strong> <a href="wangbing1416@gmail.com">wangbing1416@gmail.com</a></p>
+                    <p><strong>Website:</strong> <a href="index.html">wangbing1416.github.io</a></p>
+                    <p><strong>GitHub:</strong> <a href="https://github.com/wangbing1416" target="_blank" rel="noopener noreferrer">github.com/wangbing1416</a></p>
+                    <p><strong>Location:</strong> Jilin University, Changchun, China</p>
+                </div>
+            </section>
+            <br>
+            <section class="border-b border-neutral-200 dark:border-neutral-800 pb-6 mb-8">
+                <h2 class="text-3xl font-serif font-bold text-accent mb-6">Education</h2>
+                
+                <div class="space-y-6">
+                    
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-semibold text-primary dark:text-white">Ph.D. Candidate in Computer Science and Technology</h3>
+                            <p class="text-lg text-neutral-600 dark:text-neutral-500">Jilin University, Jilin, China</p>
+                            <p class="text-sm text-neutral-700 dark:text-neutral-400 mt-1">Specialization in Machine Learning and Data Mining.</p>
+                            <p class="text-sm text-neutral-700 dark:text-neutral-400">Advisor: <a href="https://scholar.google.com/citations?user=2WQ--c4AAAAJ&hl=zh-CN" target="_blank" class="text-accent hover:text-accent/80 transition-colors">Ximing Li</a>.</p>
+                        </div>
+                        <p class="flex-shrink-0 text-sm font-medium text-neutral-500 dark:text-neutral-500">2023 – Present</p>
+                    </div>
+
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-semibold text-primary dark:text-white">Eng. Master in Computer Science and Technology</h3>
+                            <p class="text-lg text-neutral-600 dark:text-neutral-500">Jilin University, Jilin, China</p>
+                            <p class="text-sm text-neutral-700 dark:text-neutral-400 mt-1">Research focused on Multimodal Misinformation Detection.</p>
+                            <p class="text-sm text-neutral-700 dark:text-neutral-400">Advisor: <a href="https://scholar.google.com/citations?user=2WQ--c4AAAAJ&hl=zh-CN" target="_blank" class="text-accent hover:text-accent/80 transition-colors">Ximing Li</a>.</p>
+                        </div>
+                        <p class="flex-shrink-0 text-sm font-medium text-neutral-500 dark:text-neutral-500">2020 – 2023</p>
+                    </div>
+
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-semibold text-primary dark:text-white">Double-Bachelor Degree</h3>
+                            <p class="text-lg text-neutral-600 dark:text-neutral-500">Jilin University, Jilin, China</p>
+                            <p class="text-sm text-neutral-700 dark:text-neutral-400 mt-1">Major in Mechanical Engineering, Minor in Computer Science.</p>
+                        </div>
+                        <p class="flex-shrink-0 text-sm font-medium text-neutral-500 dark:text-neutral-500">2016 – 2020</p>
+                    </div>
+                    
+                </div>
+            </section>
+
+            <section class="pb-6">
+                <h2 class="text-3xl font-serif font-bold text-accent mb-6">Job / Internship Experience</h2>
+                
+                <div class="space-y-6">
+                    
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-semibold text-primary dark:text-white">Research Intern</h3>
+                            <p class="text-lg text-neutral-600 dark:text-neutral-500">Alibaba Cloud, Apsara Lab</p>
+                            <p class="text-sm text-neutral-700 dark:text-neutral-400 mt-1">Research Focus: Reasoning of Large Language Models (long chain-of-thought).</p>
+                            <p class="text-sm text-neutral-700 dark:text-neutral-400">Mentors: <a href="https://shenchenzju.github.io/" target="_blank" class="text-accent hover:text-accent/80 transition-colors">Chen Shen</a>, <a href="https://scholar.google.com/citations?user=sBhbb2wAAAAJ" target="_blank" class="text-accent hover:text-accent/80 transition-colors">Shaotian Yan</a>, Lab Leader: <a href="https://scholar.google.com/citations?user=T9AzhwcAAAAJ" target="_blank" class="text-accent hover:text-accent/80 transition-colors">Jieping Ye</a>.</p>
+                        </div>
+                        <p class="flex-shrink-0 text-sm font-medium text-neutral-500 dark:text-neutral-500">2025 – Present</p>
+                    </div>
+
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-semibold text-primary dark:text-white">Research Intern</h3>
+                            <p class="text-lg text-neutral-600 dark:text-neutral-500">Chang Guang Satellite, Data Center I Laboratory</p>
+                            <p class="text-sm text-neutral-700 dark:text-neutral-400 mt-1">Research Focus: Remote sensing and building change detection.</p>
+                        </div>
+                        <p class="flex-shrink-0 text-sm font-medium text-neutral-500 dark:text-neutral-500">May 2022 – Aug 2022</p>
+                    </div>
+
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-semibold text-primary dark:text-white">Research Intern, NLP Group</h3>
+                            <p class="text-lg text-neutral-600 dark:text-neutral-500">JD Explore Academy</p>
+                            <p class="text-sm text-neutral-700 dark:text-neutral-400 mt-1">Research Focus: Natural Language Processing (Sentiment Analysis).</p>
+                            <p class="text-sm text-neutral-700 dark:text-neutral-400">Mentors: <a href="http://liamding.cc/" target="_blank" class="text-accent hover:text-accent/80 transition-colors">Liang Ding</a>, Lab Leader: <a href="https://scholar.google.com/citations?user=RwlJNLcAAAAJ" target="_blank" class="text-accent hover:text-accent/80 transition-colors">Dacheng Tao</a>.</p>
+                        </div>
+                        <p class="flex-shrink-0 text-sm font-medium text-neutral-500 dark:text-neutral-500">Feb 2022 – Apr 2022</p>
+                    </div>
+
+                </div>
+            </section>
+            
+        </div>
+    </div>
+</main>
+
+<footer class="mt-12 py-8 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row justify-between items-center text-sm text-neutral-600 dark:text-neutral-500 space-y-4 lg:space-y-0">
+            <p>© 2025 Bing Wang. All rights reserved.</p>
+            <p>Built with Next.js and Tailwind CSS.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
