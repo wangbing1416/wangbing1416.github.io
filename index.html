@@ -245,8 +245,9 @@
                 </section>
                 
                 <section>
-                    <h2 class="text-2xl font-serif font-bold text-primary mb-4">News</h2>
+                    <h2 class="text-2xl font-serif font-bold text-primary dark:text-white mb-4">News</h2>
                     <div class="space-y-3">
+                        
                         <div class="flex items-start space-x-3">
                             <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Oct 2025</span>
                             <p class="text-sm text-neutral-700 dark:text-neutral-400">One paper about multimodal misinformation detection is accepted by <a href="https://aaai.org/conference/aaai/aaai-26/" target="_blank">AAAI 2026</a>.</p>
@@ -287,32 +288,65 @@
                             <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Apr 2024</span>
                             <p class="text-sm text-neutral-700 dark:text-neutral-400">One paper about sentence representation learning is accepted by <a href="https://www.sciencedirect.com/journal/neural-networks" target="_blank">Neural Networks</a>.</p>
                         </div>
-                        <div class="flex items-start space-x-3">
-                            <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Dec 2023</span>
-                            <p class="text-sm text-neutral-700 dark:text-neutral-400">One paper about multi-label text classification is accepted by <a href="https://dl.acm.org/journal/tkdd" target="_blank">TKDD</a>.</p>
+                        
+                        <div id="hidden-news-items" class="space-y-3 hidden">
+                            <div class="flex items-start space-x-3">
+                                <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Dec 2023</span>
+                                <p class="text-sm text-neutral-700 dark:text-neutral-400">One paper about multi-label text classification is accepted by <a href="https://dl.acm.org/journal/tkdd" target="_blank">TKDD</a>.</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Mar 2023</span>
+                                <p class="text-sm text-neutral-700 dark:text-neutral-400">One co-authered paper about aspect-based sentiment analysis is accepted by <a href="https://www.sciencedirect.com/journal/knowledge-based-systems" target="_blank">Knowledge-Based System</a>.</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Mar 2023</span>
+                                <p class="text-sm text-neutral-700 dark:text-neutral-400">I have successfully completed my doctoral application and am currently enrolled as a ph.D student. <a href="http://ccst.jlu.edu.cn/info/1229/17724.htm" target="_blank">Official</a></p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Aug 2022</span>
+                                <p class="text-sm text-neutral-700 dark:text-neutral-400">One full paper about aspect-based sentiment analysis is accepted by <a href="https://coling2022.org/" target="_blank">COLING 2022</a>.</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Aug 2022</span>
+                                <p class="text-sm text-neutral-700 dark:text-neutral-400">Finish my internship in Chang Guang Satellite.</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Apr 2022</span>
+                                <p class="text-sm text-neutral-700 dark:text-neutral-400">'Graduated' from JD explore academy.</p>
+                            </div>
                         </div>
-                        <div class="flex items-start space-x-3">
-                            <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Mar 2023</span>
-                            <p class="text-sm text-neutral-700 dark:text-neutral-400">One co-authered paper about aspect-based sentiment analysis is accepted by <a href="https://www.sciencedirect.com/journal/knowledge-based-systems" target="_blank">Knowledge-Based System</a>.</p>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                            <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Mar 2023</span>
-                            <p class="text-sm text-neutral-700 dark:text-neutral-400">I have successfully completed my doctoral application and am currently enrolled as a ph.D student. <a href="http://ccst.jlu.edu.cn/info/1229/17724.htm" target="_blank">Official</a></p>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                            <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Aug 2022</span>
-                            <p class="text-sm text-neutral-700 dark:text-neutral-400">One full paper about aspect-based sentiment analysis is accepted by <a href="https://coling2022.org/" target="_blank">COLING 2022</a>.</p>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                            <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Aug 2022</span>
-                            <p class="text-sm text-neutral-700 dark:text-neutral-400">Finish my internship in Chang Guang Satellite.</p>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                            <span class="flex-shrink-0 text-sm font-semibold text-accent dark:text-accent-light">Apr 2022</span>
-                            <p class="text-sm text-neutral-700 dark:text-neutral-400">'Graduated' from JD explore academy.</p>
+
+                        <div class="pt-2">
+                            <button id="toggle-news-btn" 
+                                    class="w-full text-center py-2 px-4 text-sm font-medium rounded-lg text-accent border border-accent/50 bg-accent/5 hover:bg-accent/10 dark:bg-accent/5 dark:hover:bg-accent/15 transition-colors duration-200"
+                                    onclick="toggleNews()">
+                                Show More (6 more updates)
+                            </button>
                         </div>
                     </div>
                 </section>
+
+                <script>
+                    function toggleNews() {
+                        const hiddenItems = document.getElementById('hidden-news-items');
+                        const button = document.getElementById('toggle-news-btn');
+                        
+                        // 切换 'hidden' 类来显示或隐藏内容
+                        hiddenItems.classList.toggle('hidden');
+                        
+                        // 根据状态更新按钮文本
+                        const isHidden = hiddenItems.classList.contains('hidden');
+                        if (isHidden) {
+                            button.textContent = 'Show More (6 more updates)';
+                        } else {
+                            button.textContent = 'Show Less';
+                            // 可选：平滑滚动到新闻开头
+                            document.getElementById('news-section-header').scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                    // 假设您的 <section> 标签有一个 ID 或其父元素可以被定位，这里为了滚动方便，我假设您给 <h2 class="text-2xl font-serif font-bold text-primary mb-4">News</h2> 所在的 section 添加了 ID
+                    // 实际使用时，请确保 section 标签有 ID，例如：<section id="news-section-header">
+                </script>
 
                 <section id="research" class="scroll-mt-20">
                     <div class="flex items-center justify-between mb-4">
