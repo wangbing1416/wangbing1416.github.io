@@ -204,381 +204,336 @@
     .bg-brown {
         background-color: #A0522D; /* 统一的棕色背景 */
     }
+    
+    /* 紧凑布局样式 */
+    .publication-card {
+        padding: 1rem 1.25rem !important; /* 减少内边距 */
+    }
+    
+    .publication-card h3 {
+        margin-bottom: 0.5rem !important; /* 减少标题下边距 */
+        line-height: 1.4; /* 更紧凑的行高 */
+    }
+    
+    .publication-card p {
+        margin-bottom: 0.25rem !important; /* 减少段落下边距 */
+        line-height: 1.4; /* 更紧凑的行高 */
+    }
+    
+    .publication-card .flex.flex-wrap.gap-2 {
+        margin-top: 0.5rem !important; /* 减少标签区域的上边距 */
+        gap: 0.375rem !important; /* 减小标签间距 */
+    }
+    
+    .space-y-4 {
+        row-gap: 0.75rem !important; /* 减小卡片之间的垂直间距 */
+    }
 </style>
 
 <div>
     <h2 class="text-3xl font-serif font-bold text-primary dark:text-white mb-6"><a name="conference"></a>Conference Papers</h2>
-    <div class="space-y-4 publication-list">
-
-        <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-            <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">DELRER: Disease Evolution-informed Longitudinal Radiology Report Generation</h3>
-            <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2"> Kaiyu Wang, <span class="font-medium text-accent">Bing Wang</span>, Changchun Li, You Lu, Yaning Wang, Huimao Zhang, Ximing Li* </p>
-            <p class="text-sm text-neutral-500 mb-2"><em>IEEE/CVF Conference on Computer Vision and Pattern Recognition (Findings)</em>, 2026</p>
-            <div class="flex flex-wrap gap-2 mt-auto">
-                <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">CCF-A</span>
-                <!-- <a href="https://arxiv.org/abs/2512.20908" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Paper</a> -->
-                <!-- <a href="https://github.com/wangbing1416/TGNCL" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Code</a> -->
-            </div>
-        </div>
-        
-        <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-            <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">Where Did This Sentence Come From? Tracing Provenance in LLM Reasoning Distillation</h3>
-            <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2"> Kaiyuan Liu, Shaotian Yan, Rui Miao, <span class="font-medium text-accent">Bing Wang</span>, Chen Shen*, Jun Zhang, Jieping Ye</p>
-            <p class="text-sm text-neutral-500 mb-2"><em>International Conference on Learning Representations (ICLR 2026)</em>, 2026</p>
-            <div class="flex flex-wrap gap-2 mt-auto">
-                <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">THU-A</span>
-                <a href="https://arxiv.org/abs/2512.20908" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Paper</a>
-                <!-- <a href="https://github.com/wangbing1416/TGNCL" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Code</a> -->
-            </div>
-        </div>
-        
-        <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-            <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">Enhancing Multimodal Misinformation Detection by Replaying the Whole Story from Image Modality Perspective</h3>
-            <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2"><span class="font-medium text-accent">Bing Wang</span>, Ximing Li*, Yanjun Wang, Changchun Li, Lin Yuanbo Wu, Buyu Wang, Shengsheng Wang</p>
-            <p class="text-sm text-neutral-500 mb-2"><em>AAAI Conference on Artificial Intelligence (AAAI 2026)</em>, 2026</p>
-            <div class="flex flex-wrap gap-2 mt-auto">
-                <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">CCF-A</span>
-                <a href="https://arxiv.org/abs/2511.06284" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">ArXiv</a>
-                <a href="https://github.com/wangbing1416/RETSIMD" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Code</a>
-            </div>
-        </div>
-        
-        <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-            <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">Balancing Positive and Negative Classification Error Rates in Positive-Unlabeled Learning</h3>
-            <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Ximing Li, Yuanchao Dai, <span class="font-medium text-accent">Bing Wang</span>, Changchun Li*, Jianfeng Qu, Renchu Guan</p>
-            <p class="text-sm text-neutral-500 mb-2"><em>Annual Conference on Neural Information Processing Systems (NeurIPS 2025)</em>, 2025</p>
-            <div class="flex flex-wrap gap-2 mt-auto">
-                <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">CCF-A</span>
-            </div>
-        </div>
-        
-        <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-            <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">Variety Is the Spice of Life: Detecting Misinformation with Dynamic Environmental Representations</h3>
-            <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2"><span class="font-medium text-accent">Bing Wang</span>, Ximing Li*, Yiming Wang, Changchun Li, Jiaxu Cui, Renchu Guan, Bo Yang</p>
-            <p class="text-sm text-neutral-500 mb-2"><em>International Conference on Information and Knowledge Management (CIKM 2025)</em>, 2025</p>
-            <div class="flex flex-wrap gap-2 mt-auto">
-                <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">CCF-B</span>
-                <a href="https://arxiv.org/abs/2508.03420" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">ArXiv</a>
-                <a href="https://github.com/wangbing1416/MISDER" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Code</a>
-            </div>
-        </div>
-        
-        <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-            <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">Remember Past, Anticipate Future: Learning Continual Multimodal Misinformation Detectors</h3>
-            <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2"><span class="font-medium text-accent">Bing Wang</span>, Ximing Li*, Mengzhe Ye, Changchun Li, Bo Fu, Jianfeng Qu, Lin Yuanbo Wu</p>
-            <p class="text-sm text-neutral-500 mb-2"><em>ACM International Conference on Multimedia (MM 2025)</em>, 2025</p>
-            <div class="flex flex-wrap gap-2 mt-auto">
-                <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">CCF-A</span>
-                <a href="https://arxiv.org/abs/2507.05939" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">ArXiv</a>
-                <a href="https://github.com/wangbing1416/DAEDCMD" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Code</a>
-                <a href="./files/MM2025_DAEDCMD_Poster.pdf" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Poster</a>
-            </div>
-        </div>
-        
-        <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-            <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">Robust Misinformation Detection by Visiting Potential Commonsense Conflict</h3>
-            <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2"><span class="font-medium text-accent">Bing Wang</span>, Ximing Li*, Changchun Li, Bingrui Zhao, Bo Fu, Renchu Guan, Shengsheng Wang*</p>
-            <p class="text-sm text-neutral-500 mb-2"><em>International Joint Conference on Artificial Intelligence (IJCAI 2025)</em>, 2025</p>
-            <div class="flex flex-wrap gap-2 mt-auto">
-                <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">CCF-A</span>
-                <a href="https://www.ijcai.org/proceedings/2025/0863.pdf" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Paper</a>
-                <a href="http://arxiv.org/abs/2504.21604" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">ArXiv</a>
-                <a href="https://github.com/wangbing1416/MD-PCC" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Code</a>
-                <a href="./files/IJCAI2025_MD-PCC_Poster.pdf" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Poster</a>
-                <a href="./files/IJCAI2025_MD-PCC_Slide.pdf" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Slide</a>
-            </div>
-        </div>
-        
-        <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-            <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">Collaboration and Controversy Among Experts: Rumor Early Detection by Tuning a Comment Generator</h3>
-            <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2"><span class="font-medium text-accent">Bing Wang</span>, Bingrui Zhao, Ximing Li*, Changchun Li, Wanfu Gao, Shengsheng Wang</p>
-            <p class="text-sm text-neutral-500 mb-2"><em>International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR 2025)</em>, 2025</p>
-            <div class="flex flex-wrap gap-2 mt-auto">
-                <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">CCF-A</span>
-                <a href="https://dl.acm.org/doi/abs/10.1145/3726302.3729928" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Paper</a>
-                <a href="https://arxiv.org/abs/2504.04076" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">ArXiv</a>
-                <a href="https://github.com/wangbing1416/CAMERED" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Code</a>
-                <a href="./projects/sigir2025_camered.html" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Project</a>
-                <a href="./files/SIGIR2025_CAMERED_Slide.pdf" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Slide</a>
-            </div>
-        </div>
-        
-        <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-            <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">Why Misinformation is Created? Detecting them by Integrating Intent Features</h3>
-            <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2"><span class="font-medium text-accent">Bing Wang</span>, Ximing Li*, Changchun Li, Bo Fu, Songwen Pei, Shengsheng Wang</p>
-            <p class="text-sm text-neutral-500 mb-2"><em>International Conference on Information and Knowledge Management (CIKM 2024)</em>, 2024</p>
-            <div class="flex flex-wrap gap-2 mt-auto">
-                <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">CCF-B</span>
-                <a href="https://dl.acm.org/doi/10.1145/3627673.3679799" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Paper</a>
-                <a href="https://arxiv.org/abs/2407.19196" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">ArXiv</a>
-                <a href="https://github.com/wangbing1416/DM-INTER" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Code</a>
-                <a href="./files/CIKM2024_DM-INTER_Slide.pdf" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Slide</a>
-            </div>
-        </div>
-        
-        <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-            <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">Harmfully Manipulated Images Matter in Multimodal Misinformation Detection</h3>
-            <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2"><span class="font-medium text-accent">Bing Wang</span>, Shengsheng Wang*, Changchun Li, Renchu Guan, Ximing Li*</p>
-            <p class="text-sm text-neutral-500 mb-2"><em>ACM International Conference on Multimedia (MM 2024)</em>, 2024</p>
-            <div class="flex flex-wrap gap-2 mt-auto">
-                <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">CCF-A</span>
-                <a href="https://dl.acm.org/doi/10.1145/3664647.3681322" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Paper</a>
-                <a href="https://arxiv.org/abs/2407.19192" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">ArXiv</a>
-                <a href="https://github.com/wangbing1416/HAMI-M3D" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Code</a>
-                <a href="./files/MM2024_HAMI-MMD_Poster.pdf" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Poster</a>
-            </div>
-        </div>
-        
-        <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-            <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">Positive and Unlabeled Learning with Controlled Probability Boundary Fence</h3>
-            <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Changchun Li, Yuanchao Dai, Lei Feng, Ximing Li, <span class="font-medium text-accent">Bing Wang</span>, Jihong Ouyang</p>
-            <p class="text-sm text-neutral-500 mb-2"><em>International Conference on Machine Learning (ICML 2024)</em>, 2024</p>
-            <div class="flex flex-wrap gap-2 mt-auto">
-                <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">CCF-A</span>
-                <a href="https://openreview.net/pdf?id=xbQqhojHTg" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Paper</a>
-            </div>
-        </div>
-        
-        <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-            <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">WPML3CP: Wasserstein Partial Multi-Label Learning with Dual Label Correlation Perspectives</h3>
-            <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Ximing Li, Yuanchao Dai, <span class="font-medium text-accent">Bing Wang</span>, Changchun Li*, Renchu Guan, Fangming Gu, Jihong Ouyang</p>
-            <p class="text-sm text-neutral-500 mb-2"><em>International Joint Conference on Artificial Intelligence (IJCAI 2024)</em>, 2024</p>
-            <div class="flex flex-wrap gap-2 mt-auto">
-                <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">CCF-A</span>
-                <a href="https://www.ijcai.org/proceedings/2024/0495.pdf" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Paper</a>
-            </div>
-        </div>
-        
-        <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-            <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">Aspect-Based Sentiment Analysis with Explicit Sentiment Augmentations</h3>
-            <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Jihong Ouyang, Zhiyao Yang, Silong Liang, <span class="font-medium text-accent">Bing Wang</span>, Yimeng Wang, Ximing Li*</p>
-            <p class="text-sm text-neutral-500 mb-2"><em>AAAI Conference on Artificial Intelligence (AAAI 2024)</em>, 2024</p>
-            <div class="flex flex-wrap gap-2 mt-auto">
-                <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">CCF-A</span>
-                <a href="https://ojs.aaai.org/index.php/AAAI/article/view/29849/31478" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Paper</a>
-                <a href="https://arxiv.org/pdf/2312.10961.pdf" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">ArXiv</a>
-            </div>
-        </div>
-        
-        <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-            <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">Unsupervised Aspect Term Extraction by Integrating Sentence-level Curriculum Learning with Token-level Self-paced Learning</h3>
-            <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Jihong Ouyang, Zhiyao Yang, Chang Xuan, <span class="font-medium text-accent">Bing Wang</span>, Yiyuan Wang, Ximing Li*</p>
-            <p class="text-sm text-neutral-500 mb-2"><em>International Conference on Information and Knowledge Management (CIKM 2023)</em>, 2023</p>
-            <div class="flex flex-wrap gap-2 mt-auto">
-                <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">CCF-B</span>
-                <a href="https://dl.acm.org/doi/abs/10.1145/3583780.3615103" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Paper</a>
-            </div>
-        </div>
-        
-        <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-            <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">A Contrastive Cross-channel Data Augmentation Framework for Aspect-based Sentiment Analysis</h3>
-            <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2"><span class="font-medium text-accent">Bing Wang</span>, Liang Ding*, Qihuang Zhong, Ximing Li, Dacheng Tao</p>
-            <p class="text-sm text-neutral-500 mb-2"><em>International Conference on Computational Linguistics (COLING 2022)</em>, 2022</p>
-            <div class="flex flex-wrap gap-2 mt-auto">
-                <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">CCF-B</span>
-                <a href="https://aclanthology.org/2022.coling-1.581.pdf" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Paper</a>
-                <a href="https://arxiv.org/pdf/2204.07832.pdf" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">ArXiv</a>
-                <a href="https://github.com/wangbing1416/C3DA" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Code</a>
-            </div>
-        </div>
-        
-            </div>
+    <div class="space-y-4 publication-list" id="conf-list"></div>
             
             <br>
 
     
             <h2 class="text-3xl font-serif font-bold text-primary dark:text-white mb-6 mt-10"><a name="journal"></a>Journal Articles</h2>
-            <div class="space-y-4 publication-list" style="counter-reset: pub-counter;">
+            <div class="space-y-4 publication-list" id="journal-list"></div>
 
-                 <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-                    <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">Detecting Misinformation by Uncovering Commonsense Conflicts with LLM Workflows</h3>
-                    <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2"><span class="font-medium text-accent">Bing Wang</span>, Ximing Li*, Changchun Li, Bingrui Zhao, Renchu Guan, Lin Yuanbo Wu, Jungong Han</p>
-                    <p class="text-sm text-neutral-500 mb-2"><em>IEEE Transactions on Knowledge and Data Engineering (TKDE)</em>, 2026 (IF=10.4)</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">CCF-A</span>
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">SCI-I</span>
-                    </div>
-                </div>
-                
-                <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-                    <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">Harmful Visual Content Manipulation Matters in Misinformation Detection Under Multimedia Scenarios</h3>
-                    <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2"><span class="font-medium text-accent">Bing Wang</span>, Ximing Li*, Changchun Li, Jinjin Chi, Tianze Li, Renchu Guan, Shengsheng Wang</p>
-                    <p class="text-sm text-neutral-500 mb-2"><em>IEEE Transactions on Multimedia (TMM)</em>, 2026 (IF=9.7)</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">THU-A</span>
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">CCF-B</span>
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">SCI-I</span>
-                    </div>
-                </div>
-                
-                <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-                    <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">Bidirectional Propagation of Hierarchy-specific Features for Hierarchical Text Classification</h3>
-                    <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2"><span class="font-medium text-accent">Bing Wang</span>, Ximing Li*, Zhengnan Zhang, Bo Fu, Wenting Wang, Jihong Ouyang</p>
-                    <p class="text-sm text-neutral-500 mb-2"><em>IEEE Transactions on Audio, Speech, and Language Processing (TASLP)</em>, 2025 (IF=5.1)</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">THU-A</span>
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">CCF-B</span>
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">SCI-I</span>
-                    </div>
-                </div>
-                
-                <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-                    <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">Escaping the Neutralization Effect of Modality Features Fusion in Multimodal Fake News Detection</h3>
-                    <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2"><span class="font-medium text-accent">Bing Wang</span>, Ximing Li*, Changchun Li, Shengsheng Wang*, Wanfu Gao</p>
-                    <p class="text-sm text-neutral-500 mb-2"><em>Information Fusion</em>, 2024 (IF=18.6)</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">SCI-I</span>
-                        <a href="https://www.sciencedirect.com/science/article/pii/S1566253524002781" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Paper</a>
-                        <a href="https://github.com/wangbing1416/MINER-UVS" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Code</a>
-                    </div>
-                </div>
-                
-                <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-                    <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">Unsupervised Sentence Representation Learning with Frequency-induced Adversarial Tuning and Incomplete Sentence Filtering</h3>
-                    <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2"><span class="font-medium text-accent">Bing Wang</span>, Ximing Li*, Zhiyao Yang, Yuanyuan Guan, Jiayin Li, Shengsheng Wang*</p>
-                    <p class="text-sm text-neutral-500 mb-2"><em>Neural Networks</em>, 2024 (IF=7.8)</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">CCF-B</span>
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">SCI-I</span>
-                        <a href="https://www.sciencedirect.com/science/article/pii/S0893608024002399" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Paper</a>
-                        <a href="https://arxiv.org/pdf/2305.08655.pdf" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">ArXiv</a>
-                        <a href="https://github.com/wangbing1416/SLT-FAI" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Code</a>
-                    </div>
-                </div>
-                
-                <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-                    <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">Aspect-based Sentiment Classification with Aspect-specific Hypergraph Attention Networks</h3>
-                    <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Jihong Ouyang, Chang Xuan, <span class="font-medium text-accent">Bing Wang</span>, Zhiyao Yang*</p>
-                    <p class="text-sm text-neutral-500 mb-2"><em>Expert Systems with Applications</em>, 2024 (IF=8.5)</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">CCF-C</span>
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">SCI-I</span>
-                        <a href="https://www.sciencedirect.com/science/article/abs/pii/S095741742400277X" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Paper</a>
-                    </div>
-                </div>
-                
-                <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-                    <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">Improving Extractive Summarization with Semantic Enhancement through Topic-Injection based BERT Model</h3>
-                    <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Yiming Wang, Jindong Zhang*, Zhiyao Yang, <span class="font-medium text-accent">Bing Wang</span>, Jingyi Jin, Yitong Liu</p>
-                    <p class="text-sm text-neutral-500 mb-2"><em>Information Processing & Management</em>, 2024 (IF=8.6)</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">CCF-B</span>
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">SCI-I</span>
-                        <a href="https://www.sciencedirect.com/science/article/abs/pii/S0306457324000372" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Paper</a>
-                    </div>
-                </div>
-                
-                <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-                    <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">Graph-based Text Classification by Contrastive Learning with Text-level Graph Augmentation</h3>
-                    <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Ximing Li, <span class="font-medium text-accent">Bing Wang</span>, Yang Wang*, Meng Wang</p>
-                    <p class="text-sm text-neutral-500 mb-2"><em>ACM Transactions on Knowledge Discovery from Data (TKDD)</em>, 2024 (IF=4.3)</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">CCF-B</span>
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">SCI-III</span>
-                        <a href="https://dl.acm.org/doi/10.1145/3638353" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Paper</a>
-                        <a href="https://github.com/wangbing1416/TGNCL" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Code</a>
-                    </div>
-                </div>
-                
-                <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-                    <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">Pseudo Dense Counterfactual Augmentation for Aspect-Based Sentiment Analysis</h3>
-                    <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Jihong Ouyang, Shi Feng, <span class="font-medium text-accent">Bing Wang</span>*, Zhiyao Yang</p>
-                    <p class="text-sm text-neutral-500 mb-2"><em>Neurocomputing</em>, 2023 (IF=6.0)</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">CCF-C</span>
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">SCI-II</span>
-                        <a href="https://www.sciencedirect.com/science/article/pii/S092523122300992X" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Paper</a>
-                    </div>
-                </div>
-                
-                <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-                    <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">Supervised Contrastive Learning with Corrected Labels for Noisy Label Learning</h3>
-                    <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Jihong Ouyang, Chenyang Lu, <span class="font-medium text-accent">Bing Wang</span>, Changchun Li*</p>
-                    <p class="text-sm text-neutral-500 mb-2"><em>Applied Intelligence</em>, 2023 (IF=5.3)</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">CCF-C</span>
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">SCI-II</span>
-                        <a href="https://link.springer.com/article/10.1007/s10489-023-05018-0" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Paper</a>
-                        <a href="https://github.com/ChenyangLu922/SCL2" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Code</a>
-                    </div>
-                </div>
-                
-                <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-                    <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">S3MAP: Semisupervised Aspect-based Sentiment Analysis with Masked Aspect Prediction</h3>
-                    <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Zhiyao Yang, <span class="font-medium text-accent">Bing Wang</span>†, Ximing Li*, Wenting Wang, Jihong Ouyang</p>
-                    <p class="text-sm text-neutral-500 mb-2"><em>Knowledge-Based Systems</em>, 2023 (IF=8.8)</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">CCF-C</span>
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">SCI-I</span>
-                        <a href="https://www.sciencedirect.com/science/article/pii/S0950705123002630" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Paper</a>
-                    </div>
-                </div>
-                
-                <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-                    <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">Deep Transition Network with Gating Mechanism for Multivariate Time Series Forecasting</h3>
-                    <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Yimeng Wang, Shi Feng, <span class="font-medium text-accent">Bing Wang</span>, Jihong Ouyang*</p>
-                    <p class="text-sm text-neutral-500 mb-2"><em>Applied Intelligence</em>, 2023 (IF=5.3)</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">CCF-C</span>
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">SCI-II</span>
-                        <a href="https://link.springer.com/article/10.1007/s10489-023-04503-w" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Paper</a>
-                    </div>
-                </div>
-                
-                <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-                    <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">Weakly Supervised Prototype Topic Model with Discriminative Seed Words: Modifying the Category Prior by Self-exploring Supervised Signals</h3>
-                    <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Ximing Li, <span class="font-medium text-accent">Bing Wang</span>, Yue Wang, Jihong Ouyang, Harish Garg, Dang NH Thanh*</p>
-                    <p class="text-sm text-neutral-500 mb-2"><em>Soft Computing</em>, 2023 (IF=4.1)</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">CCF-C</span>
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">SCI-III</span>
-                        <a href="https://link.springer.com/article/10.1007/s00500-022-07771-9" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Paper</a>
-                        <a href="https://arxiv.org/pdf/2112.03009.pdf" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">ArXiv</a>
-                    </div>
-                </div>
-                
-                <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-                    <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">Aspect-based Sentiment Analysis with Attention-assisted Graph and Variational Sentence Representation</h3>
-                    <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Shi Feng, <span class="font-medium text-accent">Bing Wang</span>, Zhiyao Yang, Jihong Ouyang*</p>
-                    <p class="text-sm text-neutral-500 mb-2"><em>Knowledge-Based Systems</em>, 2022 (IF=8.8)</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">CCF-C</span>
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">SCI-I</span>
-                        <a href="https://www.sciencedirect.com/science/article/abs/pii/S0950705122010681" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Paper</a>
-                        <a href="https://github.com/wangbing1416/VAGR" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Code</a>
-                    </div>
-                </div>
-                
-                <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-                    <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">Learning with Partial Multi-labeled Data by Leveraging Low-rank Constraint and Decomposition</h3>
-                    <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Ying Wang, Yuanyuan Guan, <span class="font-medium text-accent">Bing Wang</span>, Ximing Li*</p>
-                    <p class="text-sm text-neutral-500 mb-2"><em>Applied Intelligence</em>, 2022 (IF=5.3)</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">CCF-C</span>
-                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">SCI-II</span>
-                        <a href="https://link.springer.com/article/10.1007/s10489-022-03989-0" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Paper</a>
-                    </div>
-                </div>
-
-            </div>
-
-            <br>
-            <h2 class="text-3xl font-serif font-bold text-primary dark:text-white mb-6 mt-10"><a name="journal"></a>Preprint Papers</h2>
-            <div class="space-y-4 publication-list" style="counter-reset: pub-counter;">
-
-                <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-                    <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">Distribution-Aligned Sequence Distillation for Superior Long-CoT Reasoning</h3>
-                    <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2"> Shaotian Yan, Kaiyuan Liu, Chen Shen*, <span class="font-medium text-accent">Bing Wang</span>, Sinan Fan, Jun Zhang, Yue Wu, Zheng Wang, Jieping Ye</p>
-                    <p class="text-sm text-neutral-500 mb-2"><em>Technical Report, arXiv:2601.09088</em>, 2026</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <a href="https://arxiv.org/abs/2601.09088" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Paper</a>
-                        <a href="https://huggingface.co/collections/Alibaba-Apsara/dasd-thinking" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">Project Collection</a>
-                    </div>
-                </div>
-                
-            </div>
+            <h2 class="text-3xl font-serif font-bold text-primary dark:text-white mb-6 mt-10"><a name="preprint"></a>Preprint Papers</h2>
+            <div class="space-y-4 publication-list" id="preprint-list"></div>
         </div>
     </div>
+
+    <script>
+        // ========================================
+        // 论文数据 - 添加新论文时只需在此数组中添加对象
+        // ========================================
+        // 数据格式说明:
+        // - title: 论文标题
+        // - authors: 作者列表 (Bing Wang 会自动高亮)
+        // - venue: 会议/期刊全称，年份
+        // - tags: 标签数组，如 ["CCF-A"]
+        // - links: 链接数组，格式: [["显示文本", "URL"]]
+        //           可选: Paper, ArXiv, Code, Poster, Slide, Project
+        //
+        // 示例:
+        // {
+        //     title: "论文标题",
+        //     authors: "作者名, <span class=\"font-medium text-accent\">Bing Wang</span>, 其他作者",
+        //     venue: "会议/期刊名, 2024",
+        //     tags: ["CCF-A"],
+        //     links: [
+        //         ["Paper", "https://..."],
+        //         ["Code", "https://github.com/..."]
+        //     ]
+        // }
+
+        const _conf = [
+            {
+                title: "DELRER: Disease Evolution-informed Longitudinal Radiology Report Generation",
+                authors: "Kaiyu Wang, <span class=\"font-medium text-accent\">Bing Wang</span>, Changchun Li, You Lu, Yaning Wang, Huimao Zhang, Ximing Li*",
+                venue: "IEEE/CVF Conference on Computer Vision and Pattern Recognition (Findings), 2026",
+                tags: ["CCF-A"],
+                links: []
+            },
+            {
+                title: "Where Did This Sentence Come From? Tracing Provenance in LLM Reasoning Distillation",
+                authors: "Kaiyuan Liu, Shaotian Yan, Rui Miao, <span class=\"font-medium text-accent\">Bing Wang</span>, Chen Shen*, Jun Zhang, Jieping Ye",
+                venue: "International Conference on Learning Representations (ICLR 2026), 2026",
+                tags: ["THU-A"],
+                links: [["Paper", "https://arxiv.org/abs/2512.20908"]]
+            },
+            {
+                title: "Enhancing Multimodal Misinformation Detection by Replaying the Whole Story from Image Modality Perspective",
+                authors: "<span class=\"font-medium text-accent\">Bing Wang</span>, Ximing Li*, Yanjun Wang, Changchun Li, Lin Yuanbo Wu, Buyu Wang, Shengsheng Wang",
+                venue: "AAAI Conference on Artificial Intelligence (AAAI 2026), 2026",
+                tags: ["CCF-A"],
+                links: [["ArXiv", "https://arxiv.org/abs/2511.06284"], ["Code", "https://github.com/wangbing1416/RETSIMD"]]
+            },
+            {
+                title: "Balancing Positive and Negative Classification Error Rates in Positive-Unlabeled Learning",
+                authors: "Ximing Li, Yuanchao Dai, <span class=\"font-medium text-accent\">Bing Wang</span>, Changchun Li*, Jianfeng Qu, Renchu Guan",
+                venue: "Annual Conference on Neural Information Processing Systems (NeurIPS 2025), 2025",
+                tags: ["CCF-A"],
+                links: []
+            },
+            {
+                title: "Variety Is the Spice of Life: Detecting Misinformation with Dynamic Environmental Representations",
+                authors: "<span class=\"font-medium text-accent\">Bing Wang</span>, Ximing Li*, Yiming Wang, Changchun Li, Jiaxu Cui, Renchu Guan, Bo Yang",
+                venue: "International Conference on Information and Knowledge Management (CIKM 2025), 2025",
+                tags: ["CCF-B"],
+                links: [["ArXiv", "https://arxiv.org/abs/2508.03420"], ["Code", "https://github.com/wangbing1416/MISDER"]]
+            },
+            {
+                title: "Remember Past, Anticipate Future: Learning Continual Multimodal Misinformation Detectors",
+                authors: "<span class=\"font-medium text-accent\">Bing Wang</span>, Ximing Li*, Mengzhe Ye, Changchun Li, Bo Fu, Jianfeng Qu, Lin Yuanbo Wu",
+                venue: "ACM International Conference on Multimedia (MM 2025), 2025",
+                tags: ["CCF-A"],
+                links: [["ArXiv", "https://arxiv.org/abs/2507.05939"], ["Code", "https://github.com/wangbing1416/DAEDCMD"], ["Poster", "./files/MM2025_DAEDCMD_Poster.pdf"]]
+            },
+            {
+                title: "Robust Misinformation Detection by Visiting Potential Commonsense Conflict",
+                authors: "<span class=\"font-medium text-accent\">Bing Wang</span>, Ximing Li*, Changchun Li, Bingrui Zhao, Bo Fu, Renchu Guan, Shengsheng Wang*",
+                venue: "International Joint Conference on Artificial Intelligence (IJCAI 2025), 2025",
+                tags: ["CCF-A"],
+                links: [["Paper", "https://www.ijcai.org/proceedings/2025/0863.pdf"], ["ArXiv", "http://arxiv.org/abs/2504.21604"], ["Code", "https://github.com/wangbing1416/MD-PCC"], ["Poster", "./files/IJCAI2025_MD-PCC_Poster.pdf"], ["Slide", "./files/IJCAI2025_MD-PCC_Slide.pdf"]]
+            },
+            {
+                title: "Collaboration and Controversy Among Experts: Rumor Early Detection by Tuning a Comment Generator",
+                authors: "<span class=\"font-medium text-accent\">Bing Wang</span>, Bingrui Zhao, Ximing Li*, Changchun Li, Wanfu Gao, Shengsheng Wang",
+                venue: "International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR 2025), 2025",
+                tags: ["CCF-A"],
+                links: [["Paper", "https://dl.acm.org/doi/abs/10.1145/3726302.3729928"], ["ArXiv", "https://arxiv.org/abs/2504.04076"], ["Code", "https://github.com/wangbing1416/CAMERED"], ["Project", "./projects/sigir2025_camered.html"], ["Slide", "./files/SIGIR2025_CAMERED_Slide.pdf"]]
+            },
+            {
+                title: "Why Misinformation is Created? Detecting them by Integrating Intent Features",
+                authors: "<span class=\"font-medium text-accent\">Bing Wang</span>, Ximing Li*, Changchun Li, Bo Fu, Songwen Pei, Shengsheng Wang",
+                venue: "International Conference on Information and Knowledge Management (CIKM 2024), 2024",
+                tags: ["CCF-B"],
+                links: [["Paper", "https://dl.acm.org/doi/10.1145/3627673.3679799"], ["ArXiv", "https://arxiv.org/abs/2407.19196"], ["Code", "https://github.com/wangbing1416/DM-INTER"], ["Slide", "./files/CIKM2024_DM-INTER_Slide.pdf"]]
+            },
+            {
+                title: "Harmfully Manipulated Images Matter in Multimodal Misinformation Detection",
+                authors: "<span class=\"font-medium text-accent\">Bing Wang</span>, Shengsheng Wang*, Changchun Li, Renchu Guan, Ximing Li*",
+                venue: "ACM International Conference on Multimedia (MM 2024), 2024",
+                tags: ["CCF-A"],
+                links: [["Paper", "https://dl.acm.org/doi/10.1145/3664647.3681322"], ["ArXiv", "https://arxiv.org/abs/2407.19192"], ["Code", "https://github.com/wangbing1416/HAMI-M3D"], ["Poster", "./files/MM2024_HAMI-MMD_Poster.pdf"]]
+            },
+            {
+                title: "Positive and Unlabeled Learning with Controlled Probability Boundary Fence",
+                authors: "Changchun Li, Yuanchao Dai, Lei Feng, Ximing Li, <span class=\"font-medium text-accent\">Bing Wang</span>, Jihong Ouyang",
+                venue: "International Conference on Machine Learning (ICML 2024), 2024",
+                tags: ["CCF-A"],
+                links: [["Paper", "https://openreview.net/pdf?id=xbQqhojHTg"]]
+            },
+            {
+                title: "WPML3CP: Wasserstein Partial Multi-Label Learning with Dual Label Correlation Perspectives",
+                authors: "Ximing Li, Yuanchao Dai, <span class=\"font-medium text-accent\">Bing Wang</span>, Changchun Li*, Renchu Guan, Fangming Gu, Jihong Ouyang",
+                venue: "International Joint Conference on Artificial Intelligence (IJCAI 2024), 2024",
+                tags: ["CCF-A"],
+                links: [["Paper", "https://www.ijcai.org/proceedings/2024/0495.pdf"]]
+            },
+            {
+                title: "Aspect-Based Sentiment Analysis with Explicit Sentiment Augmentations",
+                authors: "Jihong Ouyang, Zhiyao Yang, Silong Liang, <span class=\"font-medium text-accent\">Bing Wang</span>, Yimeng Wang, Ximing Li*",
+                venue: "AAAI Conference on Artificial Intelligence (AAAI 2024), 2024",
+                tags: ["CCF-A"],
+                links: [["Paper", "https://ojs.aaai.org/index.php/AAAI/article/view/29849/31478"], ["ArXiv", "https://arxiv.org/pdf/2312.10961.pdf"]]
+            },
+            {
+                title: "Unsupervised Aspect Term Extraction by Integrating Sentence-level Curriculum Learning with Token-level Self-paced Learning",
+                authors: "Jihong Ouyang, Zhiyao Yang, Chang Xuan, <span class=\"font-medium text-accent\">Bing Wang</span>, Yiyuan Wang, Ximing Li*",
+                venue: "International Conference on Information and Knowledge Management (CIKM 2023), 2023",
+                tags: ["CCF-B"],
+                links: [["Paper", "https://dl.acm.org/doi/abs/10.1145/3583780.3615103"]]
+            },
+            {
+                title: "A Contrastive Cross-channel Data Augmentation Framework for Aspect-based Sentiment Analysis",
+                authors: "<span class=\"font-medium text-accent\">Bing Wang</span>, Liang Ding*, Qihuang Zhong, Ximing Li, Dacheng Tao",
+                venue: "International Conference on Computational Linguistics (COLING 2022), 2022",
+                tags: ["CCF-B"],
+                links: [["Paper", "https://aclanthology.org/2022.coling-1.581.pdf"], ["ArXiv", "https://arxiv.org/pdf/2204.07832.pdf"], ["Code", "https://github.com/wangbing1416/C3DA"]]
+            }
+        ];
+
+        const _jour = [
+            {
+                title: "Detecting Misinformation by Uncovering Commonsense Conflicts with LLM Workflows",
+                authors: "<span class=\"font-medium text-accent\">Bing Wang</span>, Ximing Li*, Changchun Li, Bingrui Zhao, Renchu Guan, Lin Yuanbo Wu, Jungong Han",
+                venue: "IEEE Transactions on Knowledge and Data Engineering (TKDE), 2026 (IF=10.4)",
+                tags: ["CCF-A", "SCI-I"],
+                links: []
+            },
+            {
+                title: "Harmful Visual Content Manipulation Matters in Misinformation Detection Under Multimedia Scenarios",
+                authors: "<span class=\"font-medium text-accent\">Bing Wang</span>, Ximing Li*, Changchun Li, Jinjin Chi, Tianze Li, Renchu Guan, Shengsheng Wang",
+                venue: "IEEE Transactions on Multimedia (TMM), 2026 (IF=9.7)",
+                tags: ["THU-A", "CCF-B", "SCI-I"],
+                links: []
+            },
+            {
+                title: "Bidirectional Propagation of Hierarchy-specific Features for Hierarchical Text Classification",
+                authors: "<span class=\"font-medium text-accent\">Bing Wang</span>, Ximing Li*, Zhengnan Zhang, Bo Fu, Wenting Wang, Jihong Ouyang",
+                venue: "IEEE Transactions on Audio, Speech, and Language Processing (TASLP), 2025 (IF=5.1)",
+                tags: ["THU-A", "CCF-B", "SCI-I"],
+                links: []
+            },
+            {
+                title: "Escaping the Neutralization Effect of Modality Features Fusion in Multimodal Fake News Detection",
+                authors: "<span class=\"font-medium text-accent\">Bing Wang</span>, Ximing Li*, Changchun Li, Shengsheng Wang*, Wanfu Gao",
+                venue: "Information Fusion, 2024 (IF=18.6)",
+                tags: ["SCI-I"],
+                links: [["Paper", "https://www.sciencedirect.com/science/article/pii/S1566253524002781"], ["Code", "https://github.com/wangbing1416/MINER-UVS"]]
+            },
+            {
+                title: "Unsupervised Sentence Representation Learning with Frequency-induced Adversarial Tuning and Incomplete Sentence Filtering",
+                authors: "<span class=\"font-medium text-accent\">Bing Wang</span>, Ximing Li*, Zhiyao Yang, Yuanyuan Guan, Jiayin Li, Shengsheng Wang*",
+                venue: "Neural Networks, 2024 (IF=7.8)",
+                tags: ["CCF-B", "SCI-I"],
+                links: [["Paper", "https://www.sciencedirect.com/science/article/pii/S0893608024002399"], ["ArXiv", "https://arxiv.org/pdf/2305.08655.pdf"], ["Code", "https://github.com/wangbing1416/SLT-FAI"]]
+            },
+            {
+                title: "Aspect-based Sentiment Classification with Aspect-specific Hypergraph Attention Networks",
+                authors: "Jihong Ouyang, Chang Xuan, <span class=\"font-medium text-accent\">Bing Wang</span>, Zhiyao Yang*",
+                venue: "Expert Systems with Applications, 2024 (IF=8.5)",
+                tags: ["CCF-C", "SCI-I"],
+                links: [["Paper", "https://www.sciencedirect.com/science/article/abs/pii/S095741742400277X"]]
+            },
+            {
+                title: "Improving Extractive Summarization with Semantic Enhancement through Topic-Injection based BERT Model",
+                authors: "Yiming Wang, Jindong Zhang*, Zhiyao Yang, <span class=\"font-medium text-accent\">Bing Wang</span>, Jingyi Jin, Yitong Liu",
+                venue: "Information Processing & Management, 2024 (IF=8.6)",
+                tags: ["CCF-B", "SCI-I"],
+                links: [["Paper", "https://www.sciencedirect.com/science/article/abs/pii/S0306457324000372"]]
+            },
+            {
+                title: "Graph-based Text Classification by Contrastive Learning with Text-level Graph Augmentation",
+                authors: "Ximing Li, <span class=\"font-medium text-accent\">Bing Wang</span>, Yang Wang*, Meng Wang",
+                venue: "ACM Transactions on Knowledge Discovery from Data (TKDD), 2024 (IF=4.3)",
+                tags: ["CCF-B", "SCI-III"],
+                links: [["Paper", "https://dl.acm.org/doi/10.1145/3638353"], ["Code", "https://github.com/wangbing1416/TGNCL"]]
+            },
+            {
+                title: "Pseudo Dense Counterfactual Augmentation for Aspect-Based Sentiment Analysis",
+                authors: "Jihong Ouyang, Shi Feng, <span class=\"font-medium text-accent\">Bing Wang</span>*, Zhiyao Yang",
+                venue: "Neurocomputing, 2023 (IF=6.0)",
+                tags: ["CCF-C", "SCI-II"],
+                links: [["Paper", "https://www.sciencedirect.com/science/article/pii/S092523122300992X"]]
+            },
+            {
+                title: "Supervised Contrastive Learning with Corrected Labels for Noisy Label Learning",
+                authors: "Jihong Ouyang, Chenyang Lu, <span class=\"font-medium text-accent\">Bing Wang</span>, Changchun Li*",
+                venue: "Applied Intelligence, 2023 (IF=5.3)",
+                tags: ["CCF-C", "SCI-II"],
+                links: [["Paper", "https://link.springer.com/article/10.1007/s10489-023-05018-0"], ["Code", "https://github.com/ChenyangLu922/SCL2"]]
+            },
+            {
+                title: "S3MAP: Semisupervised Aspect-based Sentiment Analysis with Masked Aspect Prediction",
+                authors: "Zhiyao Yang, <span class=\"font-medium text-accent\">Bing Wang</span>†, Ximing Li*, Wenting Wang, Jihong Ouyang",
+                venue: "Knowledge-Based Systems, 2023 (IF=8.8)",
+                tags: ["CCF-C", "SCI-I"],
+                links: [["Paper", "https://www.sciencedirect.com/science/article/pii/S0950705123002630"]]
+            },
+            {
+                title: "Deep Transition Network with Gating Mechanism for Multivariate Time Series Forecasting",
+                authors: "Yimeng Wang, Shi Feng, <span class=\"font-medium text-accent\">Bing Wang</span>, Jihong Ouyang*",
+                venue: "Applied Intelligence, 2023 (IF=5.3)",
+                tags: ["CCF-C", "SCI-II"],
+                links: [["Paper", "https://link.springer.com/article/10.1007/s10489-023-04503-w"]]
+            },
+            {
+                title: "Weakly Supervised Prototype Topic Model with Discriminative Seed Words: Modifying the Category Prior by Self-exploring Supervised Signals",
+                authors: "Ximing Li, <span class=\"font-medium text-accent\">Bing Wang</span>, Yue Wang, Jihong Ouyang, Harish Garg, Dang NH Thanh*",
+                venue: "Soft Computing, 2023 (IF=4.1)",
+                tags: ["CCF-C", "SCI-III"],
+                links: [["Paper", "https://link.springer.com/article/10.1007/s00500-022-07771-9"], ["ArXiv", "https://arxiv.org/pdf/2112.03009.pdf"]]
+            },
+            {
+                title: "Aspect-based Sentiment Analysis with Attention-assisted Graph and Variational Sentence Representation",
+                authors: "Shi Feng, <span class=\"font-medium text-accent\">Bing Wang</span>, Zhiyao Yang, Jihong Ouyang*",
+                venue: "Knowledge-Based Systems, 2022 (IF=8.8)",
+                tags: ["CCF-C", "SCI-I"],
+                links: [["Paper", "https://www.sciencedirect.com/science/article/abs/pii/S0950705122010681"], ["Code", "https://github.com/wangbing1416/VAGR"]]
+            },
+            {
+                title: "Learning with Partial Multi-labeled Data by Leveraging Low-rank Constraint and Decomposition",
+                authors: "Ying Wang, Yuanyuan Guan, <span class=\"font-medium text-accent\">Bing Wang</span>, Ximing Li*",
+                venue: "Applied Intelligence, 2022 (IF=5.3)",
+                tags: ["CCF-C", "SCI-II"],
+                links: [["Paper", "https://link.springer.com/article/10.1007/s10489-022-03989-0"]]
+            }
+        ];
+
+        const _prep = [
+            {
+                title: "Distribution-Aligned Sequence Distillation for Superior Long-CoT Reasoning",
+                authors: "Shaotian Yan, Kaiyuan Liu, Chen Shen*, <span class=\"font-medium text-accent\">Bing Wang</span>, Sinan Fan, Jun Zhang, Yue Wu, Zheng Wang, Jieping Ye",
+                venue: "Technical Report, arXiv:2601.09088, 2026",
+                tags: [],
+                links: [["Paper", "https://arxiv.org/abs/2601.09088"], ["Project Collection", "https://huggingface.co/collections/Alibaba-Apsara/dasd-thinking"]]
+            }
+        ];
+
+        // 渲染函数
+        function renderList(containerId, papers) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+
+            let html = '';
+            papers.forEach(paper => {
+                let tagsHtml = '';
+                paper.tags.forEach(tag => {
+                    tagsHtml += `<span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">${tag}</span>`;
+                });
+
+                let linksHtml = '';
+                paper.links.forEach(link => {
+                    linksHtml += `<a href="${link[1]}" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">${link[0]}</a>`;
+                });
+
+                html += `
+                <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
+                    <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">${paper.title}</h3>
+                    <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">${paper.authors}</p>
+                    <p class="text-sm text-neutral-500 mb-2"><em>${paper.venue}</em></p>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        ${tagsHtml}
+                        ${linksHtml}
+                    </div>
+                </div>`;
+            });
+
+            container.innerHTML = html;
+        }
+
+        // 页面加载后渲染
+        window.addEventListener('DOMContentLoaded', () => {
+            renderList('conf-list', _conf);
+            renderList('journal-list', _jour);
+            renderList('preprint-list', _prep);
+        });
+    </script>
 </main>
 
 <footer class="mt-12 py-8 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900">
