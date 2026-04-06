@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="ACL2026 - On the Step Length Confounding in LLM Reasoning Data Selection">
+  <meta name="keywords" content="LLM, reasoning, data selection, step length, confounding, ASLEC">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ACL2026 | Step Length Confounding</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/jluico.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <style>
+    .tag-badge {
+      display: inline-block;
+      background: #f0eef8;
+      color: #5a4e8c;
+      border: 1px solid #c5bce0;
+      border-radius: 20px;
+      padding: 3px 14px;
+      font-size: 0.85rem;
+      margin: 3px;
+      font-weight: 500;
+    }
+    .highlight-box {
+      background: #f7f6fc;
+      border-left: 4px solid #6b5cb3;
+      border-radius: 4px;
+      padding: 16px 20px;
+      margin: 18px 0;
+    }
+    .highlight-box strong {
+      color: #4a3e80;
+    }
+    .method-card {
+      background: #fff;
+      border: 1px solid #e0ddf0;
+      border-radius: 8px;
+      padding: 24px;
+      margin: 12px 0;
+      box-shadow: 0 2px 8px rgba(100,90,160,0.07);
+    }
+    .method-card h4 {
+      color: #4a3e80;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .result-badge {
+      display: inline-block;
+      background: #e8f5e9;
+      color: #2e7d32;
+      border-radius: 4px;
+      padding: 2px 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-left: 6px;
+    }
+    .figure-caption {
+      font-size: 0.92rem;
+      color: #666;
+      margin-top: 8px;
+      font-style: italic;
+    }
+    .pdf-embed-container {
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #fafafa;
+    }
+    .contribution-item {
+      display: flex;
+      align-items: flex-start;
+      margin: 12px 0;
+      gap: 12px;
+    }
+    .contribution-icon {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      background: #6b5cb3;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .result-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .result-table th {
+      background: #f0eef8;
+      color: #4a3e80;
+      padding: 8px 12px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+    .result-table td {
+      padding: 7px 12px;
+      text-align: center;
+      border: 1px solid #eee;
+    }
+    .result-table tr:hover {
+      background: #f9f8fd;
+    }
+    .result-table .ours {
+      background: #f4f3f8;
+      font-weight: 600;
+    }
+    .result-table .best {
+      font-weight: 700;
+      color: #2e7d32;
+    }
+    .up-arrow {
+      color: #e05252;
+      font-size: 0.8rem;
+    }
+    .section-divider {
+      border: none;
+      border-top: 1px solid #eee;
+      margin: 10px 0 30px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://wangbing1416.github.io">
+        <span class="icon">
+          <i class="fas fa-home"></i>
+        </span>
+      </a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">More Research</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">
+            On the Step Length Confounding in<br>LLM Reasoning Data Selection
+          </h1>
+
+          <div style="margin: 10px 0;">
+            <span class="tag-badge">ACL 2026</span>
+            <span class="tag-badge">LLM Reasoning</span>
+            <span class="tag-badge">Data Selection</span>
+            <span class="tag-badge">Step Length Bias</span>
+          </div>
+
+          <div class="is-size-5 publication-authors" style="margin-top: 18px;">
+            <span class="author-block">
+              <a href="https://wangbing1416.github.io">Bing Wang</a><sup>1</sup>,&nbsp;</span>
+            <span class="author-block">
+              Rui Miao<sup>1</sup>,&nbsp;</span>
+            <span class="author-block">
+              Chen Shen<sup>2</sup>,&nbsp;</span>
+            <span class="author-block">
+              Shaotian Yan<sup>2</sup>,&nbsp;</span>
+            <span class="author-block">
+              Kaiyuan Liu<sup>3</sup>,&nbsp;</span>
+            <span class="author-block">
+              Ximing Li<sup>1*</sup>,&nbsp;</span>
+            <span class="author-block">
+              Xiaosong Yuan<sup>1</sup>,&nbsp;</span>
+            <span class="author-block">
+              Sinan Fan<sup>3</sup>,&nbsp;</span>
+            <span class="author-block">
+              Jun Zhang<sup>4</sup>,&nbsp;</span>
+            <span class="author-block">
+              Jieping Ye<sup>2</sup></span>
+          </div>
+
+          <div class="is-size-6 publication-authors" style="margin-top: 8px; color: #555;">
+            <span class="author-block"><sup>1</sup>Jilin University, China&nbsp;&nbsp;</span>
+            <span class="author-block"><sup>2</sup>Alibaba Cloud Computing, China&nbsp;&nbsp;</span>
+            <span class="author-block"><sup>3</sup>Zhejiang University, China&nbsp;&nbsp;</span>
+            <span class="author-block"><sup>4</sup>University of Michigan, USA</span>
+          </div>
+
+          <div class="column has-text-centered" style="margin-top: 16px;">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://anonymous.4open.science/r/ASLEC-441F"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- contact note -->
+<div class="container is-max-desktop" style="margin-bottom: 10px;">
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <div class="content has-text-justified">
+        * If you have any questions, please feel free to drop
+        <a href="mailto:wangbing1416@gmail.com">EMAILS</a> to me.
+        More recent publications can be found on my
+        <a href="https://wangbing1416.github.io">HOMEPAGE</a>.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ==================== ABSTRACT ==================== -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Large reasoning models have recently demonstrated strong performance on complex tasks
+            that require long chain-of-thought reasoning, through supervised fine-tuning on
+            large-scale and high-quality datasets. To construct such datasets, existing pipelines
+            generate long reasoning data from more capable Large Language Models (LLMs) and apply
+            manually heuristic or naturalness-based selection methods to filter high-quality samples.
+          </p>
+          <p>
+            Despite the proven effectiveness of <em>naturalness-based data selection</em>&mdash;which
+            ranks data by the average log probability assigned by LLMs&mdash;our analysis shows that,
+            when applied to LLM reasoning datasets, it <strong>systematically prefers samples with
+            longer reasoning steps</strong> (<em>i.e.,</em> more tokens per step) rather than
+            higher-quality ones, a phenomenon we term <strong>step length confounding</strong>.
+            Through quantitative analysis, we attribute this phenomenon to low-probability first
+            tokens in reasoning steps; longer steps dilute their influence, thereby inflating the
+            average log probabilities.
+          </p>
+          <p>
+            To address this issue, we propose two variant methods:
+            <strong>ASLEC-drop</strong>, which drops first-token probabilities when computing
+            average log probability, and <strong>ASLEC-casl</strong>, which applies a causal
+            debiasing regression to remove the first tokens' confounding effect. Experiments across
+            four LLMs and five evaluation benchmarks demonstrate the effectiveness of our approach
+            in mitigating the step length confounding problem.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== MOTIVATION ==================== -->
+<section class="section" style="background: #faf9fd;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Motivation: Step Length Confounding</h2>
+        <div class="content has-text-justified">
+          <p>
+            Existing naturalness-based data selection methods compute the average log probability
+            assigned by the target LLM to each training sample, then select samples with the
+            highest scores. While intuitive, our preliminary experiments reveal a critical flaw:
+            <strong>these methods consistently prefer samples with longer reasoning steps rather
+            than higher-quality ones.</strong>
+          </p>
+
+          <div class="highlight-box">
+            <strong>&#9733; Conclusion 1.</strong>&nbsp;
+            The naturalness-based reasoning data selection approach tends to <strong>prefer samples
+            with longer reasoning steps</strong> (<em>i.e.,</em> more tokens per step).
+          </div>
+
+          <p>
+            As shown in the figure below, for all four representative naturalness-based selection
+            methods (GRACE, Local LP, Min Entropy, Min Perplexity), the <em>selected</em> data
+            consistently exhibits significantly longer step lengths compared to the <em>unselected</em>
+            data. This reveals a systematic step length confounding problem.
+          </p>
+        </div>
+
+        <div class="content has-text-centered">
+          <img src="./sources/ACL2026_Pre.png" alt="Step length distribution" style="max-width: 100%; height: auto; border-radius: 6px;">
+          <p class="figure-caption">
+            Figure 1. Step length distributions of data <em>selected</em> vs. <em>unselected</em>
+            by four naturalness-based methods. Selected samples exhibit markedly longer steps.
+          </p>
+        </div>
+
+        <div class="content has-text-justified" style="margin-top: 20px;">
+          <h3 class="title is-5">Why Does Step Length Confounding Occur?</h3>
+          <p>
+            To understand the root cause, we examine the relationship between step length and
+            step-level log probability. The figure below shows a clear <strong>monotonic increasing</strong>
+            relationship: longer reasoning steps consistently receive higher average log probabilities.
+          </p>
+        </div>
+
+        <div class="content has-text-centered">
+          <img src="./sources/ACL2026_Pre_2.png" alt="Step length vs log probability" style="max-width: 100%; height: auto; border-radius: 6px;">
+          <p class="figure-caption">
+            Figure 2. Relationship between step-level log probability and step length.
+            A clear monotonic increasing trend is observed across all source LLMs.
+          </p>
+        </div>
+
+        <div class="content has-text-justified" style="margin-top: 20px;">
+          <p>
+            The mechanism is as follows: <strong>the first token of each reasoning step</strong>
+            always exhibits a <strong>lower log probability</strong>, as it must fork into different
+            reasoning branches (higher entropy). In longer steps, these low-probability first tokens
+            constitute a <em>smaller proportion</em> of the total token count, so their negative
+            impact is diluted, inflating the overall average log probability.
+          </p>
+
+          <div class="highlight-box">
+            <strong>&#9733; Conclusion 2.</strong>&nbsp;
+            Step length confounding occurs because <strong>the low-probability first token
+            constitutes a smaller ratio of longer responses</strong>. This increases average log
+            probabilities, making samples with longer steps more likely to be selected.
+          </div>
+        </div>
+
+        <div class="content has-text-centered">
+          <img src="./sources/ACL2026_Pre_3.png" alt="Token-level log probabilities" style="max-width: 100%; height: auto; border-radius: 6px;">
+          <p class="figure-caption">
+            Figure 3. Representative cases showing token-level log probabilities for steps
+            of different lengths. The first token consistently exhibits lower log probability.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== METHOD ==================== -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Our Proposed Method: ASLEC</h2>
+        <div class="content has-text-justified">
+          <p>
+            Given the above analysis that low-probability first tokens cause step length confounding,
+            we propose <strong>A</strong>lleviating <strong>S</strong>tep <strong>Le</strong>ngth
+            <strong>C</strong>onfounding (<strong>ASLEC</strong>), including two efficient variant
+            methods that intervene on the first-token probability when computing selection scores.
+          </p>
+        </div>
+
+        <!-- Method Card 1 -->
+        <div class="method-card" style="text-align: left;">
+          <h4>&#9654;&nbsp; ASLEC-drop: Dropping the First Token</h4>
+          <p>
+            The most direct approach: when computing the geometric mean of token log probabilities
+            over a reasoning solution, we <strong>exclude the first token of each step</strong>.
+            Formally, the scoring metric is:
+          </p>
+          <div style="background: #f7f6fc; border-radius: 6px; padding: 14px 18px; margin: 12px 0; font-family: 'Noto Sans', monospace; font-size: 0.95rem;">
+            s<sup>drop</sup><sub>i</sub> = (1 / (T<sub>i</sub> &minus; |S<sub>i</sub>|)) &sum;<sub>step l</sub> &sum;<sub>t=2...|s|</sub> log P(s<sub>t</sub> | context)
+          </div>
+          <p>
+            By dropping the first token at each step, we remove the dominant source of step-length
+            bias. This approach is extremely <strong>lightweight</strong> and introduces
+            <em>zero additional computation</em>.
+          </p>
+        </div>
+
+        <!-- Method Card 2 -->
+        <div class="method-card" style="text-align: left;">
+          <h4>&#9654;&nbsp; ASLEC-casl: Causally De-biasing</h4>
+          <p>
+            Although dropping the first token eliminates the bias, it also discards informative
+            signals carried by that token. To preserve these signals, we apply a
+            <strong>causal debiasing strategy</strong> inspired by regression adjustment.
+          </p>
+          <p>
+            We model the raw log-probability score via linear regression:
+          </p>
+          <div style="background: #f7f6fc; border-radius: 6px; padding: 14px 18px; margin: 12px 0; font-family: 'Noto Sans', monospace; font-size: 0.95rem;">
+            s<sup>logp</sup><sub>i</sub> = &beta;<sub>1</sub> s<sup>first</sup><sub>i</sub>
+            + &beta;<sub>2</sub> s<sup>drop</sup><sub>i</sub>
+            + &gamma; Z<sub>i</sub> + &epsilon;
+          </div>
+          <p>
+            where Z<sub>i</sub> = |S<sub>i</sub>| / T<sub>i</sub> is the <em>first-token ratio</em>
+            (the confounding factor), and &gamma; captures its confounding effect. We estimate
+            &beta;<sub>1</sub>, &beta;<sub>2</sub>, &gamma; via ordinary least squares, then
+            compute the <strong>deconfounded score</strong>:
+          </p>
+          <div style="background: #f7f6fc; border-radius: 6px; padding: 14px 18px; margin: 12px 0; font-family: 'Noto Sans', monospace; font-size: 0.95rem;">
+            s<sup>casl</sup><sub>i</sub> = s<sup>logp</sup><sub>i</sub> &minus; &gamma; Z<sub>i</sub>
+          </div>
+          <p>
+            This closed-form solution is highly efficient (fitting completes in seconds) and
+            preserves the informative first-token signal while removing the length-induced bias.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== EXPERIMENTS ==================== -->
+<section class="section" style="background: #faf9fd;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Experimental Results</h2>
+        <div class="content has-text-justified">
+          <p>
+            We evaluate our methods on two LLM reasoning datasets (<em>LIMO-v2</em> and
+            <em>AceReason-1.1-SFT</em>), training four target LLMs of varying sizes
+            (Qwen3-4B-Base, Qwen3-8B-Base, Qwen3-4B-Instruct, Qwen2.5-7B-Instruct),
+            and evaluating on five benchmarks (AIME24, AIME25, MATH500, OlympiadBench, GPQA).
+            We compare against two state-of-the-art naturalness-based selection methods:
+            <strong>GRACE</strong> and <strong>Local LP</strong>.
+          </p>
+        </div>
+
+        <!-- Key results table - LIMO-v2 -->
+        <div class="content">
+          <h3 class="title is-5" style="text-align: left; margin-bottom: 8px;">
+            Main Results on LIMO-v2
+          </h3>
+          <p class="has-text-justified" style="font-size: 0.93rem; margin-bottom: 12px;">
+            Select 4k from 16k responses (5 responses per source LLM × 4 LLMs × 800 problems).
+          </p>
+          <div style="overflow-x: auto;">
+            <table class="result-table">
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>Method</th>
+                  <th>AIME24</th>
+                  <th>AIME25</th>
+                  <th>MATH500</th>
+                  <th>OlympicB</th>
+                  <th><strong>Avg.</strong></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="4" style="font-weight:600; color:#4a3e80;">4B-Base</td>
+                  <td>GRACE</td>
+                  <td>16.66</td><td>15.83</td><td>59.40</td><td>33.33</td><td>31.42</td>
+                </tr>
+                <tr>
+                  <td>Local LP</td>
+                  <td>19.16</td><td>20.83</td><td>71.60</td><td>34.11</td><td>36.50</td>
+                </tr>
+                <tr class="ours">
+                  <td>+ ASLEC-drop (ours)</td>
+                  <td>30.00 <span class="up-arrow">&#8593;10.84</span></td>
+                  <td>28.33 <span class="up-arrow">&#8593;7.50</span></td>
+                  <td>77.80 <span class="up-arrow">&#8593;6.20</span></td>
+                  <td>38.38 <span class="up-arrow">&#8593;4.27</span></td>
+                  <td>44.64</td>
+                </tr>
+                <tr class="ours">
+                  <td><strong>+ ASLEC-casl (ours)</strong></td>
+                  <td class="best">31.66 <span class="up-arrow">&#8593;12.50</span></td>
+                  <td class="best">30.83 <span class="up-arrow">&#8593;10.00</span></td>
+                  <td class="best">80.00 <span class="up-arrow">&#8593;8.40</span></td>
+                  <td class="best">42.81 <span class="up-arrow">&#8593;8.70</span></td>
+                  <td class="best"><strong>47.54</strong></td>
+                </tr>
+                <tr><td colspan="7" style="background:#fff; padding:2px;"></td></tr>
+                <tr>
+                  <td rowspan="4" style="font-weight:600; color:#4a3e80;">8B-Base</td>
+                  <td>GRACE</td>
+                  <td>30.83</td><td>21.66</td><td>72.00</td><td>39.70</td><td>42.36</td>
+                </tr>
+                <tr>
+                  <td>Local LP</td>
+                  <td>34.16</td><td>20.83</td><td>76.60</td><td>42.81</td><td>44.06</td>
+                </tr>
+                <tr class="ours">
+                  <td>+ ASLEC-drop (ours)</td>
+                  <td>41.66 <span class="up-arrow">&#8593;10.50</span></td>
+                  <td>36.66 <span class="up-arrow">&#8593;15.83</span></td>
+                  <td>81.40 <span class="up-arrow">&#8593;4.80</span></td>
+                  <td>47.85 <span class="up-arrow">&#8593;5.04</span></td>
+                  <td>52.92</td>
+                </tr>
+                <tr class="ours">
+                  <td><strong>+ ASLEC-casl (ours)</strong></td>
+                  <td class="best">45.00 <span class="up-arrow">&#8593;13.34</span></td>
+                  <td class="best">37.50 <span class="up-arrow">&#8593;16.67</span></td>
+                  <td class="best">85.40 <span class="up-arrow">&#8593;8.80</span></td>
+                  <td class="best">49.03 <span class="up-arrow">&#8593;6.22</span></td>
+                  <td class="best"><strong>56.15</strong></td>
+                </tr>
+                <tr><td colspan="7" style="background:#fff; padding:2px;"></td></tr>
+                <tr>
+                  <td rowspan="4" style="font-weight:600; color:#4a3e80;">4B-Instruct</td>
+                  <td>GRACE</td>
+                  <td>59.16</td><td>50.00</td><td>79.36</td><td>47.79</td><td>63.82</td>
+                </tr>
+                <tr>
+                  <td>Local LP</td>
+                  <td>61.66</td><td>49.16</td><td>80.75</td><td>50.14</td><td>65.84</td>
+                </tr>
+                <tr class="ours">
+                  <td>+ ASLEC-drop (ours)</td>
+                  <td>69.16 <span class="up-arrow">&#8593;7.50</span></td>
+                  <td>56.66 <span class="up-arrow">&#8593;7.50</span></td>
+                  <td>89.88 <span class="up-arrow">&#8593;9.13</span></td>
+                  <td>57.64 <span class="up-arrow">&#8593;7.50</span></td>
+                  <td>72.77</td>
+                </tr>
+                <tr class="ours">
+                  <td><strong>+ ASLEC-casl (ours)</strong></td>
+                  <td class="best">71.66 <span class="up-arrow">&#8593;10.00</span></td>
+                  <td class="best">58.33 <span class="up-arrow">&#8593;9.17</span></td>
+                  <td class="best">93.20 <span class="up-arrow">&#8593;12.45</span></td>
+                  <td class="best">60.44 <span class="up-arrow">&#8593;10.30</span></td>
+                  <td class="best"><strong>76.16</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="figure-caption" style="margin-top: 10px;">
+            Table 1. Experimental results on LIMO-v2. Red arrows indicate improvement over Local LP (SOTA baseline). Bold: best score.
+          </p>
+        </div>
+
+        <!-- Confounding alleviation -->
+        <div class="content has-text-justified" style="margin-top: 28px;">
+          <h3 class="title is-5" style="text-align: left; margin-bottom: 8px;">
+            Analysis: Alleviating Step Length Confounding
+          </h3>
+          <p>
+            Beyond performance improvements, we verify that our methods directly reduce the step
+            length confounding effect. The figure below shows that data selected by ASLEC-drop and
+            ASLEC-casl exhibits a <strong>much more balanced step-length distribution</strong>
+            between selected and unselected samples, in stark contrast to prior methods.
+          </p>
+        </div>
+
+        <div class="content has-text-centered">
+          <img src="./sources/ACL2026_Exp.png" alt="Alleviating confounding analysis" style="max-width: 100%; height: auto; border-radius: 6px;">
+          <p class="figure-caption">
+            Figure 4. Step length distributions for data <em>selected</em> vs. <em>unselected</em>
+            by our two proposed variants. Both methods yield markedly smaller step-length disparities.
+          </p>
+        </div>
+
+        <!-- Overall improvement summary -->
+        <div class="highlight-box" style="margin-top: 24px; text-align: left;">
+          <strong>Overall Gains.</strong>
+          Across four LLMs and two datasets, our methods achieve average accuracy improvements of
+          <strong>+6.28%</strong> (ASLEC-drop) and <strong>+9.08%</strong> (ASLEC-casl) over
+          the SOTA naturalness-based selection method Local LP. ASLEC-casl consistently outperforms
+          ASLEC-drop, demonstrating the value of preserving first-token information through
+          causal debiasing rather than simply discarding it.
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== CONTRIBUTIONS ==================== -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Key Contributions</h2>
+        <div class="content has-text-justified">
+          <div class="contribution-item">
+            <div class="contribution-icon">1</div>
+            <div>
+              <strong>Discovery of Step Length Confounding.</strong>
+              Through extensive experiments, we identify a systematic step length confounding
+              problem in existing naturalness-based LLM reasoning data selection methods, and
+              reveal that the root cause lies in the <em>low-probability first token</em> of
+              each reasoning step.
+            </div>
+          </div>
+          <div class="contribution-item">
+            <div class="contribution-icon">2</div>
+            <div>
+              <strong>Two Efficient Debiasing Variants.</strong>
+              We propose ASLEC-drop and ASLEC-casl, which alleviate step length confounding by
+              intervening on the first-token probability when computing the global average log
+              probability. Both methods add negligible computational overhead.
+            </div>
+          </div>
+          <div class="contribution-item">
+            <div class="contribution-icon">3</div>
+            <div>
+              <strong>Extensive Empirical Validation.</strong>
+              Experiments across 4 LLMs, 2 SFT datasets, and 5 evaluation benchmarks demonstrate
+              consistent and significant improvements over existing naturalness-based selection
+              methods, with particular gains in low-resource SFT scenarios.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== BIBTEX ==================== -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{wang2026aslec,
+  title     = {On the Step Length Confounding in {LLM} Reasoning Data Selection},
+  author    = {Bing Wang and Rui Miao and Chen Shen and Shaotian Yan and Kaiyuan Liu and Ximing Li and Xiaosong Yuan and Sinan Fan and Jun Zhang and Jieping Ye},
+  booktitle = {Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics},
+  year      = {2026}
+}</code></pre>
+  </div>
+</section>
+
+
+<!-- ==================== ORG LOGOS ==================== -->
+<section>
+  <div class="section" id="org-banners" style="text-align: center; padding-top: 10px; padding-bottom: 20px; display: flex; justify-content: center; align-items: center;">
+    <a href="https://www.jlu.edu.cn" target="_blank" rel="external">
+      <img class="org-banner" src="static/images/jlulogo.jpg" alt="JLU Logo"
+           style="height: 100px; width: auto; margin-right: 20px;">
+    </a>
+    <a href="https://ccst.jlu.edu.cn" target="_blank" rel="external">
+      <img class="org-banner" src="static/images/ccstlogo.png" alt="CCST Logo"
+           style="height: 100px; width: auto; margin-right: 20px;">
+    </a>
+    <a href="https://www.aliyun.com" target="_blank" rel="external">
+      <img class="org-banner" src="static/images/alibaba-inc.png" alt="Alibaba Cloud Logo"
+           style="height: 40px; width: auto; margin-right: 20px;">
+    </a>
+  </div>
+</section>
+
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://anonymous.4open.science/r/ASLEC-441F" class="external-link">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the
+            <a href="https://github.com/nerfies/nerfies.github.io">source code</a>
+            of this website, we just ask that you link back to this page in the footer.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
