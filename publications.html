@@ -167,82 +167,214 @@
             <a class="block px-3 py-2 text-base font-medium transition-colors rounded-md text-neutral-600 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800" href="cv.html">CV</a>
         </div>
     </div>
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="mb-8">
-            <h1 class="text-4xl font-serif font-bold text-primary dark:text-white mb-4">Publications</h1>
-            <p class="text-lg text-neutral-600 dark:text-neutral-500 max-w-2xl">A collection of my research work.</p>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="mb-6">
+            <h1 class="text-4xl font-serif font-bold text-primary dark:text-white mb-1">Publications</h1>
+            <p class="text-neutral-600 dark:text-neutral-500 max-w-2xl">A collection of my research work.</p>
         </div>
         
         <style>
-    /* CSS for Automatic Numbering (CSS Counters) */
-    .publication-list {
-        /* 初始化计数器 */
+    /* ==========================================================
+       Publications — 紧凑列表式排版
+       去掉逐条卡片容器，改用分隔线 + 序号栏承载视觉层次
+       ========================================================== */
+
+    /* ---- 分区跳转导航 ---- */
+    .pub-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-bottom: 1.35rem;
+    }
+    .pub-nav a {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 0.4rem;
+        padding: 0.28rem 0.7rem;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        line-height: 1.2;
+        color: var(--neutral-600);
+        background: var(--neutral-100);
+        border: 1px solid var(--neutral-200);
+        text-decoration: none;
+        transition: color .18s, background-color .18s, border-color .18s;
+    }
+    .pub-nav a:hover {
+        color: #3a2a0e;
+        background: var(--accent);
+        border-color: var(--accent);
+    }
+    .pub-nav a span {
+        font-size: 0.7rem;
+        font-weight: 700;
+        opacity: 0.65;
+    }
+
+    /* ---- 分区标题 ---- */
+    .pub-section { scroll-margin-top: 6rem; }
+    .pub-section + .pub-section { margin-top: 1.9rem; }
+    .sec-head {
+        display: flex;
+        align-items: baseline;
+        gap: 0.55rem;
+        margin: 0 0 0.3rem;
+        padding-bottom: 0.35rem;
+        border-bottom: 2px solid color-mix(in oklab, var(--accent) 42%, transparent);
+    }
+    .sec-head h2 {
+        margin: 0;
+        font-family: "Crimson Text", Georgia, serif;
+        font-size: 1.5rem;
+        line-height: 1.2;
+        font-weight: 700;
+        color: var(--primary);
+    }
+    .sec-count {
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        color: var(--neutral-600);
+        background: color-mix(in oklab, var(--accent) 18%, transparent);
+        padding: 0.1rem 0.45rem;
+        border-radius: 999px;
+    }
+
+    /* ---- 论文列表 ---- */
+    .pub-list {
         counter-reset: pub-counter;
         list-style: none;
+        margin: 0;
+        padding: 0;
     }
-
-    .publication-card {
-        /* 每遇到一个卡片，计数器加一 */
+    .pub-item {
         counter-increment: pub-counter;
         position: relative;
+        padding: 0.55rem 0.55rem 0.55rem 2.3rem;
+        border-bottom: 1px solid var(--neutral-200);
+        border-radius: 6px;
+        transition: background-color .18s;
     }
-
-    .publication-card h3 {
-        display: flex; /* 使得序号和标题可以在同一行对齐 */
-    }
-
-    .publication-card h3::before {
-        /* 显示计数器值作为序号 */
-        content: counter(pub-counter) ". ";
-        color: #A0522D; /* 序号使用棕色 */
+    .pub-item:last-child { border-bottom: 0; }
+    .pub-item:hover { background: color-mix(in oklab, var(--accent) 9%, transparent); }
+    .pub-item::before {
+        content: counter(pub-counter);
+        position: absolute;
+        left: 0;
+        top: 0.62rem;
+        width: 1.8rem;
+        text-align: right;
+        font-size: 0.75rem;
         font-weight: 600;
-        margin-right: 0.5rem;
-        flex-shrink: 0; /* 防止序号被压缩 */
+        color: var(--neutral-400);
+        font-variant-numeric: tabular-nums;
+        transition: color .18s;
+    }
+    .pub-item:hover::before { color: var(--accent-dark); }
+
+    .pub-title {
+        margin: 0 0 0.1rem;
+        font-family: "Crimson Text", Georgia, serif;
+        font-size: 1.0625rem;
+        line-height: 1.35;
+        font-weight: 700;
+        color: var(--primary);
+    }
+    .pub-authors {
+        margin: 0 0 0.18rem;
+        font-size: 0.8125rem;
+        line-height: 1.45;
+        color: var(--neutral-600);
+    }
+    .pub-meta {
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.22rem 0.4rem;
+        font-size: 0.78rem;
+        line-height: 1.4;
+    }
+    .pub-venue {
+        color: var(--neutral-500);
+        font-style: italic;
     }
 
-    /* CSS for Brown Tag Color */
-    .bg-brown {
-        background-color: #A0522D; /* 统一的棕色背景 */
+    /* ---- 标签与链接徽章 ---- */
+    .pub-tag,
+    .pub-link {
+        display: inline-flex;
+        align-items: center;
+        white-space: nowrap;
+        padding: 0.06rem 0.4rem;
+        border-radius: 4px;
+        font-size: 0.68rem;
+        font-weight: 600;
+        line-height: 1.55;
     }
-    
-    /* 紧凑布局样式 */
-    .publication-card {
-        padding: 1rem 1.25rem !important; /* 减少内边距 */
+    /* 次级等级：描边 */
+    .pub-tag {
+        border: 1px solid var(--neutral-300);
+        color: var(--neutral-600);
+        letter-spacing: 0.02em;
     }
-    
-    .publication-card h3 {
-        margin-bottom: 0.5rem !important; /* 减少标题下边距 */
-        line-height: 1.4; /* 更紧凑的行高 */
+    /* 顶级等级：实心强调色 */
+    .pub-tag.is-top {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #fff;
     }
-    
-    .publication-card p {
-        margin-bottom: 0.25rem !important; /* 减少段落下边距 */
-        line-height: 1.4; /* 更紧凑的行高 */
+    .pub-link {
+        border: 1px solid var(--neutral-200);
+        background: var(--neutral-50);
+        color: var(--neutral-600);
+        text-decoration: none;
+        transition: color .16s, background-color .16s, border-color .16s;
     }
-    
-    .publication-card .flex.flex-wrap.gap-2 {
-        margin-top: 0.5rem !important; /* 减少标签区域的上边距 */
-        gap: 0.375rem !important; /* 减小标签间距 */
+    .pub-link:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #3a2a0e;
     }
-    
-    .space-y-4 {
-        row-gap: 0.75rem !important; /* 减小卡片之间的垂直间距 */
+
+    @media (max-width: 640px) {
+        .pub-item { padding-left: 1.75rem; padding-right: 0.25rem; }
+        .pub-item::before { width: 1.3rem; }
+        .pub-title { font-size: 1rem; }
+        .sec-head h2 { font-size: 1.3rem; }
     }
 </style>
 
-<div>
-    <h2 class="text-3xl font-serif font-bold text-primary dark:text-white mb-6"><a name="conference"></a>Conference Papers</h2>
-    <div class="space-y-4 publication-list" id="conf-list"></div>
-            
-            <br>
+        <nav class="pub-nav" aria-label="Jump to section">
+            <a href="#conference">Conference Papers <span data-count="conf"></span></a>
+            <a href="#journal">Journal Articles <span data-count="jour"></span></a>
+            <a href="#preprint">Preprints <span data-count="prep"></span></a>
+        </nav>
 
-    
-            <h2 class="text-3xl font-serif font-bold text-primary dark:text-white mb-6 mt-10"><a name="journal"></a>Journal Articles</h2>
-            <div class="space-y-4 publication-list" id="journal-list"></div>
+        <section class="pub-section" id="conference">
+            <div class="sec-head">
+                <h2>Conference Papers</h2>
+                <span class="sec-count" data-count="conf"></span>
+            </div>
+            <ol class="pub-list" id="conf-list"></ol>
+        </section>
 
-            <h2 class="text-3xl font-serif font-bold text-primary dark:text-white mb-6 mt-10"><a name="preprint"></a>Preprint Papers</h2>
-            <div class="space-y-4 publication-list" id="preprint-list"></div>
-        </div>
+        <section class="pub-section" id="journal">
+            <div class="sec-head">
+                <h2>Journal Articles</h2>
+                <span class="sec-count" data-count="jour"></span>
+            </div>
+            <ol class="pub-list" id="journal-list"></ol>
+        </section>
+
+        <section class="pub-section" id="preprint">
+            <div class="sec-head">
+                <h2>Preprint Papers</h2>
+                <span class="sec-count" data-count="prep"></span>
+            </div>
+            <ol class="pub-list" id="preprint-list"></ol>
+        </section>
     </div>
 
     <script>
@@ -594,43 +726,43 @@
             }
         ];
 
+        // 顶级等级标签使用实心强调色，其余使用描边样式
+        const TOP_TIER_TAGS = ['CCF-A', 'THU-A'];
+
         // 渲染函数
-        function renderList(containerId, papers) {
+        function renderList(containerId, papers, countKey) {
             const container = document.getElementById(containerId);
             if (!container) return;
 
-            let html = '';
-            papers.forEach(paper => {
-                let tagsHtml = '';
-                paper.tags.forEach(tag => {
-                    tagsHtml += `<span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-accent text-white">${tag}</span>`;
+            container.innerHTML = papers.map(paper => {
+                const tagsHtml = (paper.tags || []).map(tag => {
+                    const cls = TOP_TIER_TAGS.includes(tag) ? 'pub-tag is-top' : 'pub-tag';
+                    return `<span class="${cls}">${tag}</span>`;
+                }).join('');
+
+                const linksHtml = (paper.links || []).map(link =>
+                    `<a class="pub-link" href="${link[1]}" target="_blank" rel="noopener noreferrer">${link[0]}</a>`
+                ).join('');
+
+                return `<li class="pub-item">
+                    <h3 class="pub-title">${paper.title}</h3>
+                    <p class="pub-authors">${paper.authors}</p>
+                    <p class="pub-meta">${tagsHtml}${linksHtml}<span class="pub-venue">${paper.venue}</span></p>
+                </li>`;
+            }).join('');
+
+            if (countKey) {
+                document.querySelectorAll(`[data-count="${countKey}"]`).forEach(el => {
+                    el.textContent = papers.length;
                 });
-
-                let linksHtml = '';
-                paper.links.forEach(link => {
-                    linksHtml += `<a href="${link[1]}" target="_blank" class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white">${link[0]}</a>`;
-                });
-
-                html += `
-                <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-md transition-all duration-200 publication-card">
-                    <h3 class="text-xl font-serif font-bold text-primary dark:text-white mb-2">${paper.title}</h3>
-                    <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">${paper.authors}</p>
-                    <p class="text-sm text-neutral-500 mb-2"><em>${paper.venue}</em></p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        ${tagsHtml}
-                        ${linksHtml}
-                    </div>
-                </div>`;
-            });
-
-            container.innerHTML = html;
+            }
         }
 
         // 页面加载后渲染
         window.addEventListener('DOMContentLoaded', () => {
-            renderList('conf-list', _conf);
-            renderList('journal-list', _jour);
-            renderList('preprint-list', _prep);
+            renderList('conf-list', _conf, 'conf');
+            renderList('journal-list', _jour, 'jour');
+            renderList('preprint-list', _prep, 'prep');
         });
     </script>
 </main>

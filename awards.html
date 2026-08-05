@@ -167,133 +167,335 @@
             <a class="block px-3 py-2 text-base font-medium transition-colors rounded-md text-neutral-600 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800" href="cv.html">CV</a>
         </div>
     </div>
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="mb-8">
-            <h1 class="text-4xl font-serif font-bold text-primary dark:text-white mb-4">Awards</h1>
-            <p class="text-lg text-neutral-600 dark:text-neutral-500 max-w-2xl">Honors and awards I have received.</p>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="mb-6">
+            <h1 class="text-4xl font-serif font-bold text-primary dark:text-white mb-1">Awards</h1>
+            <p class="text-neutral-600 dark:text-neutral-500 max-w-2xl">Honors and awards I have received.</p>
         </div>
         
         <style>
-            /* 紧凑布局样式 */
-            .award-card {
-                padding: 1rem 1.25rem !important; /* 减少内边距 */
+            /* ======================================================
+               Awards — 年份时间轴式紧凑排版
+               左栏年份 + 右栏条目列表，去掉逐条卡片容器
+               ====================================================== */
+
+            /* ---- 概览统计 ---- */
+            .aw-stats {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.4rem;
+                margin-bottom: 1.5rem;
             }
-            
-            .award-card h2 {
-                margin-bottom: 0.375rem !important; /* 减少标题下边距 */
+            .aw-stat {
+                display: inline-flex;
+                align-items: baseline;
+                gap: 0.32rem;
+                padding: 0.28rem 0.7rem;
+                border-radius: 999px;
+                font-size: 0.78rem;
+                font-weight: 500;
+                line-height: 1.2;
+                color: var(--neutral-600);
+                background: var(--neutral-100);
+                border: 1px solid var(--neutral-200);
             }
-            
-            .award-card p {
-                margin-bottom: 0.25rem !important; /* 减少段落下边距 */
+            .aw-stat b {
+                font-size: 0.86rem;
+                font-weight: 700;
+                color: var(--accent-dark);
+                font-variant-numeric: tabular-nums;
             }
-            
-            .award-card p.text-xs {
-                margin-top: 0.375rem !important; /* 减小顶部间距 */
+
+            /* ---- 时间轴分组 ---- */
+            .aw-group {
+                display: grid;
+                grid-template-columns: 4.5rem 1fr;
+                column-gap: 1.1rem;
+                align-items: start;
             }
-            
-            .space-y-6 {
-                row-gap: 0.75rem !important; /* 减小卡片之间的垂直间距 */
+            .aw-group + .aw-group { margin-top: 0.4rem; }
+
+            .aw-year {
+                grid-column: 1;
+                align-self: start;
+                position: sticky;
+                top: 6rem;
+                margin: 0.5rem 0 0;
+                font-family: "Crimson Text", Georgia, serif;
+                font-size: 1.4rem;
+                font-weight: 700;
+                line-height: 1;
+                color: var(--accent-dark);
+                text-align: right;
+                font-variant-numeric: tabular-nums;
             }
-            
-            h3.text-2xl {
-                margin-top: 1.5rem !important; /* 减去年份标题的上边距 */
-                margin-bottom: 0.75rem !important; /* 减去年份标题的下边距 */
+
+            .aw-list {
+                grid-column: 2;
+                list-style: none;
+                margin: 0;
+                padding: 0 0 0 1.1rem;
+                border-left: 1px solid var(--neutral-200);
+            }
+
+            /* ---- 单条奖项 ---- */
+            .aw-item {
+                position: relative;
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                gap: 0.85rem;
+                padding: 0.42rem 0.5rem 0.42rem 0;
+                border-radius: 6px;
+                transition: background-color .18s;
+            }
+            .aw-item:hover { background: color-mix(in oklab, var(--accent) 9%, transparent); }
+            .aw-item::before {
+                content: "";
+                position: absolute;
+                left: calc(-1.1rem - 3.5px);
+                top: 0.82rem;
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                background: var(--neutral-300);
+                transition: background-color .18s, transform .18s;
+            }
+            .aw-item:hover::before {
+                background: var(--accent);
+                transform: scale(1.25);
+            }
+
+            .aw-body { min-width: 0; }
+            .aw-title {
+                margin: 0;
+                font-family: "Crimson Text", Georgia, serif;
+                font-size: 1.0625rem;
+                line-height: 1.35;
+                font-weight: 700;
+                color: var(--primary);
+            }
+            .aw-cn {
+                font-family: var(--font-sans), sans-serif;
+                font-size: 0.8rem;
+                font-weight: 400;
+                color: var(--neutral-500);
+                white-space: nowrap;
+            }
+            .aw-org {
+                margin: 0.03rem 0 0;
+                font-size: 0.78rem;
+                line-height: 1.4;
+                color: var(--neutral-500);
+            }
+
+            .aw-links {
+                flex-shrink: 0;
+                display: flex;
+                gap: 0.3rem;
+                padding-top: 0.22rem;
+            }
+            .aw-link {
+                display: inline-flex;
+                align-items: center;
+                white-space: nowrap;
+                padding: 0.06rem 0.4rem;
+                border-radius: 4px;
+                border: 1px solid var(--neutral-200);
+                background: var(--neutral-50);
+                color: var(--neutral-600);
+                font-size: 0.68rem;
+                font-weight: 600;
+                line-height: 1.55;
+                text-decoration: none;
+                transition: color .16s, background-color .16s, border-color .16s;
+            }
+            .aw-link:hover {
+                background: var(--accent);
+                border-color: var(--accent);
+                color: #3a2a0e;
+            }
+
+            @media (max-width: 640px) {
+                .aw-group { grid-template-columns: 1fr; column-gap: 0; }
+                .aw-group + .aw-group { margin-top: 0.1rem; }
+                .aw-year {
+                    position: static;
+                    grid-column: 1;
+                    text-align: left;
+                    font-size: 1.25rem;
+                    margin: 0.9rem 0 0.3rem;
+                }
+                .aw-list { grid-column: 1; padding-left: 0.9rem; }
+                .aw-item {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 0.25rem;
+                }
+                .aw-item::before { left: calc(-0.9rem - 3.5px); }
+                .aw-links { padding-top: 0; }
+                .aw-cn { white-space: normal; }
+                .aw-title { font-size: 1rem; }
             }
         </style>
         
-        <div class="space-y-6">
-            <h3 class="text-2xl font-serif font-bold text-primary dark:text-white mt-8 mb-4">2026</h3>
-            
-            <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 award-card">
-                <h2 class="text-xl font-serif font-bold text-accent mb-1">Top-10 Doctoral Students Nomination Award (十佳博士研究生提名奖)</h2>
-                <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Jilin University, Awarded in 2026 <a href="https://ccst.jlu.edu.cn/info/1229/21065.htm" target="_blank" class="text-accent hover:text-accent/80 transition-colors">[Official]</a></p>
-            </div>
-            
-            <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 award-card">
-                <h2 class="text-xl font-serif font-bold text-accent mb-1">FAW Hongqi Award Fund (一汽红旗励奖基金)</h2>
-                <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Jilin University / FAW Hongqi, Awarded in 2026 <a href="https://ccst.jlu.edu.cn/info/1229/21093.htm" target="_blank" class="text-accent hover:text-accent/80 transition-colors">[Official]</a></p>
-            </div>
+        <div class="aw-stats">
+            <span class="aw-stat"><b>16</b> Honors</span>
+            <span class="aw-stat"><b>6</b> Award Years</span>
+            <span class="aw-stat">2020 &ndash; 2026</span>
+        </div>
 
-            <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 award-card">
-                <h2 class="text-xl font-serif font-bold text-accent mb-1">Outstanding Doctoral Dissertation (优秀博士毕业论文)</h2>
-                <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Jilin University, Awarded in 2026</p>
-            </div>
-            
-            <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 award-card">
-                <h2 class="text-xl font-serif font-bold text-accent mb-1">Outstanding Graduate (优秀毕业研究生)</h2>
-                <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Jilin University, Awarded in 2026 <a href="https://ccst.jlu.edu.cn/info/1229/21037.htm" target="_blank" class="text-accent hover:text-accent/80 transition-colors">[Official]</a></p>
-            </div>
-            
-            <h3 class="text-2xl font-serif font-bold text-primary dark:text-white mt-8 mb-4">2025</h3>
-            
-            <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 award-card">
-                <h2 class="text-xl font-serif font-bold text-accent mb-1">National Scholarship (国家奖学金)</h2>
-                <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Ministry of Education, China, Awarded in 2025 <a href="https://ccst.jlu.edu.cn/info/1229/20683.htm" target="_blank" class="text-accent hover:text-accent/80 transition-colors">[Official]</a></p>
-            </div>
+        <div class="aw-timeline">
 
-            <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 award-card">
-                <h2 class="text-xl font-serif font-bold text-accent mb-1">Jilin Bank Wang Xianghao First-Class Scholarship (吉林银行王湘浩一等奖学金)</h2>
-                <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Jilin University / Jilin Bank, Awarded in 2025</p>
-            </div>
-            
-            <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 award-card">
-                <h2 class="text-xl font-serif font-bold text-accent mb-1">First-prize Graduate Outstanding Scholarship (一等研究生优秀奖学金)</h2>
-                <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Jilin University, Awarded in 2025 <a href="https://ccst.jlu.edu.cn/info/1229/20590.htm" target="_blank" class="text-accent hover:text-accent/80 transition-colors">[Official]</a></p>
-            </div>
-            
-            <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 award-card">
-                <h2 class="text-xl font-serif font-bold text-accent mb-1">Outstanding Graduate Student (优秀研究生)</h2>
-                <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Jilin University, Awarded in 2025 <a href="https://ccst.jlu.edu.cn/info/1229/20590.htm" target="_blank" class="text-accent hover:text-accent/80 transition-colors">[Official]</a></p>
-            </div>
+            <section class="aw-group">
+                <h2 class="aw-year">2026</h2>
+                <ul class="aw-list">
+                    <li class="aw-item">
+                        <div class="aw-body">
+                            <h3 class="aw-title">Top-10 Doctoral Students Nomination Award <span class="aw-cn">十佳博士研究生提名奖</span></h3>
+                            <p class="aw-org">Jilin University</p>
+                        </div>
+                        <span class="aw-links"><a class="aw-link" href="https://ccst.jlu.edu.cn/info/1229/21065.htm" target="_blank" rel="noopener noreferrer">Official</a></span>
+                    </li>
+                    <li class="aw-item">
+                        <div class="aw-body">
+                            <h3 class="aw-title">FAW Hongqi Award Fund <span class="aw-cn">一汽红旗励奖基金</span></h3>
+                            <p class="aw-org">Jilin University / FAW Hongqi</p>
+                        </div>
+                        <span class="aw-links"><a class="aw-link" href="https://ccst.jlu.edu.cn/info/1229/21093.htm" target="_blank" rel="noopener noreferrer">Official</a></span>
+                    </li>
+                    <li class="aw-item">
+                        <div class="aw-body">
+                            <h3 class="aw-title">Outstanding Doctoral Dissertation <span class="aw-cn">优秀博士毕业论文</span></h3>
+                            <p class="aw-org">Jilin University</p>
+                        </div>
+                    </li>
+                    <li class="aw-item">
+                        <div class="aw-body">
+                            <h3 class="aw-title">Outstanding Graduate <span class="aw-cn">优秀毕业研究生</span></h3>
+                            <p class="aw-org">Jilin University</p>
+                        </div>
+                        <span class="aw-links"><a class="aw-link" href="https://ccst.jlu.edu.cn/info/1229/21037.htm" target="_blank" rel="noopener noreferrer">Official</a></span>
+                    </li>
+                </ul>
+            </section>
 
-            <h3 class="text-2xl font-serif font-bold text-primary dark:text-white mt-8 mb-4">2024</h3>
+            <section class="aw-group">
+                <h2 class="aw-year">2025</h2>
+                <ul class="aw-list">
+                    <li class="aw-item">
+                        <div class="aw-body">
+                            <h3 class="aw-title">National Scholarship <span class="aw-cn">国家奖学金</span></h3>
+                            <p class="aw-org">Ministry of Education, China</p>
+                        </div>
+                        <span class="aw-links"><a class="aw-link" href="https://ccst.jlu.edu.cn/info/1229/20683.htm" target="_blank" rel="noopener noreferrer">Official</a></span>
+                    </li>
+                    <li class="aw-item">
+                        <div class="aw-body">
+                            <h3 class="aw-title">Jilin Bank Wang Xianghao First-Class Scholarship <span class="aw-cn">吉林银行王湘浩一等奖学金</span></h3>
+                            <p class="aw-org">Jilin University / Jilin Bank</p>
+                        </div>
+                    </li>
+                    <li class="aw-item">
+                        <div class="aw-body">
+                            <h3 class="aw-title">First-prize Graduate Outstanding Scholarship <span class="aw-cn">一等研究生优秀奖学金</span></h3>
+                            <p class="aw-org">Jilin University</p>
+                        </div>
+                        <span class="aw-links"><a class="aw-link" href="https://ccst.jlu.edu.cn/info/1229/20590.htm" target="_blank" rel="noopener noreferrer">Official</a></span>
+                    </li>
+                    <li class="aw-item">
+                        <div class="aw-body">
+                            <h3 class="aw-title">Outstanding Graduate Student <span class="aw-cn">优秀研究生</span></h3>
+                            <p class="aw-org">Jilin University</p>
+                        </div>
+                        <span class="aw-links"><a class="aw-link" href="https://ccst.jlu.edu.cn/info/1229/20590.htm" target="_blank" rel="noopener noreferrer">Official</a></span>
+                    </li>
+                </ul>
+            </section>
 
-            <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 award-card">
-                <h2 class="text-xl font-serif font-bold text-accent mb-1">National Scholarship (国家奖学金)</h2>
-                <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Ministry of Education, China, Awarded in 2024 <a href="https://ccst.jlu.edu.cn/info/1229/20063.htm" target="_blank" class="text-accent hover:text-accent/80 transition-colors">[Official]</a></p>
-            </div>
-            
-            <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 award-card">
-                <h2 class="text-xl font-serif font-bold text-accent mb-1">Academic Performance Scholarship (学术业绩奖学金)</h2>
-                <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Jilin University, Awarded in 2024 <a href="https://ccst.jlu.edu.cn/info/1229/20655.htm" target="_blank" class="text-accent hover:text-accent/80 transition-colors">[Official]</a></p>
-            </div>
-            
-            <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 award-card">
-                <h2 class="text-xl font-serif font-bold text-accent mb-1">First-prize Graduate Outstanding Scholarship (一等研究生优秀奖学金)</h2>
-                <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Jilin University, Awarded in 2024 <a href="https://ccst.jlu.edu.cn/info/1229/19909.htm" target="_blank" class="text-accent hover:text-accent/80 transition-colors">[Official]</a></p>
-            </div>
-            
-            <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 award-card">
-                <h2 class="text-xl font-serif font-bold text-accent mb-1">Outstanding Graduate Student (优秀研究生)</h2>
-                <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Jilin University, Awarded in 2024 <a href="https://ccst.jlu.edu.cn/info/1229/19909.htm" target="_blank" class="text-accent hover:text-accent/80 transition-colors">[Official]</a></p>
-            </div>
+            <section class="aw-group">
+                <h2 class="aw-year">2024</h2>
+                <ul class="aw-list">
+                    <li class="aw-item">
+                        <div class="aw-body">
+                            <h3 class="aw-title">National Scholarship <span class="aw-cn">国家奖学金</span></h3>
+                            <p class="aw-org">Ministry of Education, China</p>
+                        </div>
+                        <span class="aw-links"><a class="aw-link" href="https://ccst.jlu.edu.cn/info/1229/20063.htm" target="_blank" rel="noopener noreferrer">Official</a></span>
+                    </li>
+                    <li class="aw-item">
+                        <div class="aw-body">
+                            <h3 class="aw-title">Academic Performance Scholarship <span class="aw-cn">学术业绩奖学金</span></h3>
+                            <p class="aw-org">Jilin University</p>
+                        </div>
+                        <span class="aw-links"><a class="aw-link" href="https://ccst.jlu.edu.cn/info/1229/20655.htm" target="_blank" rel="noopener noreferrer">Official</a></span>
+                    </li>
+                    <li class="aw-item">
+                        <div class="aw-body">
+                            <h3 class="aw-title">First-prize Graduate Outstanding Scholarship <span class="aw-cn">一等研究生优秀奖学金</span></h3>
+                            <p class="aw-org">Jilin University</p>
+                        </div>
+                        <span class="aw-links"><a class="aw-link" href="https://ccst.jlu.edu.cn/info/1229/19909.htm" target="_blank" rel="noopener noreferrer">Official</a></span>
+                    </li>
+                    <li class="aw-item">
+                        <div class="aw-body">
+                            <h3 class="aw-title">Outstanding Graduate Student <span class="aw-cn">优秀研究生</span></h3>
+                            <p class="aw-org">Jilin University</p>
+                        </div>
+                        <span class="aw-links"><a class="aw-link" href="https://ccst.jlu.edu.cn/info/1229/19909.htm" target="_blank" rel="noopener noreferrer">Official</a></span>
+                    </li>
+                </ul>
+            </section>
 
-            <h3 class="text-2xl font-serif font-bold text-primary dark:text-white mt-8 mb-4">2023</h3>
+            <section class="aw-group">
+                <h2 class="aw-year">2023</h2>
+                <ul class="aw-list">
+                    <li class="aw-item">
+                        <div class="aw-body">
+                            <h3 class="aw-title">Outstanding Graduate <span class="aw-cn">优秀毕业研究生</span></h3>
+                            <p class="aw-org">Jilin University</p>
+                        </div>
+                        <span class="aw-links">
+                            <a class="aw-link" href="http://ccst.jlu.edu.cn/info/1229/18182.htm" target="_blank" rel="noopener noreferrer">Official 1</a>
+                            <a class="aw-link" href="https://oa.jlu.edu.cn/defaultroot/PortalInformation!getInformation.action?id=40342624&amp;channelId=179577" target="_blank" rel="noopener noreferrer">Official 2</a>
+                        </span>
+                    </li>
+                </ul>
+            </section>
 
-            <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 award-card">
-                <h2 class="text-xl font-serif font-bold text-accent mb-1">Outstanding Graduate (优秀毕业研究生)</h2>
-                <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Jilin University, Awarded in 2023 <a href="http://ccst.jlu.edu.cn/info/1229/18182.htm" target="_blank" class="text-accent hover:text-accent/80 transition-colors">[Official-1]</a> <a href="https://oa.jlu.edu.cn/defaultroot/PortalInformation!getInformation.action?id=40342624&channelId=179577" target="_blank" class="text-accent hover:text-accent/80 transition-colors">[Official-2]</a></p>
-            </div>
-            
-            <h3 class="text-2xl font-serif font-bold text-primary dark:text-white mt-8 mb-4">2022</h3>
+            <section class="aw-group">
+                <h2 class="aw-year">2022</h2>
+                <ul class="aw-list">
+                    <li class="aw-item">
+                        <div class="aw-body">
+                            <h3 class="aw-title">Graduate Outstanding Scholarship <span class="aw-cn">研究生优秀奖学金</span></h3>
+                            <p class="aw-org">Jilin University</p>
+                        </div>
+                        <span class="aw-links"><a class="aw-link" href="http://ccst.jlu.edu.cn/info/1229/16660.htm" target="_blank" rel="noopener noreferrer">Official</a></span>
+                    </li>
+                    <li class="aw-item">
+                        <div class="aw-body">
+                            <h3 class="aw-title">Graduate Academic Scholarship <span class="aw-cn">研究生学业奖学金</span></h3>
+                            <p class="aw-org">Jilin University</p>
+                        </div>
+                        <span class="aw-links"><a class="aw-link" href="http://ccst.jlu.edu.cn/info/1229/16657.htm" target="_blank" rel="noopener noreferrer">Official</a></span>
+                    </li>
+                </ul>
+            </section>
 
-            <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 award-card">
-                <h2 class="text-xl font-serif font-bold text-accent mb-1">Graduate Outstanding Scholarship (研究生优秀奖学金)</h2>
-                <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Jilin University, Awarded in 2022 <a href="http://ccst.jlu.edu.cn/info/1229/16660.htm" target="_blank" class="text-accent hover:text-accent/80 transition-colors">[Official]</a></p>
-            </div>
-            
-            <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 award-card">
-                <h2 class="text-xl font-serif font-bold text-accent mb-1">Graduate Academic Scholarship (研究生学业奖学金)</h2>
-                <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Jilin University, Awarded in 2022 <a href="http://ccst.jlu.edu.cn/info/1229/16657.htm" target="_blank" class="text-accent hover:text-accent/80 transition-colors">[Official]</a></p>
-            </div>
+            <section class="aw-group">
+                <h2 class="aw-year">2020</h2>
+                <ul class="aw-list">
+                    <li class="aw-item">
+                        <div class="aw-body">
+                            <h3 class="aw-title">Graduate Academic Scholarship <span class="aw-cn">研究生学业奖学金</span></h3>
+                            <p class="aw-org">Jilin University</p>
+                        </div>
+                        <span class="aw-links"><a class="aw-link" href="http://ccst.jlu.edu.cn/info/1229/12697.htm" target="_blank" rel="noopener noreferrer">Official</a></span>
+                    </li>
+                </ul>
+            </section>
 
-            <h3 class="text-2xl font-serif font-bold text-primary dark:text-white mt-8 mb-4">2020</h3>
-            
-            <div class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-neutral-200 dark:border-neutral-800 award-card">
-                <h2 class="text-xl font-serif font-bold text-accent mb-1">Graduate Academic Scholarship (研究生学业奖学金)</h2>
-                <p class="text-sm text-neutral-600 dark:text-neutral-500 mb-2">Jilin University, Awarded in 2020 <a href="http://ccst.jlu.edu.cn/info/1229/12697.htm" target="_blank" class="text-accent hover:text-accent/80 transition-colors">[Official]</a></p>
-            </div>
-            
         </div>
     </div>
 </main>
