@@ -297,8 +297,11 @@
         line-height: 1.4;
     }
     .pub-venue {
+        margin: 0 0 0.18rem;
         color: var(--neutral-500);
         font-style: italic;
+        font-size: 0.8rem;
+        line-height: 1.4;
     }
 
     /* ---- 标签与链接徽章 ---- */
@@ -747,7 +750,8 @@
                 return `<li class="pub-item">
                     <h3 class="pub-title">${paper.title}</h3>
                     <p class="pub-authors">${paper.authors}</p>
-                    <p class="pub-meta">${tagsHtml}${linksHtml}<span class="pub-venue">${paper.venue}</span></p>
+                    <p class="pub-venue">${paper.venue}</p>
+                    <p class="pub-meta">${tagsHtml}${linksHtml}</p>
                 </li>`;
             }).join('');
 
