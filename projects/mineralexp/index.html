@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore MineralExp: 277 literature-grounded geoscience experimental-planning cases, 19 scientific task categories, and transparent evaluation.">
+  <meta name="theme-color" content="#24483f">
+  <meta property="og:title" content="MineralExp · From geological hypotheses to experimental evidence">
+  <meta property="og:description" content="An interactive explorer for the GeoTask19 benchmark. Browse cases, reference experiments, dataset statistics and a real agent example.">
+  <meta property="og:type" content="website">
+  <title>MineralExp · Geoscience Experimental Planning</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/style.css">
+  <script defer src="./assets/dataset.js"></script>
+  <script defer src="./assets/english.js"></script>
+  <script defer src="./assets/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="MineralExp home">
+        <svg viewBox="0 0 36 40" aria-hidden="true"><path d="M18 1 34 11v19L18 39 2 30V11Z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M18 1v38M2 11l16 10 16-10M2 30l16-9 16 9M10 7l16 28" fill="none" stroke="currentColor" stroke-width="1"/></svg>
+        <span>MineralExp<small>GEOTASK19 BENCHMARK</small></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#dataset" data-i18n="navDataset">Dataset</a>
+        <a href="#explore" data-i18n="navExplore">Explore</a>
+        <a href="#evaluation" data-i18n="navEvaluation">Evaluation</a>
+      </nav>
+      <div class="header-actions">
+        <button id="language-toggle" class="language-button" type="button" aria-label="Switch to Simplified Chinese">ZH</button>
+        <a class="repo-link" href="https://github.com/wangbing1416/MineralExp" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero section-shell" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span><span data-i18n="heroEyebrow">SCIENTIFIC REASONING, GROUNDED IN GEOLOGY</span></p>
+        <h1 data-i18n="heroTitle">From geological hypotheses<br>to experimental <em>evidence.</em></h1>
+        <p class="hero-description" data-i18n="heroDescription">How well can an AI agent plan the experiments that a geological hypothesis needs? MineralExp connects real research questions with the scientific tasks behind published experiments.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#explore"><span data-i18n="exploreButton">Explore the benchmark</span><span aria-hidden="true">↗</span></a>
+          <button class="button button-text" id="download-dataset" type="button"><span data-i18n="downloadButton">Download JSONL</span><span aria-hidden="true">↓</span></button>
+        </div>
+        <p class="hero-note" data-i18n="heroNote">Literature-grounded inputs · Expert-reviewed references · Scriptable evaluation</p>
+      </div>
+      <div class="field-figure" role="img" aria-label="Conceptual mineral system cross-section, illustrating five geological processes; not a field map">
+        <div class="figure-top"><span class="mono">FIG. 01 / MINERAL SYSTEM</span><span class="figure-coordinates">CONCEPTUAL SECTION</span></div>
+        <svg class="geology-art" viewBox="0 0 510 340" aria-hidden="true">
+          <defs>
+            <pattern id="speckle" width="17" height="19" patternUnits="userSpaceOnUse"><circle cx="4" cy="6" r=".8" fill="#677967" opacity=".28"/><path d="m10 13 2-2" stroke="#8c9985" opacity=".35"/></pattern>
+            <pattern id="hatch" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(-25)"><path d="M0 0v12" stroke="#ad8960" opacity=".24"/></pattern>
+          </defs>
+          <path d="M30 102 86 91l45 14 57-23 60 12 60-38 38 7 40 31 44-5 52 21v179H30Z" fill="#e7e7d7"/>
+          <path d="m30 139 71-10 62 15 85-17 65-25 67 25 102-5v167H30Z" fill="#c1c9b5"/>
+          <path d="m30 185 70-9 64 17 86-25 64-27 68 31 100-7v124H30Z" fill="#8da18c"/>
+          <path d="m30 231 72-6 62 14 85-20 65-28 68 29 100-12v81H30Z" fill="#5b7b6a"/>
+          <path d="M30 102 86 91l45 14 57-23 60 12 60-38 38 7 40 31 44-5 52 21v179H30Z" fill="url(#speckle)"/>
+          <path d="M30 139 101 129l62 15 85-17 65-25 67 25 102-5M30 185l70-9 64 17 86-25 64-27 68 31 100-7M30 231l72-6 62 14 85-20 65-28 68 29 100-12" fill="none" stroke="#f4f1e5" stroke-width="1.5" opacity=".7"/>
+          <path d="M252 289q-24-39-7-65l16-35 13-23 16-21 17-24 6-19 15-23" fill="none" stroke="#e7d3a6" stroke-width="14"/>
+          <path d="m261 289-8-55 15-31 14-28 22-28 10-28 14-40" fill="none" stroke="#b36d46" stroke-width="2" stroke-dasharray="5 5"/>
+          <path d="M111 289q-16-48 0-70t24-27q12-10 25 10t20 87Z" fill="#b9a17b"/><path d="M111 289q-16-48 0-70t24-27q12-10 25 10t20 87Z" fill="url(#hatch)"/>
+          <path d="m325 92-39 121-26 76" fill="none" stroke="#38594b" stroke-width="1.5"/>
+          <g fill="#c78542" stroke="#fbf7ed" stroke-width="1.2"><path d="m290 140 8-8 7 9-7 9Z"/><path d="m279 157 6-7 6 7-6 7Z"/><path d="m271 174 7-8 7 8-7 8Z"/><circle cx="307" cy="116" r="3"/><circle cx="263" cy="196" r="3.5"/></g>
+          <g stroke="#344f42" stroke-width="1" fill="none" opacity=".8"><path d="M139 229H80v29"/><path d="m269 197 76 34h50"/><path d="m296 142 55-12h52"/><path d="m223 113-20-59h-64"/><path d="m383 92 19-44h42"/></g>
+          <g font-family="ui-monospace,monospace" font-size="11" fill="#2b4b3e"><text x="59" y="278">01 SOURCE</text><text x="360" y="249">02 TRANSPORT</text><text x="363" y="123">03 DEPOSITION</text><text x="104" y="46">04 MODIFICATION</text><text x="367" y="37">05 PRESERVATION</text></g>
+          <path d="M30 302h452M30 298v8m452-8v8" fill="none" stroke="#7c8c77" stroke-width="1"/>
+          <text x="30" y="324" font-family="ui-monospace,monospace" font-size="9" fill="#78816e">HYPOTHESIS → SCIENTIFIC TASK → EXPERIMENTAL EVIDENCE</text>
+        </svg>
+        <div class="figure-bottom"><span data-i18n="figureNote">Five processes. One connected mineral system.</span><span class="mono">S / T / D / M / P</span></div>
+      </div>
+    </section>
+
+    <section class="stat-strip section-shell" aria-label="Dataset at a glance">
+      <div><strong id="stat-cases">—</strong><span data-i18n="statCases">Research cases</span></div>
+      <div><strong id="stat-classes">—</strong><span data-i18n="statClasses">Scientific task categories</span></div>
+      <div><strong id="stat-operations">—</strong><span data-i18n="statOperations">Reference operations</span></div>
+      <div><strong id="stat-processes">—</strong><span data-i18n="statProcesses">Geological processes</span></div>
+    </section>
+
+    <section class="section-shell section-block" id="dataset">
+      <div class="section-heading"><div><p class="eyebrow" data-i18n="datasetEyebrow">01 / DATASET PORTRAIT</p><h2 data-i18n="datasetTitle">A mineral system, in perspective.</h2></div><p data-i18n="datasetDescription">Different questions need different evidence. Explore how the benchmark covers the five processes of a mineral system.</p></div>
+      <div class="dataset-layout">
+        <div class="chart-panel">
+          <div class="panel-heading"><h3 data-i18n="coverageTitle">Coverage across the dataset</h3><div class="segmented" role="group" aria-label="Chart view"><button id="chart-process" type="button" class="active" aria-pressed="true" data-i18n="processView">5 processes</button><button id="chart-class" type="button" aria-pressed="false" data-i18n="classView">19 categories</button></div></div>
+          <p class="small muted" data-i18n="chartHint">Select a bar to browse matching cases.</p>
+          <div id="coverage-chart" class="coverage-chart"></div>
+          <p class="chart-footnote" id="chart-footnote"></p>
+        </div>
+        <aside class="dataset-notes">
+          <span class="note-index">THE UNIT OF EVALUATION</span>
+          <h3 data-i18n="taskNotTool">A scientific task.<br>Not just an instrument.</h3>
+          <p data-i18n="taskExplanation">The 19 categories describe what an experiment is intended to establish—such as a metal source, a fluid pathway, or an event sequence—not which machine is used.</p>
+          <div class="mini-stat"><strong id="mean-labels">—</strong><span data-i18n="meanLabelText">reference categories<br>per case, on average</span></div>
+          <div class="note-rule"></div>
+          <p class="small" data-i18n="reviewNote">References are expert-reviewed, literature-grounded annotations. Cases may span multiple processes.</p>
+          <a href="https://github.com/wangbing1416/MineralExp/blob/main/data/taxonomy.json" target="_blank" rel="noopener noreferrer" class="text-link"><span data-i18n="taxonomyLink">Read the taxonomy</span> ↗</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="explorer-section" id="explore">
+      <div class="section-shell section-block">
+        <div class="section-heading"><div><p class="eyebrow" data-i18n="exploreEyebrow">02 / OPEN THE FIELD NOTEBOOK</p><h2 data-i18n="exploreTitle">Start with a real question.</h2></div><p data-i18n="exploreDescription">Read the inputs given to an agent, then inspect the reference tasks and experiments. Every case links back to its publication.</p></div>
+        <div class="featured-row"><span class="small muted" data-i18n="tryCase">Try a case</span><div id="featured-cases"></div></div>
+        <div class="filter-bar">
+          <label class="search-field"><span aria-hidden="true">⌕</span><input id="case-search" type="search" autocomplete="off" placeholder="Search a location, hypothesis or case ID…" data-i18n-placeholder="searchPlaceholder" aria-label="Search cases"></label>
+          <label class="select-field"><span class="sr-only" data-i18n="processLabel">Geological process</span><select id="process-filter" aria-label="Filter by process"></select></label>
+          <label class="select-field label-select"><span class="sr-only" data-i18n="classLabel">Scientific task category</span><select id="class-filter" aria-label="Filter by category"></select></label>
+          <button id="clear-filters" class="clear-button" type="button" data-i18n="reset">Reset</button>
+        </div>
+        <div class="explorer-frame">
+          <aside class="case-sidebar" aria-label="Case search results">
+            <div class="list-heading"><span id="result-count" aria-live="polite"></span><span class="mono">GEOTASK19</span></div>
+            <div id="case-list" class="case-list"></div>
+            <div class="pagination"><button id="previous-page" type="button" aria-label="Previous page">←</button><span id="page-info"></span><button id="next-page" type="button" aria-label="Next page">→</button></div>
+          </aside>
+          <article class="case-detail" id="case-detail" aria-label="Selected case">
+            <div id="case-heading"></div>
+            <div class="case-tabs" role="tablist" aria-label="Case information">
+              <button id="tab-input" role="tab" aria-selected="true" aria-controls="case-content" class="active" type="button" data-tab="input" data-i18n="inputTab">Agent input</button>
+              <button id="tab-reference" role="tab" aria-selected="false" aria-controls="case-content" tabindex="-1" type="button" data-tab="reference" data-i18n="referenceTab">Reference experiments</button>
+              <button id="tab-json" role="tab" aria-selected="false" aria-controls="case-content" tabindex="-1" type="button" data-tab="json">JSON</button>
+            </div>
+            <div id="case-content" class="case-content" role="tabpanel" tabindex="0" aria-labelledby="tab-input"></div>
+          </article>
+        </div>
+        <p class="explorer-note" data-i18n="explorerNote">This public explorer displays references for inspection. Evaluation requests contain only the three input fields, shared taxonomy and output instructions—not publication metadata or reference answers. Original case text is retained when switching the interface language.</p>
+      </div>
+    </section>
+
+    <section class="section-shell section-block" id="walkthrough">
+      <div class="section-heading"><div><p class="eyebrow" data-i18n="exampleEyebrow">03 / A REAL AGENT WALKTHROUGH</p><h2 data-i18n="exampleTitle">Beyond a list of labels.</h2></div><p data-i18n="exampleDescription">A saved, independent gpt-6.1-sol run illustrates the output protocol: category decisions, concrete experiments, and the evidence each would test.</p></div>
+      <div class="walkthrough-layout">
+        <div class="example-summary"><span class="pill pill-light">G19-0002 · BAYAN OBO</span><h3 data-i18n="exampleQuestion">When did the ore form—and what happened later?</h3><p data-i18n="exampleContext">The case contrasts sedimentary, magmatic and hydrothermal explanations for Bayan Obo. The agent selected chronology and hydrothermal overprinting tasks.</p><div class="example-labels"><div><span data-i18n="referenceLabels">Reference</span><strong>M1 <i>+</i> M2</strong></div><div><span data-i18n="predictedLabels">Prediction</span><strong id="model-labels">—</strong></div></div><p class="example-scope" data-i18n="exampleScope">One saved case, not a leaderboard. Only category predictions were scored; the scientific quality of the text was not judged.</p><a id="model-source-link" class="text-link" href="https://github.com/wangbing1416/MineralExp/tree/main/examples/model_runs/gpt61_sol_G19_0002_20261027" target="_blank" rel="noopener noreferrer"><span data-i18n="fullModelOutput">View original output & scores</span> ↗</a></div>
+        <div class="example-output"><div class="output-heading"><span class="mono">MODEL OUTPUT / gpt-6.1-sol</span><div id="example-class-tabs" class="segmented"></div></div><div id="example-design"></div></div>
+      </div>
+    </section>
+
+    <section class="evaluation-section" id="evaluation">
+      <div class="section-shell section-block">
+        <div class="section-heading"><div><p class="eyebrow" data-i18n="evalEyebrow">04 / REPRODUCIBLE BY DESIGN</p><h2 data-i18n="evalTitle">Keep the experiment.<br>Measure the coverage.</h2></div><p data-i18n="evalDescription">A common output contract makes harness–model combinations comparable. Designs and rationales are retained for later review; category labels drive the current scores.</p></div>
+        <div class="evaluation-grid">
+          <div class="evaluation-steps"><div><span>01</span><section><h3 data-i18n="step1Title">Provide the same task</h3><p data-i18n="step1Text">Hypothesis, initial information, available conditions, and the fixed 19-category taxonomy.</p></section></div><div><span>02</span><section><h3 data-i18n="step2Title">Plan and explain</h3><p data-i18n="step2Text">Return all 19 decisions. For selected categories, describe experimental design, motivation, evidence, interpretation and limitations.</p></section></div><div><span>03</span><section><h3 data-i18n="step3Title">Score and preserve</h3><p data-i18n="step3Text">Evaluate overall and by process. Keep raw responses, adapter-returned trajectories, structured predictions and score tables.</p></section></div></div>
+          <div class="metrics-panel"><h3 data-i18n="metricsTitle">One run. Multiple views.</h3><div class="metric-tags"><span>Acc</span><span>Precision</span><span>Recall</span><span>Micro-F1</span><span>Macro-F1</span></div><p data-i18n="metricViews">Overall · Five geological processes · Per-category · Per-case</p><div class="metric-definition"><strong data-i18n="accTitle">Accuracy means exact-set agreement.</strong><span data-i18n="accText">Predicting four correct categories out of ten gives 40% recall—not 40% accuracy.</span></div><details><summary data-i18n="metricCaveatTitle">How to interpret Macro-F1</summary><p data-i18n="metricCaveat">Fixed-label Macro-F1 includes categories with no positives. S4 has no positive reference cases, so a perfect full-dataset prediction scores 18/19, not 1. A supported-categories-only macro is also reported.</p></details><a href="https://github.com/wangbing1416/MineralExp/blob/main/docs/EVALUATION.md" class="text-link" target="_blank" rel="noopener noreferrer"><span data-i18n="evalDocs">Read the evaluation protocol</span> ↗</a></div>
+        </div>
+        <div class="quickstart"><div><span class="mono" data-i18n="quickstartTitle">RUN THE BENCHMARK</span><p data-i18n="quickstartText">Python 3.10+ · Offline scoring needs no model API.</p></div><div class="code-block"><button id="copy-command" class="copy-command" type="button" data-i18n="copy">Copy</button><pre><code id="quickstart-code">git clone https://github.com/wangbing1416/MineralExp.git
+cd MineralExp
+python -m geotask19.metrics --predictions results/predictions.jsonl --output results/metrics.json</code></pre></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer section-shell"><div><a class="footer-brand" href="#top">MineralExp<span> / GeoTask19</span></a><p data-i18n="footerDescription">Experimental planning, grounded in real geoscience.</p></div><div class="footer-links"><a href="https://github.com/wangbing1416/MineralExp" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a id="snapshot-link" href="https://github.com/wangbing1416/MineralExp" target="_blank" rel="noopener noreferrer"></a><span data-i18n="footerRights">Data & code rights: see repository.</span></div><p class="footer-note" data-i18n="footerNote">Static showcase · No model API calls · No accounts or analytics</p></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <noscript><div class="noscript-note">This interactive explorer needs JavaScript. The full dataset remains available at <a href="https://github.com/wangbing1416/MineralExp">github.com/wangbing1416/MineralExp</a>.</div></noscript>
+</body>
+</html>
